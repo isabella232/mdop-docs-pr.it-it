@@ -1,0 +1,114 @@
+---
+title: Come applicare un Acceleratore pacchetto per creare un pacchetto di applicazione virtuale (App-V 4,6 SP1)
+description: Come applicare un Acceleratore pacchetto per creare un pacchetto di applicazione virtuale (App-V 4,6 SP1)
+author: dansimp
+ms.assetid: ca0bd514-2bbf-4130-8c77-98d991cbe016
+ms.reviewer: ''
+manager: dansimp
+ms.author: dansimp
+ms.pagetype: mdop, appcompat, virtualization
+ms.mktglfcycl: deploy
+ms.sitesec: library
+ms.prod: w10
+ms.date: 06/16/2016
+ms.openlocfilehash: ce6960fb95cce7f5e0eeb111412f27f945b0c1a5
+ms.sourcegitcommit: 354664bc527d93f80687cd2eba70d1eea024c7c3
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "10821385"
+---
+# <span data-ttu-id="16f33-103">Come applicare un Acceleratore pacchetto per creare un pacchetto di applicazione virtuale (App-V 4,6 SP1)</span><span class="sxs-lookup"><span data-stu-id="16f33-103">How to Apply a Package Accelerator to Create a Virtual Application Package (App-V 4.6 SP1)</span></span>
+
+
+<span data-ttu-id="16f33-104">Puoi usare gli acceleratori pacchetto di App-V per generare automaticamente un nuovo pacchetto di applicazione virtuale.</span><span class="sxs-lookup"><span data-stu-id="16f33-104">You can use App-V Package Accelerators to automatically generate a new virtual application package.</span></span> <span data-ttu-id="16f33-105">Per altre informazioni sugli acceleratori di pacchetto, vedere [informazioni sugli acceleratori di pacchetti App-v (app-v 4,6 SP1)](about-app-v-package-accelerators--app-v-46-sp1-.md).</span><span class="sxs-lookup"><span data-stu-id="16f33-105">For more information about Package Accelerators, see [About App-V Package Accelerators (App-V 4.6 SP1)](about-app-v-package-accelerators--app-v-46-sp1-.md).</span></span>
+
+**<span data-ttu-id="16f33-106">Importante</span><span class="sxs-lookup"><span data-stu-id="16f33-106">Important</span></span>**  
+<span data-ttu-id="16f33-107">Dichiarazione di non responsabilità: Application Virtualization Sequencer non offre alcun diritto di licenza per l'applicazione software in uso per creare un Acceleratore pacchetto.</span><span class="sxs-lookup"><span data-stu-id="16f33-107">Disclaimer: The Application Virtualization Sequencer does not give you any license rights to the software application you are using to create a Package Accelerator.</span></span> <span data-ttu-id="16f33-108">È necessario rispettare tutte le condizioni di licenza per l'utente finale per tale applicazione.</span><span class="sxs-lookup"><span data-stu-id="16f33-108">You must abide by all end user license terms for such application.</span></span> <span data-ttu-id="16f33-109">È tua responsabilità assicurarti che le condizioni di licenza dell'applicazione software ti consentano di creare un Acceleratore pacchetto usando Application Virtualization Sequencer.</span><span class="sxs-lookup"><span data-stu-id="16f33-109">It is your responsibility to make sure the software application’s license terms allow you to create a Package Accelerator using Application Virtualization Sequencer.</span></span>
+
+
+
+**<span data-ttu-id="16f33-110">Nota</span><span class="sxs-lookup"><span data-stu-id="16f33-110">Note</span></span>**  
+<span data-ttu-id="16f33-111">Prima di iniziare questa procedura, copiare l'Acceleratore pacchetto richiesto localmente nel computer che ha eseguito App-V Sequencer.</span><span class="sxs-lookup"><span data-stu-id="16f33-111">Before starting this procedure, copy the required Package Accelerator locally to the computer running the App-V Sequencer.</span></span> <span data-ttu-id="16f33-112">Dovresti anche copiare tutti i file di installazione necessari per il pacchetto in una directory locale nel computer in cui è in uso Sequencer.</span><span class="sxs-lookup"><span data-stu-id="16f33-112">You should also copy all required installation files for the package to a local directory on the computer running the Sequencer.</span></span> <span data-ttu-id="16f33-113">Questa è la directory che è necessario specificare nel passaggio 5 di questa procedura.</span><span class="sxs-lookup"><span data-stu-id="16f33-113">This is the directory that you have to specify in step 5 of this procedure.</span></span>
+
+
+
+<span data-ttu-id="16f33-114">Usare la procedura seguente per creare un pacchetto di applicazione virtuale usando un Acceleratore pacchetto.</span><span class="sxs-lookup"><span data-stu-id="16f33-114">Use the following procedure to create a virtual application package by using a Package Accelerator.</span></span>
+
+**<span data-ttu-id="16f33-115">Per creare un pacchetto di applicazione virtuale usando un Acceleratore pacchetto App-V</span><span class="sxs-lookup"><span data-stu-id="16f33-115">To create a virtual application package by using an App-V Package Accelerator</span></span>**
+
+1. <span data-ttu-id="16f33-116">Per avviare l'app-v sequencer, nel computer che sta usando l'app-v Sequencer fare clic su **Avvia**tutti i programmi Microsoft Application Virtualization  /  **All Programs**  /  **Microsoft Application Virtualization**  /  **sequencer**.</span><span class="sxs-lookup"><span data-stu-id="16f33-116">To start the App-V Sequencer, on the computer that is running the App-V Sequencer, click **Start** / **All Programs** / **Microsoft Application Virtualization** / **Microsoft Application Virtualization Sequencer**.</span></span>
+
+2. <span data-ttu-id="16f33-117">Per avviare la **procedura guidata Crea nuovo pacchetto**, fai clic su **Crea un nuovo pacchetto di applicazione virtuale**.</span><span class="sxs-lookup"><span data-stu-id="16f33-117">To start the **Create New Package Wizard**, click **Create a New Virtual Application Package**.</span></span> <span data-ttu-id="16f33-118">Per creare il pacchetto, selezionare la casella di controllo **Crea pacchetto usando un Acceleratore pacchetto** e quindi fare clic su **Avanti**.</span><span class="sxs-lookup"><span data-stu-id="16f33-118">To create the package, select the **Create Package using a Package Accelerator** check box, and then click **Next**.</span></span>
+
+3. <span data-ttu-id="16f33-119">Nella pagina **Seleziona Acceleratore pacchetto** per specificare l'Acceleratore pacchetto che verrà usato per creare il nuovo pacchetto di applicazione virtuale, fare clic su **Sfoglia** per individuare l'acceleratore di pacchetto che si vuole usare.</span><span class="sxs-lookup"><span data-stu-id="16f33-119">On the **Select Package Accelerator** page, to specify the Package Accelerator that will be used to create the new virtual application package, click **Browse** to locate the Package Accelerator that you want to use.</span></span> <span data-ttu-id="16f33-120">Fai clic su **Avanti**.</span><span class="sxs-lookup"><span data-stu-id="16f33-120">Click **Next**.</span></span>
+
+   **<span data-ttu-id="16f33-121">Importante</span><span class="sxs-lookup"><span data-stu-id="16f33-121">Important</span></span>**  
+   <span data-ttu-id="16f33-122">Se l'autore dell'Accelerator pacchetto non può essere verificato e non contiene una firma digitale valida, nella finestra di dialogo **avviso di sicurezza** è necessario verificare che sia attendibile l'origine dell'acceleratore del pacchetto prima di fare clic su **Esegui**.</span><span class="sxs-lookup"><span data-stu-id="16f33-122">If the publisher of the Package Accelerator cannot be verified and does not contain a valid digital signature, in the **Security Warning** dialog box, you must confirm that you trust the source of the Package Accelerator before you click **Run**.</span></span>
+
+
+
+4. <span data-ttu-id="16f33-123">Nella pagina **linee guida** esaminare le informazioni sulle indicazioni per la pubblicazione visualizzate nel riquadro delle informazioni.</span><span class="sxs-lookup"><span data-stu-id="16f33-123">On the **Guidance** page, review the publishing guidance information displayed in the information pane.</span></span> <span data-ttu-id="16f33-124">Le informazioni visualizzate sono state aggiunte quando l'Acceleratore pacchetto è stato creato e contiene informazioni sulla creazione e la pubblicazione del pacchetto.</span><span class="sxs-lookup"><span data-stu-id="16f33-124">The information displayed was added when the Package Accelerator was created and contains information about creating and publishing the package.</span></span> <span data-ttu-id="16f33-125">Per esportare le informazioni di orientamento in un file di testo (txt), fare clic su **Esporta** e specificare il percorso in cui salvare il file e quindi fare clic su **Avanti**.</span><span class="sxs-lookup"><span data-stu-id="16f33-125">To export the guidance information to a text (.txt) file, click **Export** and specify the location where the file should be saved, and then click **Next**.</span></span>
+
+5. <span data-ttu-id="16f33-126">Nella pagina **selezionare i file di installazione** per creare una cartella locale contenente tutti i file di installazione necessari per il pacchetto, fare clic su **Crea nuova cartella** e specificare la posizione in cui salvare la cartella.</span><span class="sxs-lookup"><span data-stu-id="16f33-126">On the **Select Installation Files** page, to create a local folder that contains all required installation files for the package, click **Make New Folder** and specify where the folder should be saved.</span></span> <span data-ttu-id="16f33-127">Devi anche specificare un nome che deve essere assegnato alla cartella.</span><span class="sxs-lookup"><span data-stu-id="16f33-127">You must also specify a name to be assigned to the folder.</span></span> <span data-ttu-id="16f33-128">È quindi necessario copiare tutti i file di installazione necessari nella posizione specificata.</span><span class="sxs-lookup"><span data-stu-id="16f33-128">You must then copy all required installation files to the location that you specified.</span></span> <span data-ttu-id="16f33-129">Se la cartella che contiene i file di installazione esiste già nel computer in cui è in corso il sequencer, fare clic su **Sfoglia** per selezionare la cartella.</span><span class="sxs-lookup"><span data-stu-id="16f33-129">If the folder that contains the installation files already exists on the computer running the Sequencer, click **Browse** to select the folder.</span></span>
+
+   <span data-ttu-id="16f33-130">In alternativa, se i file di installazione sono già stati copiati in una directory di questo computer, fare clic su **Crea nuova cartella**, passare alla cartella contenente i file di installazione e quindi fare clic su **Avanti**.</span><span class="sxs-lookup"><span data-stu-id="16f33-130">Alternatively, if you have already copied the installation files to a directory on this computer, click **Make New Folder**, browse to the folder that contains the installation files, and then click **Next**.</span></span>
+
+   **<span data-ttu-id="16f33-131">Nota</span><span class="sxs-lookup"><span data-stu-id="16f33-131">Note</span></span>**  
+   <span data-ttu-id="16f33-132">Puoi specificare i tipi di file di installazione supportati seguenti:</span><span class="sxs-lookup"><span data-stu-id="16f33-132">You can specify the following types of supported installation files:</span></span>
+
+   -   <span data-ttu-id="16f33-133">File di Windows Installer (con**estensione msi**</span><span class="sxs-lookup"><span data-stu-id="16f33-133">Windows Installer files(**.msi**</span></span>
+
+   -   <span data-ttu-id="16f33-134">file CAB</span><span class="sxs-lookup"><span data-stu-id="16f33-134">.cab files</span></span>
+
+   -   <span data-ttu-id="16f33-135">File compressi con estensione zip</span><span class="sxs-lookup"><span data-stu-id="16f33-135">Compressed files with a .zip file name extension</span></span>
+
+   -   <span data-ttu-id="16f33-136">File di applicazione effettivi</span><span class="sxs-lookup"><span data-stu-id="16f33-136">The actual application files</span></span>
+
+   <span data-ttu-id="16f33-137">I tipi di file seguenti non sono supportati: file **msp** e <strong> exe </strong> .</span><span class="sxs-lookup"><span data-stu-id="16f33-137">The following file types are not supported: **.msp** and<strong>.exe</strong> files.</span></span> <span data-ttu-id="16f33-138">Se si specifica un file **exe,** è necessario estrarre manualmente i file di installazione.</span><span class="sxs-lookup"><span data-stu-id="16f33-138">If you specify an **.exe** file you must extract the installation files manually.</span></span>
+
+
+
+~~~
+If the Package Accelerator requires an application be installed prior to applying the Package Accelerator and you have installed the application, on the **Local Installation** page, select the check box **I have installed all applications**, and then click **Next**.
+~~~
+
+6. <span data-ttu-id="16f33-139">Nella pagina **nome pacchetto** specificare un nome che verrà associato al pacchetto.</span><span class="sxs-lookup"><span data-stu-id="16f33-139">On the **Package Name** page, specify a name that will be associated with the package.</span></span> <span data-ttu-id="16f33-140">Il nome specificato identifica il pacchetto in App-V Management Console.</span><span class="sxs-lookup"><span data-stu-id="16f33-140">The name specified identifies the package in the App-V Management Console.</span></span> <span data-ttu-id="16f33-141">Fai clic su **Avanti**.</span><span class="sxs-lookup"><span data-stu-id="16f33-141">Click **Next**.</span></span>
+
+7. <span data-ttu-id="16f33-142">Nella pagina **Crea pacchetto** , fornisci i commenti che verranno associati al pacchetto.</span><span class="sxs-lookup"><span data-stu-id="16f33-142">On the **Create Package** page, provide comments that will be associated with the package.</span></span> <span data-ttu-id="16f33-143">I commenti devono contenere informazioni di identificazione sul pacchetto da creare.</span><span class="sxs-lookup"><span data-stu-id="16f33-143">The comments should contain identifying information about the package you are creating.</span></span> <span data-ttu-id="16f33-144">Per confermare la posizione in cui è stato creato il pacchetto, esaminare le informazioni visualizzate in **Salva posizione**.</span><span class="sxs-lookup"><span data-stu-id="16f33-144">To confirm the location where the package is created, review the information displayed in **Save Location**.</span></span> <span data-ttu-id="16f33-145">Per comprimere il pacchetto, seleziona **Comprimi pacchetto**.</span><span class="sxs-lookup"><span data-stu-id="16f33-145">To compress the package, select **Compress Package**.</span></span> <span data-ttu-id="16f33-146">Selezionare la casella di controllo **Comprimi pacchetto** se il pacchetto verrà trasmesso attraverso la rete o quando la dimensione del pacchetto supera 4 GB.</span><span class="sxs-lookup"><span data-stu-id="16f33-146">Select the **Compress Package** check box if the package will be streamed across the network, or when the package size exceeds 4 GB.</span></span>
+
+   <span data-ttu-id="16f33-147">Per creare il pacchetto, fare clic su **Crea**.</span><span class="sxs-lookup"><span data-stu-id="16f33-147">To create the package, click **Create**.</span></span> <span data-ttu-id="16f33-148">Dopo aver creato il pacchetto, fare clic su **Avanti**.</span><span class="sxs-lookup"><span data-stu-id="16f33-148">After the package has been created, click **Next**.</span></span>
+
+8. <span data-ttu-id="16f33-149">Nella pagina **Configura software** per consentire al sequencer di configurare le applicazioni contenute nel pacchetto, selezionare **Configura software**.</span><span class="sxs-lookup"><span data-stu-id="16f33-149">On the **Configure Software** page, to enable the Sequencer to configure the applications contained in the package, select **Configure Software**.</span></span> <span data-ttu-id="16f33-150">Questo passaggio è utile per configurare le attività associate che devono essere completate per eseguire l'applicazione nei computer di destinazione, ad esempio la configurazione di eventuali contratti di licenza associati.</span><span class="sxs-lookup"><span data-stu-id="16f33-150">This step is useful for configuring any associated tasks that must be completed to run the application on target computers, such as configuring any associated license agreements.</span></span>
+
+   <span data-ttu-id="16f33-151">Se si seleziona **Configura software**, gli elementi seguenti vengono configurati dal sequencer come parte di questo passaggio:</span><span class="sxs-lookup"><span data-stu-id="16f33-151">If you select **Configure Software**, the following items are configured by the Sequencer as part of this step:</span></span>
+
+   -   <span data-ttu-id="16f33-152">**Caricare il pacchetto**.</span><span class="sxs-lookup"><span data-stu-id="16f33-152">**Load Package**.</span></span> <span data-ttu-id="16f33-153">Il sequencer carica i file associati al pacchetto.</span><span class="sxs-lookup"><span data-stu-id="16f33-153">The Sequencer loads the files associated with the package.</span></span> <span data-ttu-id="16f33-154">Per decodificare il pacchetto può essere necessario un massimo di alcuni secondi fino a un'ora.</span><span class="sxs-lookup"><span data-stu-id="16f33-154">It can take several seconds to up to an hour to decode the package.</span></span>
+
+   -   <span data-ttu-id="16f33-155">**Eseguire ogni programma**.</span><span class="sxs-lookup"><span data-stu-id="16f33-155">**Run Each Program**.</span></span> <span data-ttu-id="16f33-156">Facoltativamente, eseguire i programmi contenuti nel pacchetto.</span><span class="sxs-lookup"><span data-stu-id="16f33-156">Optionally run the programs contained in the package.</span></span> <span data-ttu-id="16f33-157">Questo passaggio è utile per completare le attività di configurazione o di licenza associate necessarie per eseguire l'applicazione prima di distribuire ed eseguire il pacchetto nei computer di destinazione.</span><span class="sxs-lookup"><span data-stu-id="16f33-157">This step is helpful for completing any associated license or configuration tasks that are required to run the application before you deploy and run the package on target computers.</span></span> <span data-ttu-id="16f33-158">Per eseguire contemporaneamente tutti i programmi, selezionare almeno un programma e quindi fare clic su **Esegui tutto**.</span><span class="sxs-lookup"><span data-stu-id="16f33-158">To run all the programs at one time, select at least one program, and then click **Run All**.</span></span> <span data-ttu-id="16f33-159">Per eseguire programmi specifici, selezionare il programma o i programmi che si desidera eseguire e quindi fare clic su **Esegui selezionato**.</span><span class="sxs-lookup"><span data-stu-id="16f33-159">To run specific programs, select the program or programs you want to run, and then click **Run Selected**.</span></span> <span data-ttu-id="16f33-160">Completare le attività di configurazione necessarie e quindi chiudere le applicazioni.</span><span class="sxs-lookup"><span data-stu-id="16f33-160">Complete the required configuration tasks, and then close the applications.</span></span> <span data-ttu-id="16f33-161">Per l'esecuzione di tutti i programmi, possono essere necessarie diversi minuti.</span><span class="sxs-lookup"><span data-stu-id="16f33-161">It can take several minutes for all programs to run.</span></span> <span data-ttu-id="16f33-162">Fai clic su **Avanti**.</span><span class="sxs-lookup"><span data-stu-id="16f33-162">Click **Next**.</span></span>
+
+   -   <span data-ttu-id="16f33-163">**Salva pacchetto**.</span><span class="sxs-lookup"><span data-stu-id="16f33-163">**Save Package**.</span></span> <span data-ttu-id="16f33-164">Il sequencer Salva il pacchetto.</span><span class="sxs-lookup"><span data-stu-id="16f33-164">The Sequencer saves the package.</span></span>
+
+   -   <span data-ttu-id="16f33-165">**Blocco di funzionalità principale**.</span><span class="sxs-lookup"><span data-stu-id="16f33-165">**Primary Feature Block**.</span></span> <span data-ttu-id="16f33-166">Il sequencer ottimizza il pacchetto per lo streaming ricostruendo il blocco di funzionalità principale.</span><span class="sxs-lookup"><span data-stu-id="16f33-166">The Sequencer optimizes the package for streaming by rebuilding the primary feature block.</span></span>
+
+   <span data-ttu-id="16f33-167">Se non si desidera configurare le applicazioni, fare clic su **Ignora questo passaggio**e passare al passaggio 9 della procedura e quindi fare clic su **Avanti**.</span><span class="sxs-lookup"><span data-stu-id="16f33-167">If you do not want to configure the applications, click **Skip this step**, and to go to step 9 of this procedure, and then click **Next**.</span></span>
+
+9. <span data-ttu-id="16f33-168">Nella pagina **completamento** , dopo aver esaminato le informazioni visualizzate nel riquadro **report pacchetto applicazione virtuale** , fare clic su **Chiudi**.</span><span class="sxs-lookup"><span data-stu-id="16f33-168">On the **Completion** page, after you have reviewed the information displayed in the **Virtual Application Package Report** pane, click **Close**.</span></span>
+
+   <span data-ttu-id="16f33-169">Il pacchetto è ora disponibile nel sequencer.</span><span class="sxs-lookup"><span data-stu-id="16f33-169">The package is now available in the Sequencer.</span></span> <span data-ttu-id="16f33-170">Per modificare le proprietà del pacchetto, fare clic su **modifica \ [nome pacchetto \]**.</span><span class="sxs-lookup"><span data-stu-id="16f33-170">To edit the package properties, click **Edit \[Package Name\]**.</span></span> <span data-ttu-id="16f33-171">Per altre informazioni sulla modifica di un pacchetto, vedere [come modificare un pacchetto di applicazione virtuale esistente (App-V 4,6 SP1)](how-to-modify-an-existing-virtual-application-package--app-v-46-sp1-.md).</span><span class="sxs-lookup"><span data-stu-id="16f33-171">For more information about modifying a package, see [How to Modify an Existing Virtual Application Package (App-V 4.6 SP1)](how-to-modify-an-existing-virtual-application-package--app-v-46-sp1-.md).</span></span>
+
+## <span data-ttu-id="16f33-172">Argomenti correlati</span><span class="sxs-lookup"><span data-stu-id="16f33-172">Related topics</span></span>
+
+
+[<span data-ttu-id="16f33-173">Configurazione di Application Virtualization Sequencer (App-V 4.6 SP1)</span><span class="sxs-lookup"><span data-stu-id="16f33-173">Configuring the Application Virtualization Sequencer (App-V 4.6 SP1)</span></span>](configuring-the-application-virtualization-sequencer--app-v-46-sp1-.md)
+
+[<span data-ttu-id="16f33-174">Come creare acceleratori pacchetto di App-V (App-V 4.6 SP1)</span><span class="sxs-lookup"><span data-stu-id="16f33-174">How to Create App-V Package Accelerators (App-V 4.6 SP1)</span></span>](how-to-create-app-v-package-accelerators--app-v-46-sp1-.md)
+
+
+
+
+
+
+
+
+
