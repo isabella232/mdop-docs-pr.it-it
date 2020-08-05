@@ -11,12 +11,12 @@ ms.mktglfcycl: manage
 ms.sitesec: library
 ms.prod: w10
 ms.date: 04/05/2017
-ms.openlocfilehash: b09ea8161b6801c62552f1c0d0ef8455dc111e2f
-ms.sourcegitcommit: 354664bc527d93f80687cd2eba70d1eea024c7c3
+ms.openlocfilehash: f8a69fb323d9f47c5b906ac3abc6ec59376ee6f7
+ms.sourcegitcommit: 0a7dee11289780336d9c24ebbf27c5c1ffee441c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "10819096"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "10905603"
 ---
 # Scelta della versione di Gestione avanzata Criteri di gruppo da installare
 
@@ -53,42 +53,47 @@ La tabella 1 elenca i sistemi operativi in cui è possibile installare Advanced 
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p>Windows Server 2016 o Windows 10</p></td>
-<td align="left"><p>Windows Server 2016 o Windows 10</p></td>
+<td align="left"><p>Windows Server 2019 o Windows 10</p></td>
+<td align="left"><p>Windows Server 2019 o Windows 10</p></td>
 <td align="left"><p>Supportato</p></td>
 </tr>
-<tr class="even">
+ <tr class="even">
+<td align="left"><p>Windows Server 2019 o Windows 10</p></td>
+<td align="left"><p>Windows Server 2019 o Windows 10</p></td>
+<td align="left"><p>Supportato</p></td>
+</tr>
+<tr class="edd">
 <td align="left"><p>Windows Server2012 R2</p></td>
 <td align="left"><p>Windows10</p></td>
 <td align="left"><p>Supportato con i caveat delineati in <a href="https://support.microsoft.com/help/4015786/known-issues-managing-a-windows-10-group-policy-client-in-windows-serv" data-raw-source="[KB 4015786](https://support.microsoft.com/help/4015786/known-issues-managing-a-windows-10-group-policy-client-in-windows-serv)"> KB 4015786</a>
 </p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>Windows Server2012 R2 o Windows 8.1</p></td>
 <td align="left"><p>Windows Server2012 R2 o Windows 8.1</p></td>
 <td align="left"><p>Supportato</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>Windows Server2012 R2, Windows Server 2012 o Windows 8.1</p></td>
 <td align="left"><p>Windows Server 2012 o Windows 8,1</p></td>
 <td align="left"><p>Supportato, ma non è possibile modificare le impostazioni dei criteri o gli elementi preferenza esistenti solo in Windows 8.1</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>Windows Server2008R2 o Windows7</p></td>
 <td align="left"><p>Windows Server2008R2 o Windows7</p></td>
 <td align="left"><p>Supportato, ma non è possibile modificare le impostazioni dei criteri o gli elementi preferenza esistenti solo in Windows 8.1</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>Windows Server 2012, Windows Server2008R2 o Windows7</p></td>
 <td align="left"><p>Windows Server2008 o WindowsVista con Service Pack 1 (SP1)</p></td>
 <td align="left"><p>Supportato, ma non è possibile modificare le impostazioni dei criteri o gli elementi delle preferenze esistenti solo in Windows Server2012 R2, Windows Server 2012, Windows Server2008R2, Windows 8.1 o Windows7</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><p>Windows Server2008 o Windows Vista con SP1</p></td>
 <td align="left"><p>Windows Server 2012, Windows Server2008R2, Windows 8 o Windows7</p></td>
 <td align="left"><p>Non supportato</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><p>Windows Server2008 o Windows Vista con SP1</p></td>
 <td align="left"><p>Windows Server2008 o Windows Vista con SP1</p></td>
 <td align="left"><p>Supportato, ma non può segnalare o modificare le impostazioni dei criteri o gli elementi delle preferenze esistenti solo in Windows Server2012 R2, Windows Server 2012, Windows Server2008R2, Windows 8.1 o Windows7</p></td>
