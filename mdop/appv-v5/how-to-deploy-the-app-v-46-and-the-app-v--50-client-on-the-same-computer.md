@@ -1,40 +1,41 @@
 ---
-title: Come distribuire l'App-V 4,6 e il client App-V 5,0 nello stesso computer
-description: Come distribuire l'App-V 4,6 e il client App-V 5,0 nello stesso computer
+title: Come distribuire App-V 4.6 e il client App-V 5.0 nello stesso computer
+description: Come distribuire App-V 4.6 e il client App-V 5.0 nello stesso computer
 ms.assetid: 5b7e27e4-4360-464c-b832-f1c7939e5485
 ms.reviewer: ''
 manager: dansimp
 ms.author: dansimp
 author: dansimp
 ms.date: 06/21/2016
-ms.openlocfilehash: 38e77ce6ce6c0dba7c67f6c0dfa5c9e263e07e20
-ms.sourcegitcommit: 354664bc527d93f80687cd2eba70d1eea024c7c3
+ms.prod: w10
+ms.openlocfilehash: f10f3d159c4724f3b486215b1169825bb029316d
+ms.sourcegitcommit: 0132cd232b9c030820d95d91b71c4def0184400a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "10805535"
+ms.lasthandoff: 08/19/2021
+ms.locfileid: "11907229"
 ---
-# Come distribuire l'App-V 4,6 e il client App-V 5,0 nello stesso computer
+# <a name="how-to-deploy-the-app-v-46-and-the-app-v-50-client-on-the-same-computer"></a>Come distribuire App-V 4.6 e il client App-V 5.0 nello stesso computer
 
-**Nota:** App-V 4,6 è uscito dal supporto mainstream. Il seguente presuppone che il client App-V 4,6 SP3 sia già installato.
+**Nota:** App-V 4.6 ha terminato il supporto Mainstream. L'esempio seguente presuppone che il client App-V 4.6 SP3 sia già installato.
 
-Usare le informazioni seguenti per installare il client App-V 5,0 (preferibilmente con i Service Pack più recenti e gli hotfix) e il client App-V 4.6 SP3 nello stesso computer. Per le versioni supportate, i requisiti e altre informazioni sulla pianificazione, vedere [pianificazione della migrazione da una versione precedente di App-V](planning-for-migrating-from-a-previous-version-of-app-v.md).
+Utilizzare le informazioni seguenti per installare il client App-V 5.0 (preferibilmente con i Service Pack e gli hotfix più recenti) e il client App-V 4.6 SP3 nello stesso computer. Per le versioni supportate, i requisiti e altre informazioni sulla pianificazione, vedere [Planning for Migrating from a Previous Version of App-V](planning-for-migrating-from-a-previous-version-of-app-v.md).
 
-**Per distribuire client App-V 5,0 e client App-V 4,6 nello stesso computer**
+**Per distribuire il client App-V 5.0 e il client App-V 4.6 nello stesso computer**
 
-1.  Installare il client App-V 5,0 SP3 nel computer in cui è in esecuzione la versione App-V 4,6 del client. Per ottenere risultati ottimali, è consigliabile installare tutti gli aggiornamenti disponibili per il client App-V 5,0 SP3.
+1.  Installare il client App-V 5.0 SP3 nel computer che esegue la versione App-V 4.6 del client. Per ottenere risultati ottimali, è consigliabile installare tutti gli aggiornamenti disponibili nel client App-V 5.0 SP3.
 
-2.  Convertire o rieseguire la sequenza graduale dei pacchetti.
+2.  Convertire o ri-sequenziare gradualmente i pacchetti.
 
-    -   Per convertire i pacchetti, usa il convertitore di pacchetti App-V 5,0 e Converti i pacchetti necessari nel formato di file App-V 5,0 (**. AppV**).
+    -   Per convertire i pacchetti, usa il convertitore di pacchetti App-V 5.0 e converti i pacchetti necessari nel formato di file App-V 5.0 (**appv).**
 
-    -   Per risequenziare i pacchetti, è consigliabile usare la versione più recente del sequencer per ottenere risultati ottimali.
+    -   Per ri-sequenziare i pacchetti, valuta la possibilità di usare la versione più recente di Sequencer per ottenere risultati ottimali.
 
-    Per altre informazioni sulla pubblicazione di pacchetti, vedere [come pubblicare un pacchetto tramite la console di gestione](how-to-publish-a-package-by-using-the-management-console-50.md).
+    Per ulteriori informazioni sulla pubblicazione di pacchetti, vedere [Come pubblicare un pacchetto tramite la console di gestione.](how-to-publish-a-package-by-using-the-management-console-50.md)
 
-3.  Distribuire pacchetti ai computer client.
+3.  Distribuire pacchetti nei computer client.
 
-4.  Convertire i punti di estensione, in base alle esigenze. Per altre informazioni, vedi le risorse seguenti:
+4.  Convertire i punti di estensione, in base alle esigenze. Per ulteriori informazioni, vedere le risorse seguenti:
 
     -   [Come eseguire la migrazione dei punti di estensione da un pacchetto App-V 4.6 a un pacchetto App-V 5.0 convertito per tutti gli utenti in un computer specifico](how-to-migrate-extension-points-from-an-app-v-46-package-to-a-converted-app-v-50-package-for-all-users-on-a-specific-computer.md)
 
@@ -42,20 +43,20 @@ Usare le informazioni seguenti per installare il client App-V 5,0 (preferibilmen
 
     -   [Come convertire un pacchetto creato in una versione precedente di App-V](how-to-convert-a-package-created-in-a-previous-version-of-app-v.md)
 
-5.  Verificare che i pacchetti dell'App-V 5,0 abbiano esito positivo e quindi rimuovere i pacchetti 4,6. Per controllare lo stato dell'utente dei computer client, è consigliabile usare la [virtualizzazione dell'esperienza utente](https://technet.microsoft.com/library/dn458947.aspx) o un altro strumento di gestione dell'ambiente utente.
+5.  Verifica che i pacchetti App-V 5.0 siano stati evasi correttamente e quindi rimuovi i pacchetti 4.6. Per controllare lo stato utente dei computer client, è consigliabile utilizzare [User Experience Virtualization](https://technet.microsoft.com/library/dn458947.aspx) o un altro strumento di gestione dell'ambiente utente.
 
-    **Hai un suggerimento per App-V**? Aggiungere o votare i suggerimenti [qui](http://appv.uservoice.com/forums/280448-microsoft-application-virtualization). **Hai un problema con l'App-V?** Usare l' [App-V Forum TechNet](https://social.technet.microsoft.com/Forums/home?forum=mdopappv).
+    **Hai un suggerimento per App-V**? Aggiungere o votare i suggerimenti [qui](http://appv.uservoice.com/forums/280448-microsoft-application-virtualization). **Hai un problema di App-V?** Usare il [Forum TechNet di App-V](https://social.technet.microsoft.com/Forums/home?forum=mdopappv).
 
-## Argomenti correlati
+## <a name="related-topics"></a>Argomenti correlati
 
 
 [Pianificazione per la migrazione da una versione precedente di App-V](planning-for-migrating-from-a-previous-version-of-app-v.md)
 
 [Distribuzione di App-V 5.0 Sequencer e del client](deploying-the-app-v-50-sequencer-and-client.md)
 
- 
+ 
 
- 
+ 
 
 
 
