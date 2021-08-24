@@ -11,38 +11,38 @@ ms.mktglfcycl: deploy
 ms.sitesec: library
 ms.prod: w10
 ms.date: 06/16/2016
-ms.openlocfilehash: 76703cf4c7297401e6516830bf194cef741d60ec
-ms.sourcegitcommit: 354664bc527d93f80687cd2eba70d1eea024c7c3
+ms.openlocfilehash: b54a9a207f9b74ad3d028cf4ab1f9842d59b0b3a
+ms.sourcegitcommit: 3e0500abde44d6a09c7ac8e3caf5e25929b490a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "10827096"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "11910451"
 ---
-# Architettura di alto livello per UE-V 1.0
+# <a name="high-level-architecture-for-ue-v-10"></a>Architettura di alto livello per UE-V 1.0
 
 
-Questo argomento descrive gli elementi architettonici di alto livello della soluzione di roaming delle impostazioni di Microsoft User Experience Virtualization (UE-V). Gli elementi seguenti fanno parte di una distribuzione standard di UE-V.
+In questo argomento vengono descritti gli elementi architettonici di alto livello della soluzione Microsoft User Experience Virtualization (UE-V) di roaming. Gli elementi seguenti fanno parte di una distribuzione UE-V standard.
 
-![diagramma di architettura dell'agente UE-v](images/ue-vagentarchitecturaldiagram.gif)
+![Diagramma dell'architettura dell'agente ue-v.](images/ue-vagentarchitecturaldiagram.gif)
 
-L'agente UE-V monitora le applicazioni e i processi del sistema operativo Man mano che vengono identificati nei modelli di posizione delle impostazioni di UE-V. Quando l'applicazione o il sistema operativo viene avviato, le impostazioni vengono lette dal pacchetto di impostazioni e applicate al computer. Quando l'applicazione viene chiusa o quando il sistema operativo è bloccato o arrestato, le impostazioni vengono salvate in un pacchetto di impostazioni di UE-V nella posizione di archiviazione delle impostazioni.
+L UE-V agent monitora le applicazioni e i processi del sistema operativo così come vengono identificati nei modelli di percorso delle UE-V impostazioni. All'avvio dell'applicazione o del sistema operativo, le impostazioni vengono lette dal pacchetto di impostazioni e applicate al computer. Quando l'applicazione viene chiusa o quando il sistema operativo viene bloccato o arrestato, le impostazioni vengono salvate in un pacchetto UE-V impostazioni nel percorso di archiviazione delle impostazioni.
 
-## Posizione di archiviazione delle impostazioni
-
-
-La posizione di archiviazione delle impostazioni è una condivisione file a cui l'utente che utilizza l'agente di virtualizzazione accede alle impostazioni di lettura e scrittura. Questa posizione è la home directory di Active Directory o definita durante l'installazione di UE-V. È possibile impostare la posizione durante l'installazione dell'agente UE-V oppure impostarla in un secondo momento con criteri di gruppo, WMI o PowerShell. La posizione può essere in qualsiasi condivisione di file comune a cui gli utenti possono accedere. Se durante l'installazione non viene impostata la posizione di archiviazione dell'impostazione, la home directory in Active Directory verrà usata da UE-V. L'agente UE-V Verifica la posizione e crea una cartella di sistema nascosta dall'utente in cui archiviare e accedere alle impostazioni dell'utente. Per altre informazioni sull'archiviazione delle impostazioni, vedere [preparare l'ambiente per la versione UE-V](preparing-your-environment-for-ue-v.md).
-
-## Agente UE-V
+## <a name="settings-storage-location"></a>Impostazioni di archiviazione
 
 
-L'agente UE-V viene installato in ogni computer con impostazioni sincronizzate dalla virtualizzazione dell'esperienza utente. L'agente monitora le applicazioni registrate e il sistema operativo per tutte le modifiche apportate alle impostazioni e sincronizza le impostazioni tra i computer. Le impostazioni vengono applicate dalla posizione di archiviazione delle impostazioni all'applicazione quando l'applicazione viene avviata. Le impostazioni vengono quindi salvate di nuovo nel percorso di archiviazione delle impostazioni quando l'applicazione viene chiusa. Le impostazioni del sistema operativo vengono applicate quando l'utente effettua l'accesso, quando il computer viene sbloccato o quando l'utente si connette in remoto al computer usando RDP (Remote Desktop Protocol). L'agente Salva le impostazioni quando l'utente si disconnette, quando il computer è bloccato o quando una connessione remota è disconnessa. Per altre informazioni sull'agente UE-V, vedere [preparare l'ambiente per la versione UE-v](preparing-your-environment-for-ue-v.md).
+Il percorso di archiviazione delle impostazioni è una condivisione file a cui l'agente User Experience Virtualization accede per accedere alle impostazioni di lettura e scrittura. Questo percorso è la home directory di Active Directory o definito durante l UE-V installazione. È possibile impostare il percorso durante l'installazione dell'agente UE-V oppure è possibile impostarlo in un secondo momento con Criteri di gruppo, WMI o PowerShell. Il percorso può essere in qualsiasi condivisione file comune a cui gli utenti possono accedere. Se durante l'installazione non viene impostato alcun percorso di archiviazione UE-V verrà utilizzata la home directory in Active Directory. L'UE-V verifica il percorso e crea una cartella di sistema nascosta all'utente in cui archiviare e accedere alle impostazioni utente. Per ulteriori informazioni sull'archiviazione delle impostazioni, vedere [Preparing Your Environment for UE-V](preparing-your-environment-for-ue-v.md).
 
-## <a href="" id="bkmk-settingslocationtemplate"></a>Modelli di posizione delle impostazioni
+## <a name="ue-v-agent"></a>UE-V Agente
 
 
-Il modello posizione impostazioni è un file XML che definisce le posizioni delle impostazioni da monitorare tramite la virtualizzazione dell'esperienza utente. Solo i percorsi delle impostazioni definiti in questi modelli di impostazioni vengono acquisiti o applicati nei computer che eseguono l'agente UE-V. Il modello posizione impostazioni non contiene valori delle impostazioni, ma solo i percorsi in cui sono archiviati i valori nel computer.
+L UE-V agent viene installato in ogni computer con impostazioni sincronizzate da User Experience Virtualization. L'agente monitora le applicazioni registrate e il sistema operativo per tutte le modifiche apportate alle impostazioni e sincronizza tali impostazioni tra computer. Impostazioni vengono applicati dal percorso di archiviazione delle impostazioni all'applicazione all'avvio dell'applicazione. Le impostazioni vengono quindi salvate di nuovo nel percorso di archiviazione delle impostazioni alla chiusura dell'applicazione. Le impostazioni del sistema operativo vengono applicate quando l'utente esegue l'accesso, quando il computer viene sbloccato o quando l'utente si connette in remoto al computer utilizzando RDP (Remote Desktop Protocol). L'agente salva le impostazioni quando l'utente si disconnette, quando il computer è bloccato o quando una connessione remota viene disconnessa. Per ulteriori informazioni sull'agente UE-V, vedere [Preparing Your Environment for UE-V](preparing-your-environment-for-ue-v.md).
 
-UE-V include un set di modelli di posizione delle impostazioni che specificano le posizioni delle impostazioni per alcune applicazioni Microsoft e le impostazioni di Windows. Un amministratore può creare modelli di posizione delle impostazioni personalizzate usando il generatore UE-V.
+## <a name="settings-location-templates"></a><a href="" id="bkmk-settingslocationtemplate"></a>Impostazioni di percorso
+
+
+Il modello di percorso delle impostazioni è un file XML che definisce i percorsi delle impostazioni da monitorare da User Experience Virtualization. Solo i percorsi delle impostazioni definiti in questi modelli di impostazioni vengono acquisiti o applicati nei computer che eseguono UE-V Agent. Il modello di percorso delle impostazioni non contiene valori di impostazioni, ma solo le posizioni in cui i valori sono archiviati nel computer.
+
+UE-V include un set di modelli di percorso delle impostazioni che specificano i percorsi delle impostazioni per alcune applicazioni Microsoft e Windows impostazioni. Un amministratore può creare modelli di percorso delle impostazioni personalizzate utilizzando il generatore UE-V personalizzato.
 
 [Pianificazione delle applicazioni da sincronizzare con UE-V 1.0](planning-which-applications-to-synchronize-with-ue-v-10.md)
 
@@ -50,30 +50,30 @@ UE-V include un set di modelli di posizione delle impostazioni che specificano l
 
 [Uso di modelli UE-V personalizzati e di Generatore UE-V](working-with-custom-ue-v-templates-and-the-ue-v-generator.md)
 
-## Pacchetti di impostazioni
+## <a name="settings-packages"></a>Impostazioni pacchetti
 
 
-Le impostazioni dell'applicazione e le impostazioni di Windows sono archiviate in pacchetti di impostazioni, creati dall'agente UE-V. Un pacchetto di impostazioni è una raccolta delle impostazioni rappresentate nei modelli di posizione delle impostazioni. Questi pacchetti di impostazioni vengono creati, archiviati localmente e quindi copiati nel percorso di archiviazione delle impostazioni. "WINS ultima scrittura" determina le impostazioni che vengono mantenute quando un singolo utente Sincronizza più computer in una posizione di archiviazione. L'agente che viene eseguito in un computer legge e scrive nella posizione delle impostazioni indipendentemente dagli agenti eseguiti in altri computer. Le impostazioni e i valori scritti più di recente vengono applicati quando l'agente successivo legge il percorso di archiviazione delle impostazioni.
+Le impostazioni delle applicazioni Windows vengono archiviate in pacchetti di impostazioni creati dall'UE-V Agent. Un pacchetto di impostazioni è una raccolta di impostazioni rappresentate nei modelli di percorso delle impostazioni. Questi pacchetti di impostazioni vengono creati, archiviati localmente e quindi copiati nel percorso di archiviazione delle impostazioni. "Last write wins" determina quali impostazioni vengono mantenute quando un singolo utente sincronizza più computer in un percorso di archiviazione. L'agente eseguito in un computer legge e scrive nel percorso delle impostazioni indipendentemente dagli agenti eseguiti in altri computer. Le impostazioni e i valori scritti più di recente vengono applicati quando l'agente successivo legge dal percorso di archiviazione delle impostazioni.
 
-![processo generatore di UE-v](images/ue-vgeneratorprocess.gif)
+![processo generatore ue-v.](images/ue-vgeneratorprocess.gif)
 
-## Catalogo di modelli di impostazioni
-
-
-Il catalogo dei modelli di impostazioni è un percorso di cartella nei computer UE-V o in una condivisione di rete SMB (Server Message Block) in cui sono archiviati tutti i modelli di posizione delle impostazioni personalizzate. L'agente UE-V recupera i modelli nuovi o aggiornati da questa posizione. L'agente UE-V controlla questa posizione una volta al giorno e aggiorna il comportamento di sincronizzazione in base ai modelli in questa cartella. I modelli aggiunti o aggiornati in questa cartella dall'ultimo controllo vengono registrati dall'agente UE-V. L'agente UE-V Annulla la registrazione dei modelli rimossi dalla cartella. I modelli sono registrati e non registrati una volta al giorno dall'utilità di pianificazione. Se si utilizzeranno solo i modelli di posizione predefiniti delle impostazioni inclusi in UE-V, il catalogo di un modello di impostazioni non è necessario. Per altre informazioni sui cataloghi di distribuzione delle impostazioni, vedere [pianificazione della distribuzione di modelli personalizzati per la versione UE-V 1,0](planning-for-custom-template-deployment-for-ue-v-10.md).
-
-## Generatore di virtualizzazione Experience utente
+## <a name="settings-template-catalog"></a>Impostazioni modelli
 
 
-Il generatore di virtualizzazione dell'esperienza utente consente di creare modelli di posizione delle impostazioni personalizzati che memorizzano le posizioni delle impostazioni delle applicazioni usate nell'organizzazione e che si desidera includere nella soluzione per le impostazioni mobili. Il generatore UE-V cercherà di individuare le posizioni dei valori del registro di sistema e i file di impostazioni per le applicazioni e quindi registrerà tali posizioni in un file XML del modello di posizione delle impostazioni. È quindi possibile distribuire i modelli di posizione delle impostazioni nei computer degli utenti. Il generatore UE-V consente inoltre a un amministratore di modificare un modello esistente o di convalidare un modello creato con un altro editor XML.
+Il catalogo dei modelli di impostazioni è un percorso di cartella UE-V computer o una condivisione di rete SMB (Server Message Block) in cui sono archiviati tutti i modelli di percorso delle impostazioni personalizzate. L UE-V agente recupera modelli nuovi o aggiornati da questa posizione. L UE-V controlla questa posizione una volta al giorno e ne aggiorna il comportamento di sincronizzazione in base ai modelli in questa cartella. I modelli aggiunti o aggiornati in questa cartella dopo l'ultimo controllo vengono registrati dall UE-V agent. L UE-V agente annulla la registrazione dei modelli rimossi da questa cartella. I modelli vengono registrati e annullati una volta al giorno dall'utilità di pianificazione. Se si utilizzeranno solo i modelli di percorso delle impostazioni predefinite inclusi in UE-V, un catalogo di modelli di impostazioni non è necessario. Per ulteriori informazioni sulle impostazioni dei cataloghi di distribuzione, vedere [Planning for Custom Template Deployment for UE-V 1.0.](planning-for-custom-template-deployment-for-ue-v-10.md)
 
-Il generatore di UE-V monitora un'applicazione per individuare e registrare la posizione in cui archivia le impostazioni. A questo scopo, monitora il punto in cui l'applicazione legge o scrive in HKEY \ _CURRENT \ _USER registro di sistema o nelle cartelle file in **utenti** \ \ \ [nome utente \] \ \ **AppData**  \\  **roaming and Users** \ \ \ [nome utente \] \ \ **AppData**  \\  **local**.
+## <a name="user-experience-virtualization-generator"></a>Generatore di virtualizzazione dell'esperienza utente
 
-Il processo di individuazione esclude le chiavi del registro di sistema e i file a cui l'utente connesso non riesce a scrivere valori. Nessuna di queste operazioni verrà inclusa nel file XML. Il processo di individuazione esclude anche le chiavi del registro di sistema e i file associati alle funzionalità di base di Windows.
 
-Per altre informazioni sul generatore UE-V, vedere [installazione del generatore UE-v](installing-the-ue-v-generator.md).
+Il generatore di virtualizzazione dell'esperienza utente consente di creare modelli di percorso delle impostazioni personalizzate in cui verranno archiviati i percorsi delle impostazioni delle applicazioni utilizzate nell'organizzazione e che si desidera includere nella soluzione delle impostazioni di roaming. Il generatore UE-V cercherà di individuare i percorsi dei valori del Registro di sistema e i file di impostazioni per le applicazioni e quindi registrerà tali percorsi in un file XML del modello di percorso delle impostazioni. È quindi possibile distribuire questi modelli di percorso delle impostazioni ai computer degli utenti. Il generatore UE-V consente inoltre a un amministratore di modificare un modello esistente o convalidare un modello creato con un altro editor XML.
 
-## Argomenti correlati
+Il UE-V esegue il monitoraggio di un'applicazione per individuare e registrare la posizione in cui vengono archiviate le relative impostazioni. A tale scopo, monitora la posizione in cui l'applicazione legge o scrive nel Registro di sistema HKEY\_CURRENT\_USER o nelle cartelle dei file in **Utenti** \\ \[Nome utente\] \\ **AppData**  \\  **Roaming e Utenti** \\ \[Nome utente\] \\ **AppData**  \\  **Local**.
+
+Il processo di individuazione esclude le chiavi del Registro di sistema e i file in cui l'utente connesso non può scrivere valori. Nessuno di questi elementi verrà incluso nel file XML. Il processo di individuazione esclude inoltre le chiavi del Registro di sistema e i file associati alla funzionalità di base del Windows sistema operativo.
+
+Per ulteriori informazioni sul generatore UE-V, vedere [Installing the UE-V Generator](installing-the-ue-v-generator.md).
+
+## <a name="related-topics"></a>Argomenti correlati
 
 
 [Microsoft User Experience Virtualization (UE-V) 1.0](index.md)
@@ -84,9 +84,9 @@ Per altre informazioni sul generatore UE-V, vedere [installazione del generatore
 
 [Uso di modelli UE-V personalizzati e di Generatore UE-V](working-with-custom-ue-v-templates-and-the-ue-v-generator.md)
 
- 
+ 
 
- 
+ 
 
 
 

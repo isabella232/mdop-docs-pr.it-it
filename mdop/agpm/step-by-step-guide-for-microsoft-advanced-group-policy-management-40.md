@@ -11,61 +11,62 @@ ms.mktglfcycl: manage
 ms.sitesec: library
 ms.prod: w10
 ms.date: 08/30/2016
-ms.openlocfilehash: 819d536451095d23080115799016aa0ac5242dee
-ms.sourcegitcommit: 354664bc527d93f80687cd2eba70d1eea024c7c3
+ms.openlocfilehash: 567f9a8b14bc05a226b93947e6311ea93c0bf3b2
+ms.sourcegitcommit: 3e0500abde44d6a09c7ac8e3caf5e25929b490a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "10820196"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "11910711"
 ---
-# Guida dettagliata per Gestione avanzata Criteri di gruppo Microsoft 4.0
+# <a name="step-by-step-guide-for-microsoft-advanced-group-policy-management-40"></a>Guida dettagliata per Gestione avanzata Criteri di gruppo Microsoft 4.0
 
 
-Questa guida dettagliata illustra le tecniche avanzate per la gestione dei criteri di gruppo che usano la console Gestione criteri di gruppo e la gestione avanzata Criteri di gruppo di Microsoft. Advanced Group Policy Management aumenta le funzionalità di GPMC, fornendo:
+Questa guida dettagliata illustra le tecniche avanzate per la gestione di Criteri di gruppo che utilizzano Console Gestione Criteri di gruppo (GPMC) e Microsoft Advanced Group Policy Management (AGPM). AGPM aumenta le funzionalità della Console Gestione Criteri di gruppo, fornendo:
 
--   Ruoli standard per la delega delle autorizzazioni per la gestione degli oggetti Criteri di gruppo (GPO) in più amministratori di criteri di gruppo, oltre alla possibilità di delegare l'accesso a GPO nell'ambiente di produzione.
+-   Ruoli standard per la delega delle autorizzazioni per la gestione degli oggetti Criteri di gruppo a più amministratori di Criteri di gruppo, oltre alla possibilità di delegare l'accesso agli oggetti Criteri di gruppo nell'ambiente di produzione.
 
--   Un archivio per consentire agli amministratori dei criteri di gruppo di creare e modificare i GPO offline prima della distribuzione degli oggetti Criteri di rete in un ambiente di produzione.
+-   Un archivio per consentire agli amministratori di Criteri di gruppo di creare e modificare gli oggetti Criteri di gruppo offline prima che gli oggetti Criteri di gruppo siano distribuiti in un ambiente di produzione.
 
--   Possibilità di ripristinare una versione precedente di un GPO nell'archivio e limitare il numero di versioni archiviate nell'archivio.
+-   Possibilità di eseguire il rollback a qualsiasi versione precedente di un oggetto Criteri di gruppo nell'archivio e di limitare il numero di versioni archiviate nell'archivio.
 
--   Funzionalità di archiviazione e estrazione per i GPO per assicurarsi che gli amministratori dei criteri di gruppo non sovrascrivano involontariamente il lavoro reciproco.
+-   Funzionalità di archiviazione ed estrazione per gli oggetti Criteri di gruppo per assicurarsi che gli amministratori di Criteri di gruppo non sovrascrivono involontariamente il lavoro degli altri.
 
--   Possibilità di cercare gli oggetti Criteri di ricerca con attributi specifici e filtrare l'elenco dei GPO visualizzati.
+-   Possibilità di cercare oggetti Criteri di gruppo con attributi specifici e di filtrare l'elenco degli oggetti Criteri di gruppo visualizzati.
 
-## Panoramica degli scenari Advanced Group Policy Management
-
-
-Per questo scenario, si utilizzerà un account utente distinto per ogni ruolo in Advanced Group Policy Management per dimostrare in che modo i criteri di gruppo possono essere gestiti in un ambiente che include più amministratori di criteri di gruppo con livelli di autorizzazione diversi. In particolare, verranno eseguite le attività seguenti:
-
--   L'uso di un account membro del gruppo Domain Admins consente di installare Advanced Group Policy Management e assegnare il ruolo di amministratore Advanced Group Policy Management a un account o un gruppo.
-
--   Uso degli account a cui assegnare i ruoli di Advanced Group Policy Management, installare client Advanced Group Policy Management.
-
--   Se si usa un account con il ruolo di amministratore Advanced Group Policy Management, configurare Advanced Group Policy Management e delegare l'accesso a GPO assegnando ruoli ad altri account.
-
--   Da un account che ha il ruolo di editor, Richiedi che venga creato un nuovo oggetto Criteri di stato per l'approvazione usando un account con il ruolo di responsabile approvazione. Usare l'account dell'editor per verificare che l'oggetto Criteri di ricerca sia fuori dall'archivio, modificare l'oggetto Criteri di controllo, selezionare l'oggetto Criteri di ricerca nell'archivio e quindi richiedere la distribuzione.
-
--   Se si usa un account con il ruolo di approvazione, esaminare l'oggetto Criteri di controllo e distribuirlo nell'ambiente di produzione.
-
--   Usando un account con il ruolo di editor, crea un modello di GPO e usalo come punto di partenza per creare un nuovo oggetto Criteri di stato.
-
--   Usando un account con il ruolo di responsabile approvazione, eliminare e ripristinare un oggetto Criteri di stato.
-
-![processo di sviluppo degli oggetti Criteri di gruppo](images/ab77a1f3-f430-4e7d-be58-ee8f9bd1140e.gif)
-
-## Requisiti
+## <a name="agpm-scenario-overview"></a>Panoramica dello scenario AGPM
 
 
-I computer in cui si vuole installare Advanced Group Policy Management devono soddisfare i requisiti seguenti ed è necessario creare account per l'uso in questo scenario.
+Per questo scenario, si utilizzerà un account utente separato per ogni ruolo in AGPM per dimostrare come è possibile gestire Criteri di gruppo in un ambiente con più amministratori di Criteri di gruppo con livelli di autorizzazioni diversi. In particolare, verranno eseguite le attività seguenti:
 
-**Nota**  Se è installato Advanced Group Policy Management 2,5 e si esegue l'aggiornamento da Windows Server® 2003 a Windows Server2008R2 o Windows Server2008 o si esegue l'aggiornamento da WindowsVista senza Service Pack installati in Windows7 o WindowsVista® con Service Pack1 (SP1), è necessario aggiornare il sistema operativo prima di poter eseguire l'aggiornamento a Advanced Group Policy Management 4.0.
+-   Utilizzando un account membro del gruppo Domain Admins, installare il server AGPM e assegnare il ruolo amministratore di AGPM a un account o a un gruppo.
 
-Se è installato Advanced Group Policy Management 3,0, non è necessario aggiornare il sistema operativo prima di eseguire l'aggiornamento a Advanced Group Policy Management 4,0
+-   Utilizzando gli account a cui verranno assegnati i ruoli di AGPM, installare il client AGPM.
+
+-   Utilizzando un account con il ruolo di amministratore di AGPM, configurare AGPM e delegare l'accesso agli oggetti Criteri di gruppo assegnando ruoli ad altri account.
+
+-   Da un account con il ruolo Editor, richiedere la creazione di un nuovo oggetto Criteri di gruppo da approvare utilizzando un account con il ruolo Responsabile approvazione. Utilizzare l'account Editor per estrarre l'oggetto Criteri di gruppo dall'archivio, modificare l'oggetto Criteri di gruppo, archiviare l'oggetto Criteri di gruppo nell'archivio e quindi richiedere la distribuzione.
+
+-   Utilizzando un account con il ruolo Responsabile approvazione, esaminare l'oggetto Criteri di gruppo e distribuirlo nell'ambiente di produzione.
+
+-   Usando un account con il ruolo Editor, crea un modello di oggetto Criteri di gruppo e usalo come punto di partenza per creare un nuovo oggetto Criteri di gruppo.
+
+-   Utilizzando un account con il ruolo Responsabile approvazione, eliminare e ripristinare un oggetto Criteri di gruppo.
+
+![processo di sviluppo di oggetti Criteri di gruppo.](images/ab77a1f3-f430-4e7d-be58-ee8f9bd1140e.gif)
+
+## <a name="requirements"></a>Requisiti
+
+
+I computer in cui si desidera installare AGPM devono soddisfare i requisiti seguenti ed è necessario creare account da utilizzare in questo scenario.
+
+**Nota**  
+Se è installato AGPM 2.5 e si esegue l'aggiornamento da Windows Server® 2003 a Windows Server 2008 R2 o Windows Server 2008, o si esegue l'aggiornamento da Windows Vista senza service pack installati a Windows 7 o Windows Vista® con Service Pack 1 (SP1), è necessario aggiornare il sistema operativo prima di poter eseguire l'aggiornamento a AGPM 4.0.
+
+Se è installato AGPM 3.0, non è necessario aggiornare il sistema operativo prima di eseguire l'aggiornamento a AGPM 4.0
 
  
 
-In un ambiente misto che include sia sistemi operativi più recenti che vecchi, esistono alcune limitazioni alla funzionalità, come indicato nella tabella seguente.
+In un ambiente misto che include sistemi operativi sia più recenti che meno recenti, esistono alcune limitazioni alle funzionalità, come indicato nella tabella seguente.
 
 <table>
 <colgroup>
@@ -75,60 +76,60 @@ In un ambiente misto che include sia sistemi operativi più recenti che vecchi, 
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Sistema operativo in cui viene eseguito Advanced Server Group Policy Management 4,0</th>
-<th align="left">Sistema operativo in cui viene eseguito il client Advanced Group Policy Management 4,0</th>
-<th align="left">Stato del supporto per Advanced Group Policy Management 4,0</th>
+<th align="left">Sistema operativo in cui viene eseguito AGPM Server 4.0</th>
+<th align="left">Sistema operativo in cui viene eseguito il client AGPM 4.0</th>
+<th align="left">Stato del supporto di AGPM 4.0</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p>Windows Server2008R2 o Windows7</p></td>
-<td align="left"><p>Windows Server2008R2 o Windows7</p></td>
+<td align="left"><p>Windows Server 2008 R2 o Windows 7</p></td>
+<td align="left"><p>Windows Server 2008 R2 o Windows 7</p></td>
 <td align="left"><p>Supportato</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>Windows Server2008R2 o Windows7</p></td>
-<td align="left"><p>Windows Server2008 o Windows Vista con SP1</p></td>
-<td align="left"><p>Supportato, ma non è possibile modificare le impostazioni dei criteri o gli elementi delle preferenze esistenti solo in Windows Server2008R2 o Windows7</p></td>
+<td align="left"><p>Windows Server 2008 R2 o Windows 7</p></td>
+<td align="left"><p>Windows Server 2008 o Windows Vista con SP1</p></td>
+<td align="left"><p>Supportato, ma non può modificare le impostazioni dei criteri o gli elementi preferenza esistenti solo in Windows Server 2008 R2 o Windows 7</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>Windows Server2008 o Windows Vista con SP1</p></td>
-<td align="left"><p>Windows Server2008R2 o Windows7</p></td>
+<td align="left"><p>Windows Server 2008 o Windows Vista con SP1</p></td>
+<td align="left"><p>Windows Server 2008 R2 o Windows 7</p></td>
 <td align="left"><p>File modifiche disco non supportato</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>Windows Server2008 o Windows Vista con SP1</p></td>
-<td align="left"><p>Windows Server2008 o Windows Vista con SP1</p></td>
-<td align="left"><p>Supportato, ma non può segnalare o modificare le impostazioni dei criteri o gli elementi delle preferenze esistenti solo in Windows Server2008R2 o Windows7</p></td>
+<td align="left"><p>Windows Server 2008 o Windows Vista con SP1</p></td>
+<td align="left"><p>Windows Server 2008 o Windows Vista con SP1</p></td>
+<td align="left"><p>Supportato, ma non in grado di segnalare o modificare le impostazioni dei criteri o gli elementi preferenza esistenti solo in Windows Server 2008 R2 o Windows 7</p></td>
 </tr>
 </tbody>
 </table>
 
  
 
-### Requisiti del server Advanced Group Policy Management
+### <a name="agpm-server-requirements"></a>Requisiti del server AGPM
 
-Advanced Group Policy Management 4.0 richiede Windows Server2008R2, Windows Server2008, Windows7 e GPMC da Remote Server Administration Tools (strumenti di amministrazione remota) o Windows Vista con SP1 e la console GPMC installata. Sono supportate entrambe le versioni a 32 bit e 64 bit.
+AgPM Server 4.0 richiede Windows Server 2008 R2, Windows Server 2008, Windows 7 e la Console Gestione Criteri di gruppo da Strumenti di amministrazione remota del server (RSAT) o Windows Vista con SP1 e la Console Gestione Criteri di gruppo da RSAT installata. Sono supportate entrambe le versioni a 32 bit e a 64 bit.
 
-Prima di installare Advanced Group Policy Management Server, è necessario essere un membro del gruppo Domain Admins e le caratteristiche di Windows seguenti devono essere presenti, se non diversamente specificato:
+Prima di installare il server AGPM, è necessario essere membri del gruppo Domain Admins e devono essere presenti le seguenti funzionalità di Windows se non diversamente specificato:
 
--   GPMC
+-   Console Gestione Criteri di gruppo
 
-    -   Windows Server2008R2 o Windows Server2008: se la GPMC non è presente, viene automaticamente installata da Advanced Group Policy Management.
+    -   Windows Server 2008 R2 o Windows Server 2008: se la Console Gestione Criteri di gruppo non è presente, viene installata automaticamente da AGPM.
 
-    -   Windows7: prima di installare Advanced Group Policy Management, è necessario installare la console Gestione criteri di amministrazione. Per altre informazioni, vedere [strumenti di amministrazione di server remoti per Windows 7](https://go.microsoft.com/fwlink/?LinkID=131280) ( https://go.microsoft.com/fwlink/?LinkID=131280) .
+    -   Windows 7: è necessario installare la Console Gestione Criteri di gruppo da RSAT prima di installare AGPM. Per ulteriori informazioni, vedere [Remote Server Administration Tools for Windows 7](https://go.microsoft.com/fwlink/?LinkID=131280) ( https://go.microsoft.com/fwlink/?LinkID=131280) .
 
-    -   Windows Vista con SP1: prima di installare Advanced Group Policy Management è necessario installare la console Gestione criteri di amministrazione. Per altre informazioni, vedere [strumenti di amministrazione di server remoti per Windows Vista con Service Pack 1](https://go.microsoft.com/fwlink/?LinkID=116179) ( https://go.microsoft.com/fwlink/?LinkID=116179) .
+    -   Windows Vista con SP1: è necessario installare la Console Gestione Criteri di gruppo da RSAT prima di installare AGPM. Per ulteriori informazioni, vedere [Remote Server Administration Tools for Windows Vista with Service Pack 1](https://go.microsoft.com/fwlink/?LinkID=116179) ( https://go.microsoft.com/fwlink/?LinkID=116179) .
 
--   .NET Framework 3,5 o versioni successive
+-   La .NET Framework 3.5 o versioni successive
 
-    -   Windows Server2008R2 o Windows7: se .NET Framework 3,5 o versione successiva non è presente, .NET Framework 3,5 viene installato automaticamente da Advanced Group Policy Management.
+    -   Windows Server 2008 R2 o Windows 7: se la versione di .NET Framework 3.5 o successiva non è presente, .NET Framework 3.5 viene installato automaticamente da AGPM.
 
-    -   Windows Server2008 o Windows Vista con SP1: è necessario installare .NET Framework 3,5 o una versione successiva prima di installare Advanced Group Policy Management.
+    -   Windows Server 2008 o Windows Vista con SP1: è necessario installare .NET Framework 3.5 o versione successiva prima di installare AGPM.
 
-Le funzionalità di Windows seguenti sono richieste dal server Advanced Group Policy Management e verranno installate automaticamente se non sono presenti:
+Le seguenti Windows sono richieste dal server AGPM e verranno installate automaticamente se non sono presenti:
 
--   Attivazione di WCF; Attivazione non HTTP
+-   Attivazione WCF; Attivazione non HTTP
 
 -   Servizio Attivazione dei processi Windows
 
@@ -138,454 +139,459 @@ Le funzionalità di Windows seguenti sono richieste dal server Advanced Group Po
 
     -   API di configurazione
 
-### Requisiti client Advanced Group Policy Management
+### <a name="agpm-client-requirements"></a>Requisiti del client AGPM
 
-Il client Advanced Group Policy Management 4.0 richiede Windows Server2008R2, Windows Server2008, Windows7 e GPMC da parte di amministrazione remota o Windows Vista con SP1 e la console Gestione criteri di amministrazione di Microsoft installato. Sono supportate entrambe le versioni a 32 bit e 64 bit. Il client Advanced Group Policy Management può essere installato in un computer in cui è in uso Advanced Management Server.
+AgPM Client 4.0 richiede Windows Server 2008 R2, Windows Server 2008, Windows 7 e la Console Gestione Criteri di gruppo da RSAT o Windows Vista con SP1 e la Console Gestione Criteri di gruppo da RSAT installata. Sono supportate entrambe le versioni a 32 bit e a 64 bit. Il client AGPM può essere installato in un computer che esegue il server AGPM.
 
-Le funzionalità di Windows seguenti sono richieste dal client Advanced Group Policy Management e, se non diversamente specificato, non vengono installate automaticamente se non sono presenti:
+Le seguenti Windows sono richieste dal client AGPM e, se non diversamente specificato, vengono installate automaticamente se non sono presenti:
 
--   GPMC
+-   Console Gestione Criteri di gruppo
 
-    -   Windows Server2008R2 o Windows Server2008: se la GPMC non è presente, viene automaticamente installata da Advanced Group Policy Management.
+    -   Windows Server 2008 R2 o Windows Server 2008: se la Console Gestione Criteri di gruppo non è presente, viene installata automaticamente da AGPM.
 
-    -   Windows7: prima di installare Advanced Group Policy Management, è necessario installare la console Gestione criteri di amministrazione. Per altre informazioni, vedere [strumenti di amministrazione di server remoti per Windows 7](https://go.microsoft.com/fwlink/?LinkID=131280) ( https://go.microsoft.com/fwlink/?LinkID=131280) .
+    -   Windows 7: è necessario installare la Console Gestione Criteri di gruppo da RSAT prima di installare AGPM. Per ulteriori informazioni, vedere [Remote Server Administration Tools for Windows 7](https://go.microsoft.com/fwlink/?LinkID=131280) ( https://go.microsoft.com/fwlink/?LinkID=131280) .
 
-    -   Windows Vista con SP1: prima di installare Advanced Group Policy Management è necessario installare la console Gestione criteri di amministrazione. Per altre informazioni, vedere [strumenti di amministrazione di server remoti per Windows Vista con Service Pack 1](https://go.microsoft.com/fwlink/?LinkID=116179) ( https://go.microsoft.com/fwlink/?LinkID=116179) .
+    -   Windows Vista con SP1: è necessario installare la Console Gestione Criteri di gruppo da RSAT prima di installare AGPM. Per ulteriori informazioni, vedere [Remote Server Administration Tools for Windows Vista with Service Pack 1](https://go.microsoft.com/fwlink/?LinkID=116179) ( https://go.microsoft.com/fwlink/?LinkID=116179) .
 
--   .NET Framework 3,0 o versione successiva
+-   La .NET Framework 3.0 o versione successiva
 
-    -   Windows Server2008R2 o Windows7: se .NET Framework 3,0 o versione successiva non è presente, .NET Framework 3,5 viene installato automaticamente da Advanced Group Policy Management.
+    -   Windows Server 2008 R2 o Windows 7: se la versione di .NET Framework 3.0 o successiva non è presente, .NET Framework 3.5 viene installato automaticamente da AGPM.
 
-    -   Windows Server2008 o Windows Vista con SP1: se .NET Framework 3,0 o versione successiva non è presente, .NET Framework 3,0 viene installato automaticamente da Advanced Group Policy Management.
+    -   Windows Server 2008 o Windows Vista con SP1: se il .NET Framework 3.0 o versione successiva non è presente, .NET Framework 3.0 viene installato automaticamente da AGPM.
 
-### Requisiti per lo scenario
+### <a name="scenario-requirements"></a>Requisiti dello scenario
 
-Prima di iniziare questo scenario, creare quattro account utente. Durante lo scenario, verrà assegnato uno dei ruoli di Advanced Group Policy Management seguenti a ognuno di questi account: amministratore Advanced Group Policy Management (controllo completo), approvatore, editor e revisore. Questi account devono essere in grado di inviare e ricevere messaggi di posta elettronica. Assegnare l'autorizzazione **collegamento GPO** agli account con l'amministratore, l'approvatore della gestione avanzata Criteri di amministrazione e i ruoli di Editor (facoltativamente).
+Prima di iniziare questo scenario, creare quattro account utente. Durante lo scenario, verrà assegnato uno dei ruoli agPM seguenti a ognuno di questi account: Amministratore DI AGPM (controllo completo), Responsabile approvazione, Editor e Revisore. Questi account devono essere in grado di inviare e ricevere messaggi di posta elettronica. Assegnare **l'autorizzazione Collega** oggetti Criteri di gruppo agli account che dispongono dei ruoli amministratore, responsabile approvazione e (facoltativamente) editor di AGPM.
 
-**Nota** 
- L'autorizzazione **collegamento GPO** viene assegnata ai membri di amministratori di dominio e amministratori aziendali per impostazione predefinita. Per assegnare l'autorizzazione **collegamento GPO** ad altri utenti o gruppi, ad esempio account che hanno il ruolo di amministratore o approvatore della gestione avanzata, fare clic sul nodo per il dominio e quindi fare clic sulla scheda **delega** , selezionare **Collega oggetti Criteri**di gruppo, fare clic su **Aggiungi**e selezionare gli utenti o i gruppi a cui si vuole assegnare l'autorizzazione.
+**Nota**  
+**L'autorizzazione Collega oggetti** Criteri di gruppo viene assegnata ai membri di Domain Administrators e Enterprise Administrators per impostazione predefinita. Per **** assegnare l'autorizzazione Collega oggetti Criteri di gruppo ad altri utenti o gruppi (ad esempio account con **** ruoli di amministratore o responsabile approvazione agPM), fare clic sul nodo relativo al dominio e quindi fare clic sulla scheda Delega, selezionare **Collega**oggetti Criteri di gruppo, fare clic su **Aggiungi**e selezionare gli utenti o i gruppi a cui si desidera assegnare l'autorizzazione.
 
  
 
-## Procedura per l'installazione e la configurazione di Advanced Group Policy
+## <a name="steps-for-installing-and-configuring-agpm"></a>Passaggi per l'installazione e la configurazione di AGPM
 
 
-Per installare e configurare Advanced Group Policy Management, è necessario completare la procedura seguente.
+Per installare e configurare AGPM, è necessario completare la procedura seguente.
 
-[Passaggio 1: installare Advanced Group Policy Management Server](#bkmk-config1)
+[Passaggio 1: Installare il server AGPM](#bkmk-config1)
 
-[Passaggio 2: installare il client Advanced Group Policy Management](#bkmk-config2)
+[Passaggio 2: Installare il client AGPM](#bkmk-config2)
 
-[Passaggio 3: configurare una connessione al server Advanced Group Policy Management](#bkmk-config3)
+[Passaggio 3: Configurare una connessione al server AGPM](#bkmk-config3)
 
-[Passaggio 4: configurare la notifica tramite posta elettronica](#bkmk-config4)
+[Passaggio 4: Configurare la notifica tramite posta elettronica](#bkmk-config4)
 
-[Passaggio 5: delega dell'accesso](#bkmk-config5)
+[Passaggio 5: Delegare l'accesso](#bkmk-config5)
 
-### <a href="" id="bkmk-config1"></a>Passaggio 1: installare Advanced Group Policy Management Server
+### <a name="step-1-install-agpm-server"></a><a href="" id="bkmk-config1"></a>Passaggio 1: Installare il server AGPM
 
-In questo passaggio verrà installato il server Advanced Group Policy Management nel server membro o controller di dominio che eseguirà il servizio Advanced Group Policy Management e si configurerà l'archivio. Tutte le operazioni Advanced Group Policy Management vengono gestite tramite questo servizio Windows e vengono eseguite con le credenziali del servizio. L'archivio gestito da un server Advanced Group Policy Management può essere ospitato in tale server o in un altro server della stessa foresta.
+In questo passaggio, si installa il server AGPM nel server membro o nel controller di dominio che eseguirà il servizio AGPM e si configura l'archivio. Tutte le operazioni di AGPM vengono gestite tramite questo Windows e vengono eseguite con le credenziali del servizio. L'archivio gestito da un server AGPM può essere ospitato in tale server o in un altro server nella stessa foresta.
 
-**Per installare Advanced Group Policy Management Server nel computer in cui è ospitato il servizio Advanced Group Policy Management**
+**Per installare il server AGPM nel computer che ospiterà il servizio AGPM**
 
 1.  Accedere con un account membro del gruppo Domain Admins.
 
-2.  Avviare il CD di Microsoft Desktop Optimization Pack e seguire le istruzioni visualizzate per selezionare **Gestione criteri di gruppo avanzati-server**.
+2.  Avviare il CD di Microsoft Desktop Optimization Pack e seguire le istruzioni visualizzate per selezionare **Gestione avanzata Criteri di gruppo - Server.**
 
-3.  Nella finestra di dialogo **Introduzione** fare clic su **Avanti**.
+3.  Nella finestra **di dialogo** Benvenuto fare clic su **Avanti.**
 
-4.  Nella finestra di dialogo **condizioni di licenza software Microsoft** accettare i termini e quindi fare clic su **Avanti**.
+4.  Nella finestra **di dialogo Condizioni di licenza** software Microsoft accettare le condizioni e quindi fare clic su **Avanti.**
 
-5.  Nella finestra di dialogo **percorso applicazione** selezionare una posizione in cui installare il server Advanced Group Policy Management. Il computer in cui è installato il server Advanced Group Policy Management ospita il servizio Advanced Group Policy Management e gestisce l'archivio. Fai clic su **Avanti**.
+5.  Nella finestra **di dialogo Percorso** applicazione selezionare un percorso in cui installare il server AGPM. Il computer in cui è installato il server AGPM ospiterà il servizio AGPM e gestirà l'archivio. Fai clic su **Avanti**.
 
-6.  Nella finestra di dialogo **percorso di archiviazione** selezionare una posizione per l'archivio in relazione al server Advanced Group Policy Management. Il percorso di archiviazione può puntare a una cartella nel server Advanced Group Policy Management o in un'altra posizione. Devi tuttavia selezionare una posizione con spazio sufficiente per archiviare tutti i GPO e i dati della cronologia gestiti da questo server Advanced Group Policy Management. Fai clic su **Avanti**.
+6.  Nella finestra **di dialogo Percorso** archivio selezionare un percorso per l'archivio in relazione al server AGPM. Il percorso di archiviazione può puntare a una cartella nel server AGPM o altrove. Tuttavia, è consigliabile selezionare un percorso con spazio sufficiente per archiviare tutti gli oggetti Criteri di gruppo e i dati della cronologia gestiti da questo server AGPM. Fai clic su **Avanti**.
 
-7.  Nella finestra di dialogo **account del servizio Advanced Group Policy Management** selezionare un account del servizio in cui verrà eseguito il servizio Advanced Group Policy Management e quindi fare clic su **Avanti**.
+7.  Nella finestra **di dialogo Account servizio AGPM** selezionare un account di servizio con cui verrà eseguito il servizio AGPM e quindi fare clic su **Avanti.**
 
-    Questo account deve essere un membro del gruppo Domain Admins oppure, per una configurazione con privilegi minimi, i gruppi seguenti di ogni dominio gestiti dal server Advanced Group Policy Management:
+    Questo account deve essere membro del gruppo Domain Admins o, per una configurazione con privilegi minimi, i gruppi seguenti in ogni dominio gestito dal server AGPM:
 
-    -   Proprietari di autori di criteri di gruppo
+    -   Proprietari dei creatori di Criteri di gruppo
 
     -   Operatori di backup
 
-    Questo account richiede inoltre l'autorizzazione controllo completo per le cartelle seguenti:
+    Inoltre, questo account richiede l'autorizzazione Controllo completo per le cartelle seguenti:
 
-    -   Cartella di archiviazione Advanced Group Policy Management, per cui questa autorizzazione viene concessa automaticamente durante l'installazione del server Advanced Group Policy Management se è installata in un'unità locale.
+    -   La cartella di archiviazione di AGPM, per la quale questa autorizzazione viene concessa automaticamente durante l'installazione del server AGPM se è installata in un'unità locale.
 
-    -   Cartella Temp di sistema locale, in genere%windir%\\temp.
+    -   Cartella temporanea del sistema locale, in genere %windir%\\temp.
 
-8.  Nella finestra di dialogo **proprietario archivio** selezionare un account o un gruppo a cui assegnare il ruolo amministratore Advanced Group Policy Management (controllo completo). Gli amministratori Advanced Group Policy Management possono assegnare i ruoli e le autorizzazioni di Advanced Policy Management ad altri amministratori dei criteri di gruppo, in modo che in seguito sia possibile assegnare il ruolo di amministratore Advanced Group Policy per altri amministratori Per questo scenario, selezionare l'account da usare nel ruolo amministratore Advanced Group Policy Management. Fai clic su **Avanti**.
+8.  Nella finestra **di dialogo Proprietario** archivio selezionare un account o un gruppo a cui assegnare il ruolo amministratore di AGPM (controllo completo). Gli amministratori di AGPM possono assegnare ruoli e autorizzazioni di AGPM ad altri amministratori di Criteri di gruppo, in modo che in un secondo momento sia possibile assegnare il ruolo di amministratore di AGPM ad altri amministratori di Criteri di gruppo. Per questo scenario, selezionare l'account da utilizzare nel ruolo di amministratore di AGPM. Fai clic su **Avanti**.
 
-9.  Nella finestra di dialogo **configurazione porta** Digitare una porta in cui deve essere ascoltato il servizio Advanced Group Policy Management. Non deselezionare la casella **di controllo Aggiungi eccezione alla porta al firewall** a meno che non si configuri manualmente le eccezioni della porta o non si usi regole per configurare le eccezioni della porta. Fai clic su **Avanti**.
+9.  Nella finestra **di dialogo Configurazione** porta digitare una porta su cui il servizio AGPM deve restare in attesa. Non deselezionare la casella di controllo Aggiungi eccezione porta **al firewall** a meno che non si configurano manualmente le eccezioni di porta o si utilizzino regole per configurare le eccezioni di porta. Fai clic su **Avanti**.
 
-10. Nella finestra di dialogo **lingue** selezionare una o più lingue di visualizzazione da installare per il server Advanced Group Policy Management.
+10. Nella finestra **di dialogo** Lingue selezionare una o più lingue di visualizzazione da installare per il server AGPM.
 
-11. Fare clic su **Installa**e quindi su **fine** per uscire dalla configurazione guidata.
+11. Fare **clic su**Installa e quindi su **Fine** per uscire dall'Installazione guidata.
 
-    **Attenzione**  Non modificare le impostazioni per il servizio Advanced Group Policy Management tramite strumenti e **Servizi** **amministrativi** nel sistema operativo. Questa operazione può impedire l'avvio del servizio Advanced Group Policy Management. Per informazioni su come modificare le impostazioni per il servizio, vedere la guida per la gestione avanzata dei criteri di gruppo.
+    **Attenzione**  
+    Non modificare le impostazioni per il servizio AGPM tramite **Strumenti di** amministrazione **e servizi** nel sistema operativo. Questa operazione può impedire l'avvio del servizio AGPM. Per informazioni su come modificare le impostazioni per il servizio, vedere la Guida per Gestione avanzata Criteri di gruppo.
 
      
 
-### <a href="" id="bkmk-config2"></a>Passaggio 2: installare il client Advanced Group Policy Management
+### <a name="step-2-install-agpm-client"></a><a href="" id="bkmk-config2"></a>Passaggio 2: Installare il client AGPM
 
-Ogni amministratore dei criteri di gruppo, tutti gli utenti che creano, modifica, distribuisce, esamina o Elimina GPO, deve avere installato client Advanced Group Policy Management in computer che usano per gestire i GPO. Il nodo cambia controllo, che si usa per eseguire molte delle attività di gestione degli oggetti Criteri di gruppo, viene visualizzato nella console di gestione dei criteri di raggruppamento solo se si installa il client Advanced Group Policy Management. Per questo scenario, è possibile installare il client Advanced Group Policy in almeno un computer. Non è necessario installare il client Advanced Group Policy Management nei computer degli utenti finali che non eseguono l'amministrazione dei criteri di gruppo.
+Ogni amministratore di Criteri di gruppo, ovvero chiunque crei, modifica, distribuisca, rivede o elimini oggetti Criteri di gruppo, deve disporre di Client AGPM installato nei computer utilizzati per gestire gli oggetti Criteri di gruppo. Il nodo Controllo modifiche, utilizzato per eseguire molte delle attività di gestione degli oggetti Criteri di gruppo, viene visualizzato nella Console Gestione Criteri di gruppo solo se si installa il client AGPM. Per questo scenario, si installa il client AGPM in almeno un computer. Non è necessario installare il client AGPM nei computer degli utenti finali che non eseguono l'amministrazione di Criteri di gruppo.
 
-**Per installare il client Advanced Group Policy Management nel computer di un amministratore di criteri di gruppo**
+**Per installare il client AGPM nel computer di un amministratore di Criteri di gruppo**
 
-1.  Avviare il CD di Microsoft Desktop Optimization Pack e seguire le istruzioni visualizzate per selezionare **Gestione criteri di gruppo avanzati-client**.
+1.  Avviare il CD di Microsoft Desktop Optimization Pack e seguire le istruzioni visualizzate per selezionare **Gestione avanzata Criteri di gruppo - Client.**
 
-2.  Nella finestra di dialogo **Introduzione** fare clic su **Avanti**.
+2.  Nella finestra **di dialogo** Benvenuto fare clic su **Avanti.**
 
-3.  Nella finestra di dialogo **condizioni di licenza software Microsoft** accettare i termini e quindi fare clic su **Avanti**.
+3.  Nella finestra **di dialogo Condizioni di licenza** software Microsoft accettare le condizioni e quindi fare clic su **Avanti.**
 
-4.  Nella finestra di dialogo **percorso applicazione** selezionare una posizione in cui installare client Advanced Group Policy Management. Fai clic su **Avanti**.
+4.  Nella finestra **di dialogo Percorso** applicazione selezionare un percorso in cui installare il client AGPM. Fai clic su **Avanti**.
 
-5.  Nella finestra di dialogo **server Advanced Group Policy Management** Digitare il nome DNS o l'indirizzo IP per il server Advanced Group Policy Management e la porta a cui si desidera connettersi. La porta predefinita per il servizio Advanced Group Policy Management è 4600. Non deselezionare la casella di controllo **Consenti Microsoft Management Console tramite il firewall** a meno che tu non configuri manualmente le eccezioni della porta o usi regole per configurare le eccezioni della porta. Fai clic su **Avanti**.
+5.  Nella finestra **di dialogo Server AGPM** digitare il nome DNS o l'indirizzo IP per il server AGPM e la porta a cui si desidera connettersi. La porta predefinita per il servizio AGPM è 4600. Non deselezionare la casella di controllo **Consenti Microsoft Management Console** attraverso il firewall a meno che non si configurano manualmente le eccezioni alle porte o si utilizzino regole per configurare le eccezioni di porta. Fai clic su **Avanti**.
 
-6.  Nella finestra di dialogo **lingue** selezionare una o più lingue di visualizzazione da installare per il client Advanced Group Policy Management.
+6.  Nella finestra **di dialogo** Lingue selezionare una o più lingue di visualizzazione da installare per il client AGPM.
 
-7.  Fare clic su **Installa**e quindi su **fine** per uscire dalla configurazione guidata.
+7.  Fare **clic su**Installa e quindi su **Fine** per uscire dall'Installazione guidata.
 
-### <a href="" id="bkmk-config3"></a>Passaggio 3: configurare una connessione al server Advanced Group Policy Management
+### <a name="step-3-configure-an-agpm-server-connection"></a><a href="" id="bkmk-config3"></a>Passaggio 3: Configurare una connessione al server AGPM
 
-La Advanced Group Policy Management archivia tutte le versioni di ogni oggetto Criteri di gruppo (GPO) controllato, ovvero ogni GPO per cui Advanced Group Policy Management fornisce il controllo delle modifiche in un archivio centrale. In questo modo gli amministratori di criteri di gruppo visualizzano e modificano i GPO offline senza influire immediatamente sulla versione distribuita di ogni GPO.
+AGPM archivia tutte le versioni di ogni oggetto Criteri di gruppo controllato, ovvero ogni oggetto Criteri di gruppo per il quale AGPM fornisce il controllo delle modifiche, in un archivio centrale. In questo modo gli amministratori di Criteri di gruppo possono visualizzare e modificare gli oggetti Criteri di gruppo offline senza influire immediatamente sulla versione distribuita di ogni oggetto Criteri di gruppo.
 
-In questo passaggio si configura una connessione al server Advanced Group Policy Management e si assicura che tutti gli amministratori di criteri di gruppo si connettano allo stesso server Advanced Group Policy Management Per informazioni su come configurare più server Advanced Group Policy Management, vedere Guida per la gestione avanzata di criteri di gruppo.
+In questo passaggio si configura una connessione al server AGPM e si garantisce che tutti gli amministratori di Criteri di gruppo si connettono allo stesso server AGPM. Per informazioni su come configurare più server AGPM, vedere la Guida per Gestione avanzata Criteri di gruppo.
 
-**Per configurare una connessione al server Advanced Group Policy Management per tutti gli amministratori dei criteri di gruppo**
+**Per configurare una connessione al server AGPM per tutti gli amministratori di Criteri di gruppo**
 
-1.  In un computer in cui è stato installato il client Advanced Group Policy Management, accedere con l'account utente selezionato come proprietario dell'archivio. Questo utente ha il ruolo di amministratore Advanced Group Policy Management (controllo completo).
+1.  In un computer in cui è stato installato il client AGPM, accedere con l'account utente selezionato come proprietario dell'archivio. Questo utente ha il ruolo di amministratore di AGPM (controllo completo).
 
-2.  Fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Gestione criteri di gruppo** per aprire la console GPMC.
+2.  Fare clic sul pulsante **Start,** **scegliere Strumenti di**amministrazione e quindi Gestione Criteri di **gruppo** per aprire la Console Gestione Criteri di gruppo.
 
-3.  Modificare un GPO applicato a tutti gli amministratori dei criteri di gruppo.
+3.  Modificare un oggetto Criteri di gruppo applicato a tutti gli amministratori di Criteri di gruppo.
 
-4.  Nella finestra **Editor gestione criteri di gruppo** fare doppio clic su **Configurazione utente**, **criteri**, **modelli amministrativi**, **componenti di Windows**e **Advanced Group Policy**Management.
+4.  Nella finestra **Editor Gestione Criteri** di gruppo fare doppio clic su **Configurazione** **utente,** **Criteri,** Modelli amministrativi, **Windows componenti**e **AGPM.**
 
-5.  Nel riquadro dei dettagli fare doppio clic su **Advanced Group Policy Management: specificare il server Advanced Group Policy Management (tutti i domini)**.
+5.  Nel riquadro dei dettagli fare doppio clic su **AGPM: Specificare il server AGPM predefinito (tutti i domini).**
 
-6.  Nella finestra **Proprietà** selezionare **abilitato** e digitare il nome DNS o l'indirizzo IP e la porta, ad esempio **Server.contoso.com:4600**, per il server che ospita l'archivio. Per impostazione predefinita, il servizio Advanced Group Policy Management usa la porta 4600.
+6.  Nella finestra **Proprietà** selezionare **Abilitato** e digitare il nome DNS o l'indirizzo IP e la porta (ad esempio, **server.contoso.com:4600**) per il server che ospita l'archivio. Per impostazione predefinita, il servizio AGPM utilizza la porta 4600.
 
-7.  Fare clic su **OK**e quindi chiudere la finestra **Editor gestione criteri di gruppo** . Quando i criteri di gruppo vengono aggiornati, la connessione del server Advanced Group Policy Management viene configurata per ogni amministratore di criteri di gruppo
+7.  Fare **clic su OK**e quindi chiudere la finestra Editor Gestione Criteri **di** gruppo. Quando Criteri di gruppo viene aggiornato, la connessione al server AGPM viene configurata per ogni amministratore di Criteri di gruppo.
 
-### <a href="" id="bkmk-config4"></a>Passaggio 4: configurare la notifica tramite posta elettronica
+### <a name="step-4-configure-e-mail-notification"></a><a href="" id="bkmk-config4"></a>Passaggio 4: Configurare la notifica tramite posta elettronica
 
-In qualità di amministratore Advanced Group Policy Management (controllo completo), designa gli indirizzi di posta elettronica degli approvatori e degli amministratori della Advanced Group Policy per cui viene inviato un messaggio di posta elettronica che contiene una richiesta quando un editor prova a creare, distribuire o eliminare un oggetto Criteri di gruppo. Puoi anche determinare l'alias da cui vengono inviati questi messaggi.
+L'amministratore di AGPM (controllo completo) designa gli indirizzi di posta elettronica dei responsabili approvazione e degli amministratori di AGPM a cui viene inviato un messaggio di posta elettronica contenente una richiesta quando un editor tenta di creare, distribuire o eliminare un oggetto Criteri di gruppo. È inoltre possibile determinare l'alias da cui vengono inviati questi messaggi.
 
-**Per configurare la notifica tramite posta elettronica per Advanced Group Policy Management**
+**Per configurare la notifica tramite posta elettronica per AGPM**
 
-1.  In **Editor gestione criteri di gruppo** passare alla cartella **Cambia controllo** 
+1.  **Nell'Editor Gestione Criteri di** gruppo passare alla cartella Cambia **controllo** 
 
-2.  Nel riquadro dei dettagli fare clic sulla scheda **delega del dominio** .
+2.  Nel riquadro dei dettagli fare clic sulla **scheda Delega** dominio.
 
-3.  Nel campo **da indirizzo di posta elettronica** Digitare l'alias di posta elettronica per Advanced Group Policy Management da cui inviare le notifiche.
+3.  Nel campo **Indirizzo di posta elettronica mittente** digitare l'alias di posta elettronica per AGPM da cui inviare le notifiche.
 
-4.  Nel campo **indirizzo di posta elettronica** Digitare l'indirizzo di posta elettronica per l'account utente a cui si vuole assegnare il ruolo di approvatore.
+4.  Nel campo **A indirizzo di posta** elettronica digitare l'indirizzo di posta elettronica dell'account utente a cui si desidera assegnare il ruolo responsabile approvazione.
 
-5.  Nel campo **server SMTP** Digitare un server di posta SMTP valido.
+5.  Nel campo **Server SMTP** digitare un server di posta SMTP valido.
 
-6.  Nei campi **nome utente** e **password** digitare le credenziali di un utente che ha accesso al servizio SMTP. Fai clic su **Applica**.
+6.  Nei campi **Nome utente** **e Password** digitare le credenziali di un utente che ha accesso al servizio SMTP. Fai clic su **Applica**.
 
-### <a href="" id="bkmk-config5"></a>Passaggio 5: delega dell'accesso
+### <a name="step-5-delegate-access"></a><a href="" id="bkmk-config5"></a>Passaggio 5: Delegare l'accesso
 
-In qualità di amministratore Advanced Group Policy Management (controllo completo) deleghi l'accesso a livello di dominio a GPO, assegnando ruoli all'account di ogni amministratore di criteri di gruppo.
+In quanto amministratore di AGPM (controllo completo), si delega l'accesso a livello di dominio agli oggetti Criteri di gruppo, assegnando ruoli all'account di ogni amministratore di Criteri di gruppo.
 
-**Nota**  È anche possibile delegare l'accesso a livello di GPO invece che a livello di dominio. Per altre informazioni, vedere la guida per la gestione avanzata dei criteri di gruppo.
-
- 
-
-**Importante**  È necessario limitare l'appartenenza al gruppo proprietari creatori di criteri di gruppo in modo che non possa essere usato per eludere la gestione di Access a GPO per Advanced Group Policy Management. Nella console di **gestione di criteri di gruppo**fare clic su **oggetti Criteri di gruppo** nella foresta e nel dominio in cui si vogliono gestire gli oggetti GPO, fare clic su **delega**e quindi configurare le impostazioni in modo che soddisfino le esigenze dell'organizzazione.
+**Nota**  
+È inoltre possibile delegare l'accesso a livello di oggetto Criteri di gruppo anziché a livello di dominio. Per ulteriori informazioni, vedere la Guida per Gestione avanzata Criteri di gruppo.
 
  
 
-**Per delegare l'accesso a tutti i GPO in un dominio**
+**Importante**  
+È consigliabile limitare l'appartenenza al gruppo Proprietari creatori criteri di gruppo in modo che non possa essere utilizzata per eludere la gestione agPM dell'accesso agli oggetti Criteri di gruppo. In Console Gestione Criteri di **** gruppo **fare**clic su Oggetti Criteri di gruppo nella **** foresta e nel dominio in cui si desidera gestire gli oggetti Criteri di gruppo, fare clic su Delega e quindi configurare le impostazioni per soddisfare le esigenze dell'organizzazione.
 
-1.  Nella scheda **delega del dominio** fare clic sul pulsante **Aggiungi** , selezionare l'account utente dell'amministratore dei criteri di gruppo per fungere da responsabile approvazione e quindi fare clic su **OK**.
+ 
 
-2.  Nella finestra di dialogo **Aggiungi gruppo o utente** selezionare il ruolo **approvatore** per assegnare il ruolo all'account e quindi fare clic su **OK**. Questo ruolo include il ruolo di revisore.
+**Per delegare l'accesso a tutti gli oggetti Criteri di gruppo in un dominio**
 
-3.  Fare clic sul pulsante **Aggiungi** , selezionare l'account utente dell'amministratore dei criteri di gruppo per fungere da Editor e quindi fare clic su **OK**.
+1.  Nella scheda **Delega dominio** **** fare clic sul pulsante Aggiungi, selezionare l'account utente dell'amministratore di Criteri di gruppo da utilizzare come responsabile approvazione e quindi fare clic su **OK.**
 
-4.  Nella finestra di dialogo **Aggiungi gruppo o utente** selezionare il ruolo di **Editor** per assegnare il ruolo all'account e quindi fare clic su **OK**. Questo ruolo include il ruolo di revisore.
+2.  Nella finestra **di dialogo Aggiungi gruppo** o utente selezionare il ruolo **Responsabile** approvazione per assegnare tale ruolo all'account e quindi fare clic su **OK.** Questo ruolo include il ruolo Revisore.
 
-5.  Fare clic sul pulsante **Aggiungi** , selezionare l'account utente dell'amministratore dei criteri di gruppo per fungere da revisore e quindi fare clic su **OK**.
+3.  Fare clic **sul pulsante** Aggiungi, selezionare l'account utente dell'amministratore di Criteri di gruppo da utilizzare come editor e quindi fare clic su **OK.**
 
-6.  Nella finestra di dialogo **Aggiungi gruppo o utente** selezionare il ruolo **revisore** per assegnare solo il ruolo all'account.
+4.  Nella finestra **di dialogo Aggiungi gruppo o** utente selezionare il ruolo **Editor** per assegnare il ruolo all'account e quindi fare clic su **OK.** Questo ruolo include il ruolo Revisore.
 
-## Procedura per la gestione dei GPO
+5.  Fare clic **sul** pulsante Aggiungi, selezionare l'account utente dell'amministratore di Criteri di gruppo da utilizzare come revisore e quindi fare clic su **OK.**
 
+6.  Nella finestra **di dialogo Aggiungi gruppo o** utente selezionare il ruolo **Revisore** per assegnare solo tale ruolo all'account.
 
-Per creare, modificare, rivedere e distribuire GPO tramite Advanced Group Policy, è necessario completare la procedura seguente. Verrà inoltre creato un modello, eliminato un oggetto Criteri di stato e il ripristino di un oggetto Criteri di stato eliminato.
+## <a name="steps-for-managing-gpos"></a>Passaggi per la gestione degli oggetti Criteri di gruppo
 
-[Passaggio 1: creare un oggetto Criteri di stato](#bkmk-manage1)
 
-[Passaggio 2: modificare un oggetto Criteri di stato](#bkmk-manage2)
+È necessario completare i passaggi seguenti per creare, modificare, rivedere e distribuire oggetti Criteri di gruppo utilizzando AGPM. Inoltre, verrà creato un modello, verrà eliminato un oggetto Criteri di gruppo e verrà ripristinato un oggetto Criteri di gruppo eliminato.
 
-[Passaggio 3: rivedere e distribuire un GPO](#bkmk-manage3)
+[Passaggio 1: Creare un oggetto Criteri di gruppo](#bkmk-manage1)
 
-[Passaggio 4: usare un modello per creare un GPO](#bkmk-manage4)
+[Passaggio 2: Modificare un oggetto Criteri di gruppo](#bkmk-manage2)
 
-[Passaggio 5: eliminare e ripristinare un GPO](#bkmk-manage5)
+[Passaggio 3: Esaminare e distribuire un oggetto Criteri di gruppo](#bkmk-manage3)
 
-### <a href="" id="bkmk-manage1"></a>Passaggio 1: creare un oggetto Criteri di stato
+[Passaggio 4: Utilizzare un modello per creare un oggetto Criteri di gruppo](#bkmk-manage4)
 
-In un ambiente che include più amministratori di criteri di gruppo, gli utenti con il ruolo Editor possono richiedere la creazione di nuovi GPO. Tuttavia, tale richiesta deve essere approvata da un utente con il ruolo di approvatore.
+[Passaggio 5: Eliminare e ripristinare un oggetto Criteri di gruppo](#bkmk-manage5)
 
-In questo passaggio si usa un account che ha il ruolo di editor per richiedere la creazione di un nuovo oggetto Criteri di stato. Usando un account con il ruolo di responsabile approvazione, approvare la richiesta per creare l'oggetto Criteri di stato.
+### <a name="step-1-create-a-gpo"></a><a href="" id="bkmk-manage1"></a>Passaggio 1: Creare un oggetto Criteri di gruppo
 
-**Per richiedere che un nuovo GPO venga creato e gestito tramite Advanced Group Policy Management**
+In un ambiente con più amministratori di Criteri di gruppo, gli utenti con il ruolo Editor possono richiedere la creazione di nuovi oggetti Criteri di gruppo. Tuttavia, tale richiesta deve essere approvata da un utente con il ruolo responsabile approvazione.
 
-1.  In un computer in cui è stato installato il client Advanced Group Policy Management, accedere con un account utente a cui è stato assegnato il ruolo di editor in Advanced Group Policy Management.
+In questo passaggio viene utilizzato un account con il ruolo Editor per richiedere la creazione di un nuovo oggetto Criteri di gruppo. Utilizzando un account con il ruolo Responsabile approvazione, si approva questa richiesta per creare l'oggetto Criteri di gruppo.
 
-2.  Nell'albero della **console di gestione di criteri di gruppo** fare clic su **Cambia controllo** nella foresta e nel dominio in cui si vuole gestire gli oggetti GPO.
+**Per richiedere la creazione e la gestione di un nuovo oggetto Criteri di gruppo tramite AGPM**
 
-3.  Fare clic con il pulsante destro del mouse sul nodo **Cambia controllo** e quindi scegliere **nuovo GPO controllato**.
+1.  In un computer in cui è stato installato il client AGPM, accedere con un account utente assegnato al ruolo Editor in AGPM.
 
-4.  Nella finestra di dialogo **nuovo GPO controllato** :
+2.  **Nell'albero della Console Gestione Criteri** di gruppo fare clic su **Cambia** controllo nella foresta e nel dominio in cui si desidera gestire gli oggetti Criteri di gruppo.
 
-    1.  Per ricevere una copia della richiesta, digitare l'indirizzo di posta elettronica nel campo **CC** .
+3.  Fare clic con il pulsante destro **del mouse sul** nodo Cambia controllo e quindi scegliere Nuovo oggetto Criteri di gruppo **controllato.**
 
-    2.  Digitare **MioGPO** come nome per il nuovo oggetto Criteri di stato.
+4.  Nella finestra **di dialogo Nuovo oggetto Criteri** di gruppo controllato:
 
-    3.  Digitare un commento per il nuovo oggetto Criteri di ricerca.
+    1.  Per ricevere una copia della richiesta, digitare l'indirizzo di posta elettronica nel **campo Cc.**
 
-    4.  Fare clic su **Crea Live** in modo che il nuovo GPO venga distribuito nell'ambiente di produzione immediatamente dopo l'approvazione. Fai clic su **Invia**.
+    2.  Digitare **MyGPO** come nome per il nuovo oggetto Criteri di gruppo.
 
-5.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. Il nuovo GPO viene visualizzato nella scheda **in sospeso** .
+    3.  Digitare un commento per il nuovo oggetto Criteri di gruppo.
 
-**Per approvare la richiesta in sospeso per creare un oggetto Criteri di stato**
+    4.  Fare **clic su Crea live** in modo che il nuovo oggetto Criteri di gruppo verrà distribuito nell'ambiente di produzione subito dopo l'approvazione. Fai clic su **Invia**.
 
-1.  In un computer in cui è stato installato il client Advanced Group Policy Management, accedere con un account utente con il ruolo di responsabile approvazione in Advanced Group Policy Management.
+5.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** Il nuovo oggetto Criteri di gruppo viene visualizzato nella **scheda In** sospeso.
 
-2.  Aprire la posta in arrivo per l'account e notare che è stato ricevuto un messaggio di posta elettronica dall'alias Advanced Group Policy Management con la richiesta dell'editor per creare un oggetto Criteri di ricerca.
+**Per approvare la richiesta in sospeso per creare un oggetto Criteri di gruppo**
 
-3.  Nell'albero della **console di gestione di criteri di gruppo** fare clic su **Cambia controllo** nella foresta e nel dominio in cui si vuole gestire gli oggetti GPO.
+1.  In un computer in cui è stato installato il client AGPM, accedere con un account utente con il ruolo di responsabile approvazione in AGPM.
 
-4.  Nella scheda **contenuto** fare clic sulla scheda **in sospeso** per visualizzare gli oggetti Criteri di stato in sospeso.
+2.  Aprire la posta in arrivo per l'account e notare che è stato ricevuto un messaggio di posta elettronica dall'alias di AGPM con la richiesta dell'editor di creare un oggetto Criteri di gruppo.
 
-5.  Fare clic con il pulsante destro del mouse su **MioGPO**e quindi scegliere **approva**.
+3.  **Nell'albero della Console Gestione Criteri** di gruppo fare clic su **Cambia** controllo nella foresta e nel dominio in cui si desidera gestire gli oggetti Criteri di gruppo.
 
-6.  Fare clic su **Sì** per confermare l'approvazione e portare il GPO nella scheda **controllato** .
+4.  Nella scheda **Contenuto** fare clic sulla scheda **In** sospeso per visualizzare gli oggetti Criteri di gruppo in sospeso.
 
-### <a href="" id="bkmk-manage2"></a>Passaggio 2: modificare un oggetto Criteri di stato
+5.  Fare clic con il **pulsante destro del mouse su MyGPO**e quindi scegliere **Approva**.
 
-Puoi usare i GPO per configurare le impostazioni di computer o utenti e distribuirle a molti computer o utenti. In questo passaggio si usa un account con il ruolo di editor per estrarre un GPO dall'archivio, modificare l'oggetto Criteri di controllo offline, controllare l'oggetto Criteri di controllo modificato nell'archivio e richiedere la distribuzione del GPO all'ambiente di produzione. Per questo scenario, devi configurare un'impostazione nell'oggetto Criteri di ricerca per richiedere che la password sia lunga almeno otto caratteri.
+6.  Fare **clic su Sì** per confermare l'approvazione e spostare l'oggetto Criteri di gruppo nella **scheda** Controllato.
 
-**Per controllare l'oggetto Criteri di ricerca dall'archivio per la modifica**
+### <a name="step-2-edit-a-gpo"></a><a href="" id="bkmk-manage2"></a>Passaggio 2: Modificare un oggetto Criteri di gruppo
 
-1.  In un computer in cui è stato installato il client Advanced Group Policy Management, accedere con un account utente con il ruolo di editor in Advanced Group Policy Management.
+È possibile utilizzare gli oggetti Criteri di gruppo per configurare le impostazioni del computer o degli utenti e distribuirli a molti computer o utenti. In questo passaggio si utilizza un account con il ruolo Editor per estrarre un oggetto Criteri di gruppo dall'archivio, modificare l'oggetto Criteri di gruppo offline, archiviare l'oggetto Criteri di gruppo modificato nell'archivio e richiedere la distribuzione dell'oggetto Criteri di gruppo nell'ambiente di produzione. Per questo scenario, si configura un'impostazione nell'oggetto Criteri di gruppo per richiedere che la password sia lunga almeno otto caratteri.
 
-2.  Nell'albero della **console di gestione di criteri di gruppo** fare clic su **Cambia controllo** nella foresta e nel dominio in cui si vuole gestire gli oggetti GPO.
+**Per estrarre l'oggetto Criteri di gruppo dall'archivio per la modifica**
 
-3.  Nella scheda **contenuto** del riquadro dei dettagli fare clic sulla scheda **controllati** per visualizzare gli oggetti Criteri di controllo controllati.
+1.  In un computer in cui è stato installato il client AGPM, accedere con un account utente con il ruolo di Editor in AGPM.
 
-4.  Fare clic con il pulsante destro del mouse su **MioGPO**e quindi scegliere **Estrai**.
+2.  **Nell'albero della Console Gestione Criteri** di gruppo fare clic su **Cambia** controllo nella foresta e nel dominio in cui si desidera gestire gli oggetti Criteri di gruppo.
 
-5.  Digitare un commento da visualizzare nella cronologia del GPO mentre è estratto e quindi fare clic su **OK**.
+3.  Nella scheda **Contenuto** del riquadro dei dettagli fare clic sulla **scheda Controllato** per visualizzare gli oggetti Criteri di gruppo controllati.
 
-6.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. Nella scheda **controllato** lo stato dell'oggetto Criteri di controllo viene identificato come **Estratto**.
+4.  Fare clic con il pulsante destro del mouse su **MyGPO**e **quindi scegliere Estrai**.
 
-**Per modificare l'oggetto Criteri di stato offline e configurare la lunghezza minima della password**
+5.  Digitare un commento da visualizzare nella cronologia dell'oggetto Criteri di gruppo durante l'estrazione e quindi fare clic su **OK.**
 
-1.  Nella scheda **controllo** , fare clic con il pulsante destro del mouse su **MioGPO**e quindi scegliere **modifica** per aprire la finestra dell' **Editor gestione criteri di gruppo** e modificare una copia offline dell'oggetto GPO. Per questo scenario, configurare la lunghezza minima della password:
+6.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** Nella scheda **Controllato** lo stato dell'oggetto Criteri di gruppo è identificato come **Estratto.**
 
-    1.  In **Configurazione computer**fare doppio clic su **criteri**, **impostazioni di Windows**, **impostazioni di sicurezza**, criteri **account**e **criteri password**.
+**Per modificare l'oggetto Criteri di gruppo offline e configurare la lunghezza minima della password**
 
-    2.  Nel riquadro dei dettagli fare doppio clic su **lunghezza minima password**.
+1.  Nella scheda **Controllato** fare clic con il pulsante **** destro del mouse su **MyGPO**e quindi scegliere Modifica per aprire la finestra **Editor** Gestione Criteri di gruppo e modificare una copia offline dell'oggetto Criteri di gruppo. Per questo scenario, configurare la lunghezza minima della password:
 
-    3.  Nella finestra Proprietà selezionare la casella di controllo **Definisci l'impostazione del criterio** , impostare il numero di caratteri su **8**e quindi fare clic su **OK**.
+    1.  In **Configurazione computer**fare doppio clic su **Criteri**, **Windows Impostazioni**, Sicurezza **Impostazioni** **,** Criteri account e Criteri **password**.
 
-2.  Chiudere la finestra **Editor gestione criteri di gruppo** .
+    2.  Nel riquadro dei dettagli fare doppio clic su **Lunghezza minima password**.
 
-**Per controllare l'oggetto Criteri di ricerca nell'archivio**
+    3.  Nella finestra delle proprietà selezionare la casella **di** controllo Definisci questo criterio, impostare il numero di caratteri su **8**e quindi fare clic su **OK.**
 
-1.  Nella scheda **controllato** fare clic con il pulsante destro del mouse su **MioGPO** e quindi scegliere **Archivia**.
+2.  Chiudere la **finestra Editor Gestione Criteri di** gruppo.
 
-2.  Digitare un commento e quindi fare clic su **OK**.
+**Per archiviare l'oggetto Criteri di gruppo nell'archivio**
 
-3.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. Nella scheda **controllato** lo stato dell'oggetto Criteri di controllo viene identificato come **archiviato**.
+1.  Nella scheda **Controllato** fare clic con il pulsante destro del mouse su **MyGPO** e quindi **scegliere Archivia**.
 
-**Per richiedere la distribuzione del GPO all'ambiente di produzione**
+2.  Digitare un commento e quindi fare clic su **OK.**
 
-1.  Nella scheda **controllato** fare clic con il pulsante destro del mouse su **MioGPO** e quindi scegliere **Distribuisci**.
+3.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** Nella scheda **Controllato** lo stato dell'oggetto Criteri di gruppo è identificato come **Archiviato.**
 
-2.  Poiché questo account non è un approvatore o un amministratore della Advanced Group Policy Management, è necessario inviare una richiesta di distribuzione. Per ricevere una copia della richiesta, digitare l'indirizzo di posta elettronica nel campo **CC** . Digitare un commento da visualizzare nella cronologia del GPO e quindi fare clic su **Invia**.
+**Per richiedere la distribuzione dell'oggetto Criteri di gruppo nell'ambiente di produzione**
 
-3.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. **MioGPO** viene visualizzato nell'elenco dei GPO nella scheda **in sospeso** .
+1.  Nella scheda **Controllato** fare clic con il pulsante destro del mouse su **MyGPO** e quindi scegliere **Distribuisci**.
 
-### <a href="" id="bkmk-manage3"></a>Passaggio 3: rivedere e distribuire un GPO
+2.  Poiché questo account non è un responsabile approvazione o un amministratore di AGPM, è necessario inviare una richiesta per la distribuzione. Per ricevere una copia della richiesta, digitare l'indirizzo di posta elettronica nel **campo Cc.** Digitare un commento da visualizzare nella cronologia dell'oggetto Criteri di gruppo e quindi fare clic su **Invia.**
 
-In questo passaggio si funge da approvatore, si creano report e si analizzano le impostazioni e le modifiche apportate alle impostazioni nell'oggetto Criteri di stato per determinare se è necessario approvarle. Dopo aver valutato l'oggetto Criteri di gruppo, è necessario distribuirlo nell'ambiente di produzione e collegare il GPO a un dominio o a un'unità organizzativa. L'oggetto Criteri di gruppo ha effetto quando i criteri di raggruppamento vengono aggiornati per i computer in tale dominio o OU.
+3.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** **MyGPO** viene visualizzato nell'elenco degli oggetti Criteri di gruppo nella **scheda In** sospeso.
 
-**Per rivedere le impostazioni nel GPO**
+### <a name="step-3-review-and-deploy-a-gpo"></a><a href="" id="bkmk-manage3"></a>Passaggio 3: Esaminare e distribuire un oggetto Criteri di gruppo
 
-1. In un computer in cui è stato installato il client Advanced Group Policy Management, accedere con un account utente a cui è assegnato il ruolo di responsabile approvazione in Advanced Group Policy Management. Qualsiasi amministratore di criteri di gruppo con il ruolo revisore, incluso in tutti gli altri ruoli, può rivedere le impostazioni di un oggetto Criteri di tipo.
+In questo passaggio, si agisce come responsabile approvazione, creando report e analizzando le impostazioni e le modifiche alle impostazioni nell'oggetto Criteri di gruppo per determinare se approvarle. Dopo aver valutato l'oggetto Criteri di gruppo, è possibile distribuirlo nell'ambiente di produzione e collegarlo a un dominio o a un'unità organizzativa. L'oggetto Criteri di gruppo ha effetto quando i Criteri di gruppo vengono aggiornati per i computer in tale dominio o unità organizzativa.
 
-2. Aprire la posta in arrivo per l'account e notare che è stato ricevuto un messaggio di posta elettronica dall'alias Advanced Group Policy Management con una richiesta dell'editor per distribuire un oggetto Criteri di ricerca.
+**Per esaminare le impostazioni nell'oggetto Criteri di gruppo**
 
-3. Nell'albero della **console di gestione di criteri di gruppo** fare clic su **Cambia controllo** nella foresta e nel dominio in cui si vuole gestire gli oggetti GPO.
+1. In un computer in cui è stato installato il client AGPM, accedere con un account utente a cui è assegnato il ruolo di responsabile approvazione in AGPM. Qualsiasi amministratore di Criteri di gruppo con il ruolo Revisore, incluso in tutti gli altri ruoli, può esaminare le impostazioni in un oggetto Criteri di gruppo.
 
-4. Nella scheda **contenuto** del riquadro dei dettagli fare clic sulla scheda **in sospeso** .
+2. Aprire la posta in arrivo per l'account e notare che è stato ricevuto un messaggio di posta elettronica dall'alias di AGPM con una richiesta dell'editor per distribuire un oggetto Criteri di gruppo.
 
-5. Fare doppio clic su **MioGPO** per visualizzarne la cronologia.
+3. **Nell'albero della Console Gestione Criteri** di gruppo fare clic su **Cambia** controllo nella foresta e nel dominio in cui si desidera gestire gli oggetti Criteri di gruppo.
 
-6. Esaminare le impostazioni della versione più recente di MioGPO:
+4. Nella scheda **Contenuto** del riquadro dei dettagli fare clic sulla **scheda In** sospeso.
 
-   1.  Nella finestra **cronologia** fare clic con il pulsante destro del mouse sulla versione del GPO con l'indicatore di data e ora più recente, scegliere **Impostazioni**e quindi fare clic su **report HTML** per visualizzare un riepilogo delle impostazioni del GPO.
+5. Fare doppio clic **su MyGPO per** visualizzarne la cronologia.
 
-   2.  Nel Web browser fare clic su **Mostra tutto** per visualizzare tutte le impostazioni nel GPO. Chiudi il browser.
+6. Esaminare le impostazioni nella versione più recente di MyGPO:
 
-7. Confrontare la versione più recente di MioGPO con la prima versione archiviata:
+   1.  Nella finestra **Cronologia** fare clic con il pulsante destro del mouse sulla versione dell'oggetto Criteri di gruppo con il timestamp più recente, scegliere **Impostazioni**e quindi report **HTML** per visualizzare un riepilogo delle impostazioni dell'oggetto Criteri di gruppo.
 
-   1. Nella finestra **cronologia** fare clic sulla versione del GPO con l'indicatore di data e ora più recente. Premere CTRL e quindi fare clic sulla versione più recente del GPO per cui la **versione del computer** non è * * \ \ * * *.
+   2.  Nel Web browser fare clic su **Mostra tutto** per visualizzare tutte le impostazioni nell'oggetto Criteri di gruppo. Chiudi il browser.
 
-   2. Fare clic sul pulsante **differenze** . La sezione criteri **account/criteri password** è evidenziata in verde e preceduta da **\ [+ \]**. Ciò indica che l'impostazione è configurata solo nella seconda versione dell'oggetto Criteri di controllo.
+7. Confrontare la versione più recente di MyGPO con la prima versione archiviata nell'archivio:
 
-   3. Fare clic su **criteri account/password**. L'impostazione **lunghezza minima password** viene evidenziata anche in verde e preceduta da **\ [+ \]**, che indica che è configurata solo nella seconda versione del GPO.
+   1. Nella finestra **Cronologia** fare clic sulla versione dell'oggetto Criteri di gruppo con il timestamp più recente. Premere CTRL e quindi fare clic sulla versione meno recente dell'oggetto Criteri di gruppo per cui la versione **computer** non è **\***.
+
+   2. Fare clic **sul pulsante** Differenze. La **sezione Criteri account/Criteri password** è evidenziata in verde e preceduta da **\[+\]**. Ciò indica che l'impostazione è configurata solo nell'ultima versione dell'oggetto Criteri di gruppo.
+
+   3. Fare **clic su Criteri account/Criteri password.** L'impostazione Lunghezza **minima password** è evidenziata anche in verde e preceduta da **\[+\]**, a indicare che è configurata solo nell'ultima versione dell'oggetto Criteri di gruppo.
 
    4. Chiudere il Web browser.
 
-**Per distribuire il GPO nell'ambiente di produzione**
+**Per distribuire l'oggetto Criteri di gruppo nell'ambiente di produzione**
 
-1.  Nella scheda **in sospeso** fare clic con il pulsante destro del mouse su **MioGPO** e quindi scegliere **approva**.
+1.  Nella scheda **In** sospeso fare clic con il pulsante destro del mouse su **MyGPO** e quindi scegliere **Approva**.
 
-2.  Digitare un commento da includere nella cronologia del GPO.
+2.  Digitare un commento da includere nella cronologia dell'oggetto Criteri di gruppo.
 
-3.  Fai clic su **Sì**. Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. Il GPO viene distribuito nell'ambiente di produzione.
+3.  Fai clic su **Sì**. Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** L'oggetto Criteri di gruppo viene distribuito nell'ambiente di produzione.
 
-**Per collegare l'oggetto Criteri di gruppo a un dominio o un'unità organizzativa**
+**Per collegare l'oggetto Criteri di gruppo a un dominio o a un'unità organizzativa**
 
-1.  In GPMC fare clic con il pulsante destro del mouse sul dominio o su un'unità organizzativa a cui si vuole applicare il GPO configurato e quindi scegliere **collega un oggetto Criteri**di gruppo esistente.
+1.  Nella Console Gestione Criteri di gruppo fare clic con il pulsante destro del mouse sul dominio o su un'unità organizzativa a cui si desidera applicare l'oggetto Criteri di gruppo configurato e quindi scegliere Collega un oggetto Criteri di gruppo **esistente.**
 
-2.  Nella finestra di dialogo **Seleziona GPO** fare clic su **MioGPO**e quindi su **OK**.
+2.  Nella finestra **di dialogo Seleziona oggetto Criteri** di gruppo fare clic su **MyGPO**e quindi su **OK.**
 
-### <a href="" id="bkmk-manage4"></a>Passaggio 4: usare un modello per creare un GPO
+### <a name="step-4-use-a-template-to-create-a-gpo"></a><a href="" id="bkmk-manage4"></a>Passaggio 4: Utilizzare un modello per creare un oggetto Criteri di gruppo
 
-In questo passaggio si usa un account che ha il ruolo di editor per creare e usare un modello. Questo modello è una versione statica di un oggetto Criteri di ricerca da usare come punto di partenza per la creazione di nuovi GPO. Anche se non è possibile modificare un modello, è possibile creare un nuovo GPO basato su un modello. I modelli sono utili per creare rapidamente più oggetti Criteri di gruppo che includono molte delle stesse impostazioni dei criteri.
+In questo passaggio viene utilizzato un account con il ruolo Editor per creare e utilizzare un modello. Tale modello è una versione statica di un oggetto Criteri di gruppo da utilizzare come punto di partenza per la creazione di nuovi oggetti Criteri di gruppo. Sebbene non sia possibile modificare un modello, è possibile creare un nuovo oggetto Criteri di gruppo basato su un modello. I modelli sono utili per creare rapidamente più oggetti Criteri di gruppo che includono molte delle stesse impostazioni dei criteri.
 
-**Per creare un modello basato su un oggetto Criteri di lavoro esistente**
+**Per creare un modello basato su un oggetto Criteri di gruppo esistente**
 
-1.  In un computer in cui è stato installato il client Advanced Group Policy Management, accedere con un account utente a cui è assegnato il ruolo di editor in Advanced Group Policy Management.
+1.  In un computer in cui è stato installato il client AGPM, accedere con un account utente a cui è assegnato il ruolo di Editor in AGPM.
 
-2.  Nell'albero della **console di gestione di criteri di gruppo** fare clic su **Cambia controllo** nella foresta e nel dominio in cui si vuole gestire gli oggetti GPO.
+2.  **Nell'albero della Console Gestione Criteri** di gruppo fare clic su **Cambia** controllo nella foresta e nel dominio in cui si desidera gestire gli oggetti Criteri di gruppo.
 
-3.  Nella scheda **contenuto** del riquadro dei dettagli fare clic sulla scheda **controllato** .
+3.  Nella scheda **Contenuto** del riquadro dei dettagli fare clic sulla **scheda** Controllato.
 
-4.  Fare clic con il pulsante destro del mouse su **MioGPO**e quindi scegliere **Salva come modello** per creare un modello che incorpora tutte le impostazioni attualmente in MioGPO.
+4.  Fare clic con il pulsante **** destro del mouse su **MyGPO**e quindi scegliere Salva come modello per creare un modello che incorpora tutte le impostazioni attualmente in MyGPO.
 
-5.  Digitare **MyTemplate** come nome per il modello e un commento e quindi fare clic su **OK**.
+5.  Digitare **MyTemplate** come nome per il modello e un commento e quindi fare clic su **OK.**
 
-6.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. Il nuovo modello viene visualizzato nella scheda **modelli** .
+6.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** Il nuovo modello viene visualizzato nella **scheda** Modelli.
 
-**Per richiedere che un nuovo GPO venga creato e gestito tramite Advanced Group Policy Management**
+**Per richiedere la creazione e la gestione di un nuovo oggetto Criteri di gruppo tramite AGPM**
 
-1.  Fare clic sulla scheda **controllato** .
+1.  Fare clic **sulla scheda** Controllato.
 
-2.  Fare clic con il pulsante destro del mouse sul nodo **Cambia controllo** e quindi scegliere **nuovo GPO controllato**.
+2.  Fare clic con il pulsante destro **del mouse sul** nodo Cambia controllo e quindi scegliere Nuovo oggetto Criteri di gruppo **controllato.**
 
-3.  Nella finestra di dialogo **nuovo GPO controllato** :
+3.  Nella finestra **di dialogo Nuovo oggetto Criteri** di gruppo controllato:
 
-    1.  Per ricevere una copia della richiesta, digitare l'indirizzo di posta elettronica nel campo **CC** .
+    1.  Per ricevere una copia della richiesta, digitare l'indirizzo di posta elettronica nel **campo Cc.**
 
-    2.  Digitare **MioaltroGPO** come nome per il nuovo oggetto Criteri di stato.
+    2.  Digitare **MyOtherGPO** come nome per il nuovo oggetto Criteri di gruppo.
 
-    3.  Digitare un commento per il nuovo oggetto Criteri di ricerca.
+    3.  Digitare un commento per il nuovo oggetto Criteri di gruppo.
 
-    4.  Fare clic su **Crea Live** in modo che il nuovo GPO venga distribuito nell'ambiente di produzione immediatamente dopo l'approvazione.
+    4.  Fare **clic su Crea live** in modo che il nuovo oggetto Criteri di gruppo verrà distribuito nell'ambiente di produzione subito dopo l'approvazione.
 
-    5.  Per **da modello GPO**selezionare **MyTemplate**. Fai clic su **Invia**.
+    5.  Per **Da modello oggetto Criteri di**gruppo, selezionare **MyTemplate.** Fai clic su **Invia**.
 
-4.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. Il nuovo GPO viene visualizzato nella scheda **in sospeso** .
+4.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** Il nuovo oggetto Criteri di gruppo viene visualizzato nella **scheda In** sospeso.
 
-Usare un account a cui è assegnato il ruolo di approvatore per approvare la richiesta in sospeso per creare l'oggetto Criteri di stato nel [passaggio 1: creare un oggetto Criteri](#bkmk-manage1)di stato. MyTemplate incorpora tutte le impostazioni configurate in MioGPO. Poiché MioaltroGPO è stato creato con MyTemplate, contiene inizialmente tutte le impostazioni contenute in MioGPO nel momento in cui è stato creato MyTemplate. Puoi confermare questa operazione generando un report differenza per confrontare MioaltroGPO con MyTemplate.
+Utilizzare un account assegnato al ruolo di responsabile approvazione per approvare la richiesta in sospeso per creare l'oggetto Criteri di gruppo come nel [passaggio 1: creare un oggetto Criteri di gruppo.](#bkmk-manage1) MyTemplate incorpora tutte le impostazioni configurate in MyGPO. Poiché MyOtherGPO è stato creato con MyTemplate, in un primo momento contiene tutte le impostazioni contenute in MyGPO al momento della creazione di MyTemplate. Puoi confermarlo generando un report delle differenze per confrontare MyOtherGPO con MyTemplate.
 
-**Per controllare l'oggetto Criteri di ricerca dall'archivio per la modifica**
+**Per estrarre l'oggetto Criteri di gruppo dall'archivio per la modifica**
 
-1.  In un computer in cui è stato installato il client Advanced Group Policy Management, accedere con un account utente a cui è assegnato il ruolo di editor in Advanced Group Policy Management.
+1.  In un computer in cui è stato installato il client AGPM, accedere con un account utente a cui è assegnato il ruolo di Editor in AGPM.
 
-2.  Fare clic con il pulsante destro del mouse su **MioaltroGPO**e quindi scegliere **Estrai**.
+2.  Fare clic con il **pulsante destro del mouse su MyOtherGPO**e quindi scegliere **Estrai**.
 
-3.  Digitare un commento da visualizzare nella cronologia del GPO mentre è estratto e quindi fare clic su **OK**.
+3.  Digitare un commento da visualizzare nella cronologia dell'oggetto Criteri di gruppo durante l'estrazione e quindi fare clic su **OK.**
 
-4.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. Nella scheda **controllato** lo stato dell'oggetto Criteri di controllo viene identificato come **Estratto**.
+4.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** Nella scheda **Controllato** lo stato dell'oggetto Criteri di gruppo è identificato come **Estratto.**
 
-**Per modificare l'oggetto Criteri di stato offline e configurare la durata del blocco dell'account**
+**Per modificare l'oggetto Criteri di gruppo offline e configurare la durata del blocco dell'account**
 
-1.  Nella scheda **controllo** , fare clic con il pulsante destro del mouse su **MioaltroGPO**e quindi scegliere **modifica** per aprire la finestra dell' **Editor gestione criteri di gruppo** e modificare una copia offline dell'oggetto GPO. Per questo scenario, configurare la lunghezza minima della password:
+1.  Nella scheda **Controllato** fare clic con il pulsante destro **** del mouse su **MyOtherGPO**e quindi scegliere Modifica per aprire la finestra **Editor** Gestione Criteri di gruppo e modificare una copia offline dell'oggetto Criteri di gruppo. Per questo scenario, configurare la lunghezza minima della password:
 
-    1.  In **Configurazione computer**fare doppio clic su **criteri**, **impostazioni di Windows**, **impostazioni di sicurezza**, criteri **account**e criteri di **blocco degli account**.
+    1.  In **Configurazione computer**fare doppio clic su **Criteri**, **Windows Impostazioni**, Protezione **Impostazioni** **,** Criteri account e Criteri di **blocco account**.
 
-    2.  Nel riquadro dei dettagli fare doppio clic sulla **durata del blocco dell'account**.
+    2.  Nel riquadro dei dettagli fare doppio clic su **Durata blocco account.**
 
-    3.  Nella finestra Proprietà selezionare la casella di controllo **Definisci questa impostazione**, impostare la durata su **30** minuti e quindi fare clic su **OK**.
+    3.  Nella finestra delle proprietà seleziona Definisci **questa impostazione di criterio,** imposta la durata **su 30** minuti e quindi fai clic su **OK.**
 
-2.  Chiudere la finestra **Editor gestione criteri di gruppo** .
+2.  Chiudere la **finestra Editor Gestione Criteri di** gruppo.
 
-Selezionare MioaltroGPO nell'archivio e richiedere la distribuzione come per MioGPO nel [passaggio 2: modificare un oggetto Criteri](#bkmk-manage2)di ricerca. Puoi confrontare MioaltroGPO con MioGPO o MyTemplate usando i report differenze. Tutti gli account che includono il ruolo di revisore (amministratore della gestione avanzata Criteri di amministrazione \ [controllo completo \], approvatore, editor o revisore) possono generare report.
+Archiviare MyOtherGPO nell'archivio e richiedere la distribuzione come per MyGPO nel [passaggio 2: modificare un oggetto Criteri di gruppo.](#bkmk-manage2) Puoi confrontare MyOtherGPO con MyGPO o con MyTemplate usando i rapporti sulle differenze. Qualsiasi account che includa il ruolo Revisore (Amministratore AGPM \[Controllo completo\], Responsabile approvazione, Editor o Revisore) può generare report.
 
-**Per confrontare un oggetto Criteri di confronto a un altro GPO e a un modello**
+**Per confrontare un oggetto Criteri di gruppo con un altro oggetto Criteri di gruppo e con un modello**
 
-1.  Per confrontare MioGPO e MioaltroGPO:
+1.  Per confrontare MyGPO e MyOtherGPO:
 
-    1.  Nella scheda **controllata** fare clic su **MioGPO**. Premere CTRL e quindi fare clic su **MioaltroGPO**.
+    1.  Nella scheda **Controllato** fare clic su **MyGPO.** Premere CTRL e quindi fare clic **su MyOtherGPO.**
 
-    2.  Fare clic con il pulsante destro del mouse su **MioaltroGPO**, scegliere **differenze**e quindi fare clic su **report HTML**.
+    2.  Fare clic con il pulsante destro del mouse su **MyOtherGPO,** scegliere **Differenze**e quindi **report HTML.**
 
-2.  Per confrontare MioaltroGPO e MyTemplate:
+2.  Per confrontare MyOtherGPO e MyTemplate:
 
-    1.  Nella scheda **controllata** fare clic su **MioaltroGPO**.
+    1.  Nella scheda **Controllato** fare clic **su MyOtherGPO.**
 
-    2.  Fare clic con il pulsante destro del mouse su **MioaltroGPO**, scegliere **differenze**e quindi fare clic su **modello**.
+    2.  Fare clic con il pulsante destro del mouse su **MyOtherGPO,** scegliere **Differenze**e quindi **modello**.
 
-    3.  Selezionare **MyTemplate** e **report HTML**e quindi fare clic su **OK**.
+    3.  Selezionare **MyTemplate** e **Report HTML**e quindi fare clic su **OK.**
 
-### <a href="" id="bkmk-manage5"></a>Passaggio 5: eliminare e ripristinare un GPO
+### <a name="step-5-delete-and-restore-a-gpo"></a><a href="" id="bkmk-manage5"></a>Passaggio 5: Eliminare e ripristinare un oggetto Criteri di gruppo
 
-In questo passaggio si funge da approvatore per eliminare un oggetto Criteri di stato.
+In questo passaggio si agisce come responsabile approvazione per eliminare un oggetto Criteri di gruppo.
 
-**Per eliminare un oggetto Criteri di stato**
+**Per eliminare un oggetto Criteri di gruppo**
 
-1.  In un computer in cui è stato installato il client Advanced Group Policy Management, accedere con un account utente a cui è assegnato il ruolo di responsabile approvazione.
+1.  In un computer in cui è stato installato il client AGPM, accedere con un account utente a cui è assegnato il ruolo di responsabile approvazione.
 
-2.  Nell'albero della **console di gestione di criteri di gruppo** fare clic su **Cambia controllo** nella foresta e nel dominio in cui si vuole gestire gli oggetti GPO.
+2.  **Nell'albero della Console Gestione Criteri** di gruppo fare clic su **Cambia** controllo nella foresta e nel dominio in cui si desidera gestire gli oggetti Criteri di gruppo.
 
-3.  Nella scheda **contenuto** fare clic sulla scheda **controllati** per visualizzare gli oggetti Criteri di controllo controllati.
+3.  Nella scheda **Contenuto** fare clic sulla **scheda Controllato** per visualizzare gli oggetti Criteri di gruppo controllati.
 
-4.  Fare clic con il pulsante destro del mouse su **MioGPO**e quindi scegliere **Elimina**. Fare clic su **Elimina GPO da archiviazione e produzione** per eliminare sia la versione nell'archivio che la versione distribuita del GPO nell'ambiente di produzione.
+4.  Fare clic con il **pulsante destro del mouse su MyGPO**e quindi scegliere **Elimina.** Fare **clic su Elimina oggetto Criteri** di gruppo dall'archivio e dalla produzione per eliminare sia la versione nell'archivio che la versione distribuita dell'oggetto Criteri di gruppo nell'ambiente di produzione.
 
-5.  Digitare un commento da visualizzare in audit trail per il GPO e quindi fare clic su **OK**.
+5.  Digitare un commento da visualizzare nell'audit trail per l'oggetto Criteri di gruppo e quindi fare clic su **OK.**
 
-6.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. Il GPO viene rimosso dalla scheda **controllato** e viene visualizzato nella scheda **Cestino** , in cui può essere ripristinato o distrutto.
+6.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** L'oggetto Criteri di gruppo viene rimosso **dalla** scheda Controllato e visualizzato nella scheda **Cestino,** dove può essere ripristinato o eliminato.
 
-Occasionalmente potresti scoprire dopo l'eliminazione di un GPO che è ancora necessario. In questo passaggio si funge da approvatore per ripristinare un oggetto Criteri di stato eliminato.
+In alcuni casi è possibile che dopo l'eliminazione di un oggetto Criteri di gruppo sia ancora necessario. In questo passaggio si agisce come responsabile approvazione per ripristinare un oggetto Criteri di gruppo eliminato.
 
-**Per ripristinare un oggetto Criteri di stato eliminato**
+**Per ripristinare un oggetto Criteri di gruppo eliminato**
 
-1.  Nella scheda **contenuto** fare clic sulla scheda **Cestino** per visualizzare i GPO eliminati.
+1.  Nella scheda **Contenuto** fare clic sulla scheda **Cestino** per visualizzare gli oggetti Criteri di gruppo eliminati.
 
-2.  Fare clic con il pulsante destro del mouse su **MioGPO**e quindi scegliere **Ripristina**.
+2.  Fare clic con il **pulsante destro del mouse su MyGPO**e quindi scegliere **Ripristina**.
 
-3.  Digitare un commento da visualizzare nella cronologia del GPO e quindi fare clic su **OK**.
+3.  Digitare un commento da visualizzare nella cronologia dell'oggetto Criteri di gruppo e quindi fare clic su **OK.**
 
-4.  Quando la finestra **stato Advanced Group Policy Management** indica che lo stato di avanzamento complessivo è completato, fare clic su **Chiudi**. L'oggetto Criteri di controllo viene rimosso dalla scheda **Cestino** e viene visualizzato nella scheda **controllati** .
+4.  Quando la **finestra Stato agPM** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** L'oggetto Criteri di gruppo viene rimosso **dalla scheda Cestino** e visualizzato nella **scheda** Controllato.
 
-    **Nota**  Il ripristino di un GPO nell'archivio non viene automaticamente ridistribuito nell'ambiente di produzione. Per restituire il GPO all'ambiente di produzione, distribuire il GPO come nel [passaggio 3: rivedere e distribuire un oggetto Criteri di controllo](#bkmk-manage3).
+    **Nota**  
+    Il ripristino di un oggetto Criteri di gruppo nell'archivio non lo ridistribuisce automaticamente nell'ambiente di produzione. Per restituire l'oggetto Criteri di gruppo all'ambiente di produzione, distribuire l'oggetto Criteri di gruppo come nel [passaggio 3: esaminare e distribuire un oggetto Criteri di gruppo.](#bkmk-manage3)
 
      
 
-Dopo la modifica e la distribuzione di un oggetto Criteri di ricerca, potresti scoprire che le recenti modifiche apportate al GPO causano un problema. In questo passaggio si funge da approvatore per eseguire il rollback a una versione precedente dell'oggetto Criteri di controllo. È possibile eseguire il rollback a qualsiasi versione nella cronologia del GPO. È possibile usare i commenti e le etichette per identificare le versioni valide note e quando sono state apportate modifiche specifiche.
+Dopo aver modificato e distribuito un oggetto Criteri di gruppo, è possibile che le modifiche recenti all'oggetto Criteri di gruppo causano un problema. In questo passaggio si funge da responsabile approvazione per eseguire il rollback a una versione precedente dell'oggetto Criteri di gruppo. È possibile eseguire il rollback a qualsiasi versione nella cronologia dell'oggetto Criteri di gruppo. È possibile utilizzare commenti ed etichette per identificare le versioni buone note e quando sono state apportate modifiche specifiche.
 
-**Per eseguire il rollback a una versione precedente di un oggetto Criteri di controllo**
+**Per eseguire il rollback a una versione precedente di un oggetto Criteri di gruppo**
 
-1.  Nella scheda **contenuto** fare clic sulla scheda **controllati** per visualizzare gli oggetti Criteri di controllo controllati.
+1.  Nella scheda **Contenuto** fare clic sulla **scheda Controllato** per visualizzare gli oggetti Criteri di gruppo controllati.
 
-2.  Fare doppio clic su **MioGPO** per visualizzarne la cronologia.
+2.  Fare doppio clic **su MyGPO per** visualizzarne la cronologia.
 
-3.  Fare clic con il pulsante destro del mouse sulla versione da distribuire, scegliere **Distribuisci**e quindi fare clic su **Sì**.
+3.  Fare clic con il pulsante destro del mouse sulla versione da distribuire, **scegliere Distribuisci**e quindi fare clic su **Sì.**
 
-4.  Quando la finestra di **stato** indica che lo stato di avanzamento complessivo è stato completato, fare clic su **Chiudi**. Nella finestra **cronologia** fare clic su **Chiudi**.
+4.  Quando la **finestra Stato** indica che l'avanzamento complessivo è stato completato, fare clic su **Chiudi.** Nella finestra **Cronologia** fare clic su **Chiudi.**
 
-    **Nota**  Per verificare che la versione ridistribuita sia la versione progettata, esaminare un report di differenza per le due versioni. Nella finestra **cronologia** del GPO selezionare le due versioni, fare clic con il pulsante destro del mouse su di esse, scegliere **differenza**e quindi fare clic su **report HTML** o **report XML**.
+    **Nota**  
+    Per verificare che la versione ridistribuito sia quella prevista, esaminare un report delle differenze per le due versioni. Nella finestra **Cronologia** dell'oggetto Criteri di gruppo selezionare le due versioni, fare clic con il pulsante destro del mouse su di esse, scegliere **Differenza**e quindi report **HTML** o **Report XML.**
 
      
 

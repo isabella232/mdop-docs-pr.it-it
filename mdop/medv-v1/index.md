@@ -1,6 +1,6 @@
 ---
-title: Guida alla pianificazione, distribuzione e operazioni di virtualizzazione desktop Microsoft Enterprise
-description: Guida alla pianificazione, distribuzione e operazioni di virtualizzazione desktop Microsoft Enterprise
+title: Microsoft Enterprise Desktop Virtualization Guida alla pianificazione, alla distribuzione e alle operazioni
+description: Microsoft Enterprise Desktop Virtualization Guida alla pianificazione, alla distribuzione e alle operazioni
 author: dansimp
 ms.assetid: 7bc3e120-df77-4f4c-bc8e-7aaa4c2a6525
 ms.pagetype: mdop, virtualization
@@ -8,26 +8,26 @@ ms.mktglfcycl: deploy
 ms.sitesec: library
 ms.prod: w10
 ms.date: 06/16/2016
-ms.openlocfilehash: 2a5f3a617d2c7b23b530474893a68a60c2d5b189
-ms.sourcegitcommit: 354664bc527d93f80687cd2eba70d1eea024c7c3
+ms.openlocfilehash: 2cbdb429349cc337d64912bd846173e6f61ae12d
+ms.sourcegitcommit: 3e0500abde44d6a09c7ac8e3caf5e25929b490a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "10795791"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "11910791"
 ---
-# Guida alla pianificazione, distribuzione e operazioni di virtualizzazione desktop Microsoft Enterprise
+# <a name="microsoft-enterprise-desktop-virtualization-planning-deployment-and-operations-guide"></a>Microsoft Enterprise Desktop Virtualization Guida alla pianificazione, alla distribuzione e alle operazioni
 
 
-![virtualizzazione desktop Microsoft Enterprise](images/medv.gif)
+![Virtualizzazione desktop aziendale microsoft.](images/medv.gif)
 
-Microsoft Enterprise Desktop Virtualization (MED-V) USA Microsoft Virtual PC per creare una soluzione aziendale per la virtualizzazione desktop. Con MED-V puoi facilmente creare, offrire e gestire le immagini Virtual PC aziendali in qualsiasi computer desktop basato su Windows ®.
+Microsoft Enterprise Desktop Virtualization (MED-V) usa Microsoft Virtual PC per fornire una soluzione aziendale per la virtualizzazione desktop. Con MED-V puoi facilmente creare, offrire e gestire le immagini Virtual PC aziendali in qualsiasi computer desktop basato su Windows ®.
 
-MED-V è un componente integrale di Microsoft Desktop Optimization Pack, una soluzione dinamica disponibile per i clienti del Software Assurance, che consente di ridurre i costi di distribuzione delle applicazioni, di consentire il recapito di app come servizi e di gestire in modo più efficace gli ambienti desktop aziendali.
+MED-V è un componente integrante di Microsoft Desktop Optimization Pack, una soluzione dinamica disponibile per i clienti di Software Assurance, che consente di ridurre i costi di distribuzione delle applicazioni, consente la distribuzione delle applicazioni come servizi e consente di gestire e controllare meglio gli ambienti desktop aziendali.
 
-## In questa sezione
+## <a name="in-this-section"></a>In questa sezione
 
 
-In questa guida sono descritti gli argomenti seguenti:
+In questa guida vengono trattati gli argomenti seguenti:
 
 [Informazioni su questa guida](about-this-guidemedv.md)
 
@@ -43,9 +43,9 @@ In questa guida sono descritti gli argomenti seguenti:
 
 [Documentazione tecnica](technical-referencemedv-10-sp1.md)
 
- 
+ 
 
- 
+ 
 
 
 

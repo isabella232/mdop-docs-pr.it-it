@@ -11,38 +11,38 @@ ms.mktglfcycl: support
 ms.sitesec: library
 ms.prod: w10
 ms.date: 06/16/2016
-ms.openlocfilehash: 0e5ff1069d8be5ec1cd87d4db64e6b8f114c91b3
-ms.sourcegitcommit: 354664bc527d93f80687cd2eba70d1eea024c7c3
+ms.openlocfilehash: 6b7f5e1b906f22146016c9c485b02b39edbf083c
+ms.sourcegitcommit: 3e0500abde44d6a09c7ac8e3caf5e25929b490a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "10804773"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "11910651"
 ---
-# DaRT 10
+# <a name="dart-10"></a>DaRT 10
 
 
-![logo di mbam](images/mbam-logo-sm.gif)
+![logo mbam.](images/mbam-logo-sm.gif)
 
-## <a href="" id="administrator-s-guide-for--product-name-"></a>Guida dell'amministratore per &lt; nome prodotto&gt;
+## <a name="administrators-guide-for-ltproduct-namegt"></a><a href="" id="administrator-s-guide-for--product-name-"></a>Manuale dell'amministratore per il &lt; nome del prodotto&gt;
 
 
-Pubblicato: * &lt; data pubblicata &gt; *
+Published: * &lt; date &gt; published*
 
-*Includere una panoramica generale del prodotto, qui.*
+*Includere qui una panoramica riepilogativa del prodotto.*
 
-Questa guida descrive come installare e usare il * &lt; nome &gt; del prodotto*. Questa guida è progettata per gli amministratori e il personale IT.
+In questa guida viene descritto come installare e utilizzare * &lt; Nome prodotto &gt; *. Questa guida è destinata agli amministratori e al personale IT.
 
-Per la documentazione più aggiornata per il * &lt; nome &gt; del prodotto*, vedere la Home Page *Inserisci collegamento qui* .
+Per la documentazione più attuale relativa a * &lt; Nome prodotto, &gt; *vedere la home page *inserisci* collegamento qui.
 
-Per le note sulla versione per il * &lt; nome &gt; del prodotto*, vedere Inserire il *collegamento qui*.
+Per le note sulla versione per * &lt; Nome prodotto, &gt; *vedere inserire il collegamento *qui*.
 
-### Feedback
+### <a name="feedback"></a>Feedback
 
-Inviare suggerimenti e Commenti su questo documento <mdopdocs@microsoft.com> .
+Inviare suggerimenti e commenti su questo documento a <mdopdocs@microsoft.com> .
 
- 
+ 
 
- 
+ 
 
 
 

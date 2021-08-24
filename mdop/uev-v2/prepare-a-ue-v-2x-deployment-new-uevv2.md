@@ -1,6 +1,6 @@
 ---
-title: Preparare una distribuzione UE-V 2. x
-description: Preparare una distribuzione UE-V 2. x
+title: Preparare una UE-V 2.x
+description: Preparare una UE-V 2.x
 author: dansimp
 ms.assetid: c429fd06-13ff-48c5-b9c9-fa1ec01ab800
 ms.reviewer: ''
@@ -11,87 +11,87 @@ ms.mktglfcycl: deploy
 ms.sitesec: library
 ms.prod: w10
 ms.date: 04/19/2017
-ms.openlocfilehash: e6b2de407990536e1a08532632dcea19ea0d0ee9
-ms.sourcegitcommit: 354664bc527d93f80687cd2eba70d1eea024c7c3
+ms.openlocfilehash: 3e4d4b69975deda473372345733d8e8593a4775d
+ms.sourcegitcommit: 3e0500abde44d6a09c7ac8e3caf5e25929b490a4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "10826425"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "11910531"
 ---
-# Preparare una distribuzione UE-V 2. x
+# <a name="prepare-a-ue-v-2x-deployment"></a>Preparare una UE-V 2.x
 
 
-La pianificazione e la preparazione da eseguire prima di distribuire Microsoft User Experience Virtualization (UE-V) 2,0 o 2,1 è una soluzione per la sincronizzazione delle impostazioni tra i dispositivi a cui gli utenti accedono nell'organizzazione. Questo argomento consente di determinare il tipo di distribuzione che si sta eseguendo e la preparazione che è possibile eseguire in anticipo in modo che la distribuzione abbia successo.
+Prima di distribuire Microsoft User Experience Virtualization (UE-V) 2.0 o 2.1 come soluzione per la sincronizzazione delle impostazioni tra dispositivi a cui gli utenti accedono nell'organizzazione, è necessario eseguire alcune operazioni di pianificazione e preparazione. Questo argomento consente di determinare il tipo di distribuzione da eseguire e la preparazione che è possibile eseguire in precedenza in modo che la distribuzione venga eseguita correttamente.
 
-Prima di tutto, esaminiamo le attività da eseguire per distribuire UE-V:
+Prima di tutto, esamini le attività che dovrai eseguire per distribuire UE-V:
 
--   Pianificare la distribuzione di UE-V
+-   Pianificare la distribuzione UE-V distribuzione
 
-    Prima di distribuire qualsiasi elemento, un buon primo passaggio consiste nell'eseguire un po' di pianificazione in modo da determinare quali funzionalità di UE-V verranno distribuite. Quindi, se si lascia questa pagina, assicurarsi di tornare e leggere le informazioni di pianificazione seguenti.
+    Prima di distribuire qualsiasi elemento, un buon primo passaggio consiste nell'eseguire un po' di pianificazione in modo da poter determinare UE-V funzionalità da distribuire. Pertanto, se si esce da questa pagina, assicurarsi di tornare a leggere le informazioni sulla pianificazione riportate di seguito.
 
 -   [Distribuire le funzionalità necessarie per UE-V 2.x](deploy-required-features-for-ue-v-2x-new-uevv2.md)
 
-    Ogni distribuzione UE-V richiede queste attività:
+    Ogni UE-V di distribuzione richiede queste attività:
 
-    -   [Definire una posizione di archiviazione delle impostazioni](https://technet.microsoft.com/library/dn458891.aspx#ssl)
+    -   [Definire un percorso di archiviazione delle impostazioni](https://technet.microsoft.com/library/dn458891.aspx#ssl)
 
-    -   [Decidere come distribuire l'agente UE-V e gestire le configurazioni di UE-V](https://technet.microsoft.com/library/dn458891.aspx#config)
+    -   [Decidere come distribuire l'agente UE-V e gestire le UE-V predefinite](https://technet.microsoft.com/library/dn458891.aspx#config)
 
-    -   [Installare l'agente UE-V](https://technet.microsoft.com/library/dn458891.aspx#agent) in tutti i computer degli utenti che necessitano di impostazioni sincronizzate
+    -   [Installare l'UE-V in](https://technet.microsoft.com/library/dn458891.aspx#agent) ogni computer utente che necessita di impostazioni sincronizzate
 
--   Facoltativamente, è possibile [distribuire UE-V 2. x per le applicazioni personalizzate](deploy-ue-v-2x-for-custom-applications-new-uevv2.md)
+-   Facoltativamente, è possibile [distribuire UE-V 2.x per le applicazioni personalizzate](deploy-ue-v-2x-for-custom-applications-new-uevv2.md)
 
-    La pianificazione consentirà di capire se si vuole che UE-V supporti la sincronizzazione delle impostazioni per le applicazioni personalizzate (di terze parti o line-of-business), che richiede queste funzionalità di UE-V:
+    La pianificazione consente di stabilire se si desidera che UE-V supporti la sincronizzazione delle impostazioni per le applicazioni personalizzate (di terze parti o line-of-business), che richiedono queste funzionalità di UE-V:
 
-    -   [Installare il generatore di UEV](https://technet.microsoft.com/library/dn458942.aspx#uevgen) in modo da poter creare, modificare e convalidare i modelli di posizione delle impostazioni personalizzati necessari per sincronizzare le impostazioni delle applicazioni personalizzate
+    -   [Installare il generatore UEV in](https://technet.microsoft.com/library/dn458942.aspx#uevgen) modo da poter creare, modificare e convalidare i modelli di percorso delle impostazioni personalizzate necessari per sincronizzare le impostazioni personalizzate dell'applicazione
 
-    -   [Creare modelli di posizione delle impostazioni personalizzate](https://technet.microsoft.com/library/dn458942.aspx#createcustomtemplates) usando il generatore UE-V
+    -   [Creare modelli di percorso delle](https://technet.microsoft.com/library/dn458942.aspx#createcustomtemplates) impostazioni personalizzate tramite il generatore UE-V personalizzato
 
-    -   [Distribuire un catalogo di modelli di impostazioni UE-V](https://technet.microsoft.com/library/dn458942.aspx#deploycatalogue) che si usa per archiviare i modelli di posizione delle impostazioni personalizzate
+    -   [Distribuire un UE-V di modelli di](https://technet.microsoft.com/library/dn458942.aspx#deploycatalogue) impostazioni personalizzate da usare per archiviare i modelli di percorso delle impostazioni personalizzate
 
-Questo diagramma flusso di lavoro offre una comprensione di alto livello di una distribuzione UE-V e delle decisioni che determinano la modalità di distribuzione di UE-V nell'organizzazione.
+Questo diagramma del flusso di lavoro offre una conoscenza di alto livello di una distribuzione UE-V e delle decisioni che determinano la modalità di UE-V nell'organizzazione.
 
-![deploymentworkflow](images/deploymentworkflow.png)
+![deploymentworkflow.](images/deploymentworkflow.png)
 
-**Pianificazione di una distribuzione di UE-V:** Prima di tutto, devi pianificare la pianificazione in modo da determinare i componenti UE-V che dovrai distribuire. La pianificazione di una distribuzione UE-V implica questi elementi:
+**Pianificazione di una UE-V distribuzione:** Prima di tutto, si desidera eseguire un po' di pianificazione in modo da poter determinare UE-V componenti da distribuire. La pianificazione di UE-V una distribuzione implica le operazioni seguenti:
 
 -   [Decidere se sincronizzare le impostazioni per le applicazioni personalizzate](#deciding)
 
-    In questo modo viene determinato se si installerà il generatore UE-V durante la distribuzione, che consente di creare modelli di posizione delle impostazioni personalizzati. Si tratta delle operazioni seguenti:
+    Questo determina se verrà installato il generatore di UE-V durante la distribuzione, che consente di creare modelli di percorso delle impostazioni personalizzate. Implica quanto segue:
 
-    Esaminare le [Impostazioni sincronizzate automaticamente in una distribuzione di UE-V](#autosyncsettings).
+    Esaminare le [impostazioni sincronizzate automaticamente in una UE-V distribuzione](#autosyncsettings).
 
     [Determinare se sono necessarie impostazioni sincronizzate per altre applicazioni](#determinesettingssync).
 
--   Esaminare [altre considerazioni per la distribuzione di UE-V](#considerations), ad esempio disponibilità elevata e pianificazione della capacità.
+-   Esaminare [altre considerazioni per la distribuzione di UE-V](#considerations), ad esempio la pianificazione della disponibilità elevata e della capacità.
 
--   [Confermare i prerequisiti e le configurazioni supportate per la versione UE-V](#prereqs)
+-   [Verificare i prerequisiti e le configurazioni supportate per UE-V](#prereqs)
 
-## <a href="" id="deciding"></a>Decidere se sincronizzare le impostazioni per le applicazioni personalizzate
+## <a name="decide-whether-to-synchronize-settings-for-custom-applications"></a><a href="" id="deciding"></a>Decidere se sincronizzare Impostazioni applicazioni personalizzate
 
 
-In una distribuzione di UE-V vengono sincronizzate automaticamente molte impostazioni. Ma è anche possibile personalizzare UE-V per sincronizzare le impostazioni per altre applicazioni, ad esempio le app line-of-business e di terze parti.
+In una UE-V, molte impostazioni vengono sincronizzate automaticamente. Tuttavia, puoi anche personalizzare UE-V per sincronizzare le impostazioni per altre applicazioni, ad esempio le app line-of-business e di terze parti.
 
-Decidere se si vuole che la sincronizzazione delle impostazioni per le applicazioni personalizzate da parte di UE-V sia probabilmente la parte più importante della pianificazione della distribuzione di UE-V. Gli argomenti di questa sezione ti aiuteranno a prendere questa decisione.
+Decidere se si desidera UE-V le impostazioni per le applicazioni personalizzate è probabilmente la parte più importante della pianificazione della UE-V distribuzione. Gli argomenti di questa sezione ti aiuteranno a prendere questa decisione.
 
-### <a href="" id="autosyncsettings"></a>Impostazioni sincronizzate automaticamente in una distribuzione di UE-V
+### <a name="settings-that-are-automatically-synchronized-in-a-ue-v-deployment"></a><a href="" id="autosyncsettings"></a>Impostazioni sincronizzati automaticamente in una UE-V distribuzione
 
-In questa sezione vengono fornite informazioni sulle impostazioni sincronizzate per impostazione predefinita in UE-V, incluse le seguenti:
+In questa sezione vengono fornite informazioni sulle impostazioni sincronizzate per impostazione predefinita in UE-V, tra cui:
 
 Applicazioni desktop le cui impostazioni sono sincronizzate per impostazione predefinita
 
-Impostazioni desktop di Windows sincronizzate per impostazione predefinita
+Windows desktop sincronizzate per impostazione predefinita
 
-Dichiarazione di supporto per la sincronizzazione delle impostazioni dell'app Windows
+Dichiarazione di supporto per la sincronizzazione Windows'impostazione dell'app
 
-Vedere [modelli di impostazioni per la virtualizzazione dell'esperienza utente (UE-v) per Microsoft Office](https://www.microsoft.com/download/details.aspx?id=46367) per scaricare un elenco completo delle impostazioni specifiche di microsoft Office 2013, microsoft Office 2010 e microsoft Office 2007 sincronizzate da UE-v.
+Per scaricare un elenco completo delle impostazioni specifiche di Microsoft Office 2013, Microsoft Office 2010 e Microsoft Office 2007 sincronizzate da UE-V, vedere [User Experience Virtualization (UE-V) settings templates for Microsoft Office](https://www.microsoft.com/download/details.aspx?id=46367) to download a complete list of the specific Microsoft Office 2013, Microsoft Office 2010, and Microsoft Office 2007 settings that are synchronized by UE-V.
 
-### Applicazioni desktop sincronizzate per impostazione predefinita in UE-V 2,1 e UE-V 2,1 SP1
+### <a name="desktop-applications-synchronized-by-default-in-ue-v-21-and-ue-v-21-sp1"></a>Applicazioni desktop sincronizzate per impostazione predefinita in UE-V 2.1 e UE-V 2.1 SP1
 
-Quando si installa l'agente UE-V 2,1 o 2,1 SP1, viene registrato un gruppo predefinito di modelli di posizione delle impostazioni che acquisiscono i valori delle impostazioni per queste applicazioni Microsoft comuni.
+Quando si installa l'UE-V 2.1 o 2.1 SP1 Agent, viene registrato un gruppo predefinito di modelli di percorso delle impostazioni che acquisiscono i valori delle impostazioni per queste applicazioni Microsoft comuni.
 
 **Suggerimento**  
-**Sincronizzazione delle impostazioni di Microsoft Office 2007** -in UE-V 2,1 e 2,1 SP1, un modello di posizione delle impostazioni non è più incluso per impostazione predefinita per le applicazioni di Office 2007. Tuttavia, è comunque possibile usare i modelli di Office 2007 da UE-V 2,0 o versioni precedenti e ottenere i modelli dalla [raccolta modelli di UE-v](https://go.microsoft.com/fwlink/p/?LinkID=246589).
+**Microsoft Office 2007 Impostazioni Synchronization** : in UE-V 2.1 e 2.1 SP1, un modello di percorso delle impostazioni non è più incluso per impostazione predefinita per le applicazioni Office 2007. Tuttavia, è comunque possibile utilizzare i modelli Office 2007 di UE-V 2.0 o versioni precedenti ed è possibile ottenere i modelli dalla raccolta modelli [UE-V](https://go.microsoft.com/fwlink/p/?LinkID=246589).
 
 
 
@@ -108,8 +108,8 @@ Quando si installa l'agente UE-V 2,1 o 2,1 SP1, viene registrato un gruppo prede
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p>Applicazioni di Microsoft Office 2010</p>
-<p>( <a href="https://www.microsoft.com/download/details.aspx?id=46367" data-raw-source="[Download a list of all settings synced](https://www.microsoft.com/download/details.aspx?id=46367)"> Scaricare un elenco di tutte le impostazioni sincronizzate </a> )</p></td>
+<td align="left"><p>Microsoft Office 2010</p>
+<p>( <a href="https://www.microsoft.com/download/details.aspx?id=46367" data-raw-source="[Download a list of all settings synced](https://www.microsoft.com/download/details.aspx?id=46367)"> Scarica un elenco di tutte le impostazioni sincronizzate </a> )</p></td>
 <td align="left"><p>Microsoft Word 2010</p>
 <p>Microsoft Excel 2010</p>
 <p>Microsoft Outlook 2010</p>
@@ -125,8 +125,8 @@ Quando si installa l'agente UE-V 2,1 o 2,1 SP1, viene registrato un gruppo prede
 <p>Microsoft SharePoint Designer 2010</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>Applicazioni di Microsoft Office 2013</p>
-<p>( <a href="https://www.microsoft.com/download/details.aspx?id=46367" data-raw-source="[Download a list of all settings synced](https://www.microsoft.com/download/details.aspx?id=46367)"> Scaricare un elenco di tutte le impostazioni sincronizzate </a> )</p></td>
+<td align="left"><p>Microsoft Office 2013</p>
+<p>( <a href="https://www.microsoft.com/download/details.aspx?id=46367" data-raw-source="[Download a list of all settings synced](https://www.microsoft.com/download/details.aspx?id=46367)"> Scarica un elenco di tutte le impostazioni sincronizzate </a> )</p></td>
 <td align="left"><p>Microsoft Word 2013</p>
 <p>Microsoft Excel 2013</p>
 <p>Microsoft Outlook 2013</p>
@@ -141,9 +141,9 @@ Quando si installa l'agente UE-V 2,1 o 2,1 SP1, viene registrato un gruppo prede
 <p>Microsoft SharePoint Designer 2013</p>
 <p>Microsoft Office 2013 Upload Center</p>
 <p>Microsoft OneDrive for Business 2013</p>
-<p>I modelli di posizione delle impostazioni di Microsoft Office 2013 della versione UE-V 2,1 e 2,1 SP1 includono il supporto per la firma di Outlook migliorato. È stata aggiunta la sincronizzazione delle impostazioni predefinite della firma per i messaggi di posta elettronica nuovi, di risposta e inoltrati.</p>
+<p>I modelli UE-V 2.1 e 2.1 SP1 Microsoft Office 2013 includono un supporto migliorato Outlook firme. È stata aggiunta la sincronizzazione delle impostazioni di firma predefinite per i messaggi di posta elettronica nuovi, di risposta e inoltrati.</p>
 <div class="alert">
-<strong>Nota</strong><br/><p>È necessario creare un profilo di Outlook per qualsiasi dispositivo in cui un utente vuole sincronizzare la firma di Outlook. Se il profilo non è già stato creato, l'utente può crearne uno e quindi riavviare Outlook in tale dispositivo per abilitare la sincronizzazione della firma.</p>
+<strong>Nota</strong><br/><p>È Outlook deve essere creato un profilo per qualsiasi dispositivo in cui un utente desidera sincronizzare la propria Outlook firma. Se il profilo non è già stato creato, l'utente può crearne uno e quindi riavviare Outlook sul dispositivo per abilitare la sincronizzazione delle firme.</p>
 </div>
 <div>
 
@@ -151,17 +151,17 @@ Quando si installa l'agente UE-V 2,1 o 2,1 SP1, viene registrato un gruppo prede
 </tr>
 <tr class="odd">
 <td align="left"><p>Opzioni del browser: Internet Explorer 8, Internet Explorer 9, Internet Explorer 10 e Internet Explorer 11</p></td>
-<td align="left"><p>Preferiti, Home page, schede e barre degli strumenti.</p>
+<td align="left"><p>Preferiti, home page, schede e barre degli strumenti.</p>
 <div class="alert">
-<strong>Nota</strong><br/><p>UE-V non esegue la roaming delle impostazioni per i cookie di Internet Explorer.</p>
+<strong>Nota</strong><br/><p>UE-V non esegue il roaming delle impostazioni per i cookie di Internet Explorer.</p>
 </div>
 <div>
 
 </div></td>
 </tr>
 <tr class="even">
-<td align="left"><p>Accessori per Windows</p></td>
-<td align="left"><p>Microsoft Calculator, blocco note, WordPad.</p></td>
+<td align="left"><p>Windows accessori</p></td>
+<td align="left"><p>Calcolatrice Microsoft, Blocco note, WordPad.</p></td>
 </tr>
 </tbody>
 </table>
@@ -169,16 +169,16 @@ Quando si installa l'agente UE-V 2,1 o 2,1 SP1, viene registrato un gruppo prede
 
 
 **Nota**  
-UE-V 2,1 SP1 non sincronizza le impostazioni tra la calcolatrice Microsoft in Windows 10 e la calcolatrice Microsoft nei sistemi operativi precedenti.
+UE-V 2.1 SP1 non sincronizza le impostazioni tra il Calcolatrice Microsoft in Windows 10 e Calcolatrice Microsoft nei sistemi operativi precedenti.
 
 
 
-### Applicazioni desktop sincronizzate per impostazione predefinita in UE-V 2,0
+### <a name="desktop-applications-synchronized-by-default-in-ue-v-20"></a>Applicazioni desktop sincronizzate per impostazione predefinita in UE-V 2.0
 
-Quando si installa l'agente UE-V 2,0, viene registrato un gruppo predefinito di modelli di posizione delle impostazioni che acquisiscono i valori delle impostazioni per queste applicazioni Microsoft comuni.
+Quando si installa l'UE-V 2.0 Agent, viene registrato un gruppo predefinito di modelli di percorso delle impostazioni che acquisiscono i valori delle impostazioni per queste applicazioni Microsoft comuni.
 
 **Suggerimento**  
-**Sincronizzazione delle impostazioni di Microsoft office 2013** -in UE-v 2,0 un modello di posizione delle impostazioni non è incluso per impostazione predefinita per le applicazioni di Office 2013, ma è disponibile per il download dalla [raccolta modelli di UE-v](https://go.microsoft.com/fwlink/p/?LinkID=246589). La [sincronizzazione di office 2013 con UE-V 2,0](synchronizing-office-2013-with-ue-v-20-both-uevv2.md) fornisce informazioni dettagliate sui modelli supportati che sincronizzano le impostazioni di Office 2013.
+**Microsoft Office 2013 Impostazioni Synchronization** : in UE-V 2.0, un modello di percorso delle impostazioni non è incluso per impostazione predefinita per le applicazioni di Office 2013, ma è disponibile per il download dalla raccolta [modelli di UE-V](https://go.microsoft.com/fwlink/p/?LinkID=246589). [La sincronizzazione Office 2013 con UE-V 2.0](synchronizing-office-2013-with-ue-v-20-both-uevv2.md) fornisce informazioni dettagliate sui modelli supportati per la sincronizzazione Office 2013.
 
 
 
@@ -195,8 +195,8 @@ Quando si installa l'agente UE-V 2,0, viene registrato un gruppo predefinito di 
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p>Applicazioni di Microsoft Office 2007</p>
-<p>( <a href="https://www.microsoft.com/download/details.aspx?id=46367" data-raw-source="[Download a list of all settings synced](https://www.microsoft.com/download/details.aspx?id=46367)"> Scaricare un elenco di tutte le impostazioni sincronizzate </a> )</p></td>
+<td align="left"><p>Microsoft Office 2007</p>
+<p>( <a href="https://www.microsoft.com/download/details.aspx?id=46367" data-raw-source="[Download a list of all settings synced](https://www.microsoft.com/download/details.aspx?id=46367)"> Scarica un elenco di tutte le impostazioni sincronizzate </a> )</p></td>
 <td align="left"><p>Microsoft Access 2007</p>
 <p>Microsoft Communicator 2007</p>
 <p>Microsoft Excel 2007</p>
@@ -211,8 +211,8 @@ Quando si installa l'agente UE-V 2,0, viene registrato un gruppo predefinito di 
 <p>Microsoft Word 2007</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>Applicazioni di Microsoft Office 2010</p>
-<p>( <a href="https://www.microsoft.com/download/details.aspx?id=46367" data-raw-source="[Download a list of all settings synced](https://www.microsoft.com/download/details.aspx?id=46367)"> Scaricare un elenco di tutte le impostazioni sincronizzate </a> )</p></td>
+<td align="left"><p>Microsoft Office 2010</p>
+<p>( <a href="https://www.microsoft.com/download/details.aspx?id=46367" data-raw-source="[Download a list of all settings synced](https://www.microsoft.com/download/details.aspx?id=46367)"> Scarica un elenco di tutte le impostazioni sincronizzate </a> )</p></td>
 <td align="left"><p>Microsoft Word 2010</p>
 <p>Microsoft Excel 2010</p>
 <p>Microsoft Outlook 2010</p>
@@ -229,26 +229,26 @@ Quando si installa l'agente UE-V 2,0, viene registrato un gruppo predefinito di 
 </tr>
 <tr class="odd">
 <td align="left"><p>Opzioni del browser: Internet Explorer 8, Internet Explorer 9 e Internet Explorer 10</p></td>
-<td align="left"><p>Preferiti, Home page, schede e barre degli strumenti.</p>
+<td align="left"><p>Preferiti, home page, schede e barre degli strumenti.</p>
 <div class="alert">
-<strong>Nota</strong><br/><p>UE-V non esegue la roaming delle impostazioni per i cookie di Internet Explorer.</p>
+<strong>Nota</strong><br/><p>UE-V non esegue il roaming delle impostazioni per i cookie di Internet Explorer.</p>
 </div>
 <div>
 
 </div></td>
 </tr>
 <tr class="even">
-<td align="left"><p>Accessori per Windows</p></td>
-<td align="left"><p>Microsoft Calculator, blocco note, WordPad.</p></td>
+<td align="left"><p>Windows accessori</p></td>
+<td align="left"><p>Calcolatrice Microsoft, Blocco note, WordPad.</p></td>
 </tr>
 </tbody>
 </table>
 
 
 
-### <a href="" id="autosyncsettings2"></a>Impostazioni di Windows sincronizzate per impostazione predefinita
+### <a name="windows-settings-synchronized-by-default"></a><a href="" id="autosyncsettings2"></a>Windows sincronizzate per impostazione predefinita
 
-UE-V include i modelli di posizione delle impostazioni che acquisiscono i valori delle impostazioni per queste impostazioni di Windows.
+UE-V include modelli di posizione delle impostazioni che acquisiscono i valori delle impostazioni per Windows impostazioni.
 
 <table>
 <colgroup>
@@ -262,31 +262,31 @@ UE-V include i modelli di posizione delle impostazioni che acquisiscono i valori
 <tr class="header">
 <th align="left">impostazioni di Windows</th>
 <th align="left">Descrizione</th>
-<th align="left">Applicare il</th>
-<th align="left">Esporta in</th>
+<th align="left">Applica su</th>
+<th align="left">Esportare il</th>
 <th align="left">Stato predefinito</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left"><p>Sfondo del desktop</p></td>
-<td align="left"><p>Sfondo del desktop attualmente attivo o sfondo.</p></td>
-<td align="left"><p>Eventi attività pianificati per l'accesso, l'apertura, la connessione remota.</p></td>
-<td align="left"><p>Disconnessione, blocco, disconnessione remota, utente che fa clic su <strong> Sincronizza ora </strong> nel centro impostazioni società o nell'intervallo di attività pianificato</p></td>
+<td align="left"><p>Sfondo o sfondo del desktop attualmente attivo.</p></td>
+<td align="left"><p>Accesso, sblocco, connessione remota, eventi attività pianificate.</p></td>
+<td align="left"><p>Disconnessione, blocco, disconnessione remota, clic utente su Sincronizza ora in Centro Impostazioni <strong> aziendale o intervallo attività </strong> pianificato</p></td>
 <td align="left"><p>Abilitato</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>Accessibilità</p></td>
-<td align="left"><p>Impostazioni di accessibilità e input, Microsoft Magnifier, Assistente vocale e tastiera su schermo.</p></td>
+<td align="left"><p>Impostazioni di accessibilità e input, Microsoft Lente di ingrandimento, Assistente vocale e tastiera su schermo.</p></td>
 <td align="left"><p>Solo accesso.</p></td>
-<td align="left"><p>Disconnessione, utente che fa clic su <strong> Sincronizza ora </strong> nel centro impostazioni società o nell'intervallo di attività pianificato</p></td>
+<td align="left"><p>Disconnessione, utente che fa <strong> clic su Sincronizza ora nel Centro Impostazioni aziendale o intervallo attività </strong> pianificate</p></td>
 <td align="left"><p>Abilitato</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p>Impostazioni desktop</p></td>
-<td align="left"><p>Menu Start e impostazioni della barra delle applicazioni, Opzioni cartella, icone desktop predefinite, clock aggiuntivi e impostazioni area geografica e lingua.</p></td>
+<td align="left"><p>menu Start e della barra delle applicazioni, Opzioni cartella, Icone predefinite del desktop, Orologi aggiuntivi e Impostazioni paese e lingua.</p></td>
 <td align="left"><p>Solo accesso.</p></td>
-<td align="left"><p>Disconnessione, utente che fa clic su <strong> Sincronizza ora </strong> nel centro impostazioni società o in un'attività pianificata</p></td>
+<td align="left"><p>Disconnessione, utente che fa <strong> clic su Sincronizza ora nel Centro Impostazioni aziendale o attività </strong> pianificata</p></td>
 <td align="left"><p>Abilitato</p></td>
 </tr>
 </tbody>
@@ -295,12 +295,12 @@ UE-V include i modelli di posizione delle impostazioni che acquisiscono i valori
 
 
 **Nota**  
-A partire da Windows 8, UE-V non esegue la roaming delle impostazioni relative alla schermata Start, ad esempio gli elementi e le posizioni. Inoltre, UE-V non supporta la sincronizzazione di elementi della barra delle applicazioni bloccati o di collegamenti di file di Windows.
+A partire Windows 8, UE-V non esegue il roaming delle impostazioni relative alla schermata Start, ad esempio elementi e posizioni. Inoltre, UE-V non supporta la sincronizzazione degli elementi della barra delle applicazioni aggiunti o dei collegamenti Windows file.
 
 
 
 **Importante**  
-UE-V 2,1 SP1 si aggira sulle impostazioni della barra delle applicazioni tra i dispositivi Windows 10. Tuttavia, UE-V non sincronizza le impostazioni della barra delle applicazioni tra dispositivi e dispositivi Windows 10 in cui sono in uso sistemi operativi precedenti.
+UE-V 2.1 SP1 roaming delle impostazioni della barra delle applicazioni tra Windows 10 dispositivi. Tuttavia, UE-V non sincronizza le impostazioni della barra delle applicazioni tra Windows 10 dispositivi e dispositivi che eseguono sistemi operativi precedenti.
 
 
 
@@ -315,44 +315,44 @@ UE-V 2,1 SP1 si aggira sulle impostazioni della barra delle applicazioni tra i d
 <tr class="header">
 <th align="left">Gruppo di impostazioni</th>
 <th align="left">Categoria</th>
-<th align="left">Catturare</th>
+<th align="left">Acquisizione</th>
 <th align="left">Applica</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><strong>Impostazioni applicazione</strong></p></td>
+<td align="left"><p><strong>Applicazione Impostazioni</strong></p></td>
 <td align="left"><p>App di Windows  </p></td>
-<td align="left"><p>Chiudi app</p>
-<p>Evento di modifica delle impostazioni dell'app Windows</p></td>
-<td align="left"><p>Avviare l'app UE-V monitor all'avvio</p>
-<p>Aprire l'app</p>
-<p>Evento di modifica delle impostazioni dell'app Windows</p>
+<td align="left"><p>Chiudere l'app</p>
+<p>Windows evento di modifica delle impostazioni dell'app</p></td>
+<td align="left"><p>Avviare il monitoraggio UE-V app all'avvio</p>
+<p>Apri app</p>
+<p>Windows Evento di Impostazioni app</p>
 <p>Arrivo di un pacchetto di impostazioni</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p></p></td>
 <td align="left"><p>Applicazioni desktop</p></td>
-<td align="left"><p>Applicazione chiusa</p></td>
-<td align="left"><p>L'applicazione si apre e si chiude</p></td>
+<td align="left"><p>L'applicazione viene chiusa</p></td>
+<td align="left"><p>L'applicazione viene aperta e chiusa</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p><strong>Impostazioni desktop</strong></p></td>
 <td align="left"><p>Sfondo del desktop</p></td>
 <td align="left"><p>Blocco o disconnessione</p></td>
-<td align="left"><p>Accesso, sblocco, connessione remota, notifica del nuovo arrivo del pacchetto, l'utente fa clic su <strong> Sincronizza ora </strong> nel centro impostazioni società o viene eseguita un'attività pianificata.</p></td>
+<td align="left"><p>Accesso, sblocco, connessione remota, notifica dell'arrivo di un nuovo pacchetto, clic su Sincronizza ora nel Centro Impostazioni aziendale o esecuzione <strong> </strong> di attività pianificate.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p></p></td>
-<td align="left"><p>Accesso facilitato (comune-accessibilità, Assistente vocale, lente di ingrandimento, tastiera su schermo)</p></td>
+<td align="left"><p>Accessibilità (comune- Accessibilità, Assistente vocale, Lente di ingrandimento, Tastiera su schermo)</p></td>
 <td align="left"><p>Blocco o disconnessione</p></td>
 <td align="left"><p>Accesso</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><p></p></td>
-<td align="left"><p>Accesso facilitato (Shell-audio, accessibilità, tastiera, mouse)</p></td>
+<td align="left"><p>Accessibilità (Shell - Audio, Accessibilità, Tastiera, Mouse)</p></td>
 <td align="left"><p>Blocco o disconnessione</p></td>
-<td align="left"><p>Accesso, sblocco, connessione remota, notifica del nuovo arrivo del pacchetto, l'utente fa clic su <strong> Sincronizza ora </strong> nel centro impostazioni società o viene eseguita un'attività pianificata</p></td>
+<td align="left"><p>Accesso, sblocco, connessione remota, notifica dell'arrivo di un nuovo pacchetto, clic su Sincronizza ora nel Centro Impostazioni aziendale o esecuzione <strong> </strong> di attività pianificate</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p></p></td>
@@ -365,51 +365,51 @@ UE-V 2,1 SP1 si aggira sulle impostazioni della barra delle applicazioni tra i d
 
 
 
-### UE-V-supporto per le app di Windows
+### <a name="ue-v-support-for-windows-apps"></a>UE-V supporto per Windows app
 
-Per le app di Windows, lo sviluppatore di app specifica le impostazioni sincronizzate. Puoi specificare quali app di Windows sono abilitate per la sincronizzazione delle impostazioni.
+Per Windows app, lo sviluppatore dell'app specifica le impostazioni sincronizzate. Puoi specificare quali app Windows abilitate per la sincronizzazione delle impostazioni.
 
-Per visualizzare un elenco di app di Windows che possono sincronizzare le impostazioni in un computer con il nome della famiglia di pacchetti, lo stato abilitato e l'origine abilitata, al prompt dei comandi di Windows PowerShell immettere: `Get-UevAppxPackage`
+Per visualizzare un elenco di app Windows che possono sincronizzare le impostazioni in un computer con il nome della famiglia di pacchetti, lo stato abilitato e l'origine abilitata, al prompt dei comandi di Windows PowerShell immettere: `Get-UevAppxPackage`
 
 **Nota**  
-A partire da Windows 8, UE-V non sincronizza le impostazioni delle app di Windows se l'utente del dominio collega le proprie credenziali di accesso al proprio account Microsoft. Questo collegamento sincronizza le impostazioni con Microsoft OneDrive in modo da UE-V, che disabilita la sincronizzazione delle impostazioni delle app di Windows.
+A Windows 8, UE-V non sincronizza le impostazioni dell'app Windows se l'utente di dominio collega le credenziali di accesso all'account Microsoft. Questo collegamento sincronizza le impostazioni con Microsoft OneDrive in modo UE-V, che disabilita la sincronizzazione delle impostazioni Windows'app.
 
 
 
-### UE-V-supporto per le stampanti mobili
+### <a name="ue-v-support-for-roaming-printers"></a>UE-V supporto per stampanti mobili
 
-UE-V 2,1 SP1 consente alle stampanti di rete di spostarsi tra i dispositivi in modo che l'utente abbia accesso alle stampanti di rete quando si è connessi a qualsiasi dispositivo della rete. Questo include il roaming della stampante impostata come predefinita.
+UE-V 2.1 SP1 consente alle stampanti di rete di eseguire il roaming tra dispositivi in modo che un utente abbia accesso alle proprie stampanti di rete quando è connesso a qualsiasi dispositivo in rete. Ciò include il roaming della stampante impostata come predefinita.
 
-La stampante in roaming in UE-V richiede uno di questi scenari:
+Il roaming delle stampanti UE-V uno di questi scenari:
 
--   Il server di stampa può scaricare il driver necessario quando si sposta in roaming su un nuovo dispositivo.
+-   Il server di stampa può scaricare il driver necessario durante il roaming in un nuovo dispositivo.
 
--   Il driver per la stampante di rete mobile è preinstallato in qualsiasi dispositivo che deve accedere alla stampante di rete.
+-   Il driver per la stampante di rete mobile è preinstallato in qualsiasi dispositivo che deve accedere a tale stampante di rete.
 
 -   Il driver della stampante può essere ottenuto da Windows Update.
 
 **Nota**  
-La funzionalità di roaming della stampante UE-V **non** esegue la roaming delle impostazioni o delle preferenze della stampante, ad esempio la stampa fronte-retro.
+La UE-V roaming della stampante non **esegue** il roaming delle impostazioni o delle preferenze della stampante, ad esempio la stampa fronte retro.
 
 
 
-### <a href="" id="determinesettingssync"></a>Determinare se sono necessarie impostazioni sincronizzate per altre applicazioni
+### <a name="determine-whether-you-need-settings-synchronized-for-other-applications"></a><a href="" id="determinesettingssync"></a>Determinare se sono necessarie impostazioni sincronizzate per altre applicazioni
 
-Dopo aver esaminato le impostazioni sincronizzate automaticamente in una distribuzione di UE-V, si vuole decidere se sincronizzare le impostazioni per altre applicazioni, perché determina la modalità di distribuzione di UE-V in tutta l'organizzazione.
+Dopo aver esaminato le impostazioni sincronizzate automaticamente in una distribuzione di UE-V, è necessario decidere se sincronizzare le impostazioni per altre applicazioni in quanto ciò determina la modalità di distribuzione di UE-V in tutta l'organizzazione.
 
-In qualità di amministratore, quando si considerano le applicazioni desktop da includere nella soluzione UE-V, valutare quali impostazioni possono essere personalizzate dagli utenti e come e dove l'applicazione archivia le proprie impostazioni. Non tutte le applicazioni desktop hanno impostazioni che possono essere personalizzate o che sono personalizzate in routine dagli utenti. Inoltre, non tutte le impostazioni delle applicazioni desktop possono essere sincronizzate in modo sicuro in più computer o ambienti.
+In quanto amministratore, quando si valutano le applicazioni desktop da includere nella soluzione UE-V, considerare quali impostazioni possono essere personalizzate dagli utenti e come e dove l'applicazione archivia le impostazioni. Non tutte le applicazioni desktop dispongono di impostazioni che possono essere personalizzate o personalizzate di routine dagli utenti. Inoltre, non tutte le impostazioni delle applicazioni desktop possono essere sincronizzate in modo sicuro in più computer o ambienti.
 
 In generale, è possibile sincronizzare le impostazioni che soddisfano i criteri seguenti:
 
--   Impostazioni archiviate in percorsi accessibili dall'utente. Ad esempio, non sincronizzare le impostazioni archiviate in system32 o all'esterno della sezione HKEY \ _CURRENT \ _USER (HKCU) del registro di sistema.
+-   Impostazioni archiviati in posizioni accessibili dall'utente. Ad esempio, non sincronizzare le impostazioni archiviate in System32 o all'esterno della sezione HKEY\_CURRENT\_USER (HKCU) del Registro di sistema.
 
--   Impostazioni non specifiche per il computer specifico. Ad esempio, Escludi configurazioni di rete o hardware.
+-   Impostazioni che non sono specifiche del computer specifico. Ad esempio, escludere le configurazioni hardware o di rete.
 
--   Impostazioni che è possibile sincronizzare tra computer senza rischio di dati danneggiati. Ad esempio, non usare le impostazioni archiviate in un file di database.
+-   Impostazioni che possono essere sincronizzati tra computer senza rischio di dati danneggiati. Ad esempio, non utilizzare le impostazioni archiviate in un file di database.
 
-### <a href="" id="checklistsettingssync"></a>Elenco di controllo per la valutazione delle applicazioni personalizzate
+### <a name="checklist-for-evaluating-custom-applications"></a><a href="" id="checklistsettingssync"></a>Elenco di controllo per la valutazione delle applicazioni personalizzate
 
-Se si è deciso di usare le impostazioni sincronizzate per altre applicazioni, è possibile utilizzare questo elenco di controllo per individuare le applicazioni che si vogliono includere.
+Se si è deciso di sincronizzare le impostazioni per altre applicazioni, è possibile utilizzare questo elenco di controllo per determinare quali applicazioni includere.
 
 <table>
 <colgroup>
@@ -425,7 +425,7 @@ Se si è deciso di usare le impostazioni sincronizzate per altre applicazioni, �
 <tbody>
 <tr class="odd">
 <td align="left"><img src="images/checklistbox.gif" alt="Checklist box" /></td>
-<td align="left"><p>Questa applicazione contiene le impostazioni che l'utente può personalizzare?</p></td>
+<td align="left"><p>Questa applicazione contiene impostazioni che l'utente può personalizzare?</p></td>
 </tr>
 <tr class="even">
 <td align="left"><img src="images/checklistbox.gif" alt="Checklist box" /></td>
@@ -433,71 +433,71 @@ Se si è deciso di usare le impostazioni sincronizzate per altre applicazioni, �
 </tr>
 <tr class="odd">
 <td align="left"><img src="images/checklistbox.gif" alt="Checklist box" /></td>
-<td align="left"><p>Queste impostazioni utente sono già gestite da una soluzione dei criteri di gestione o impostazioni delle applicazioni? UE-V applica le impostazioni dell'applicazione all'avvio dell'applicazione e alle impostazioni di Windows agli eventi logon, Unlock o Connect remoto. Se si usa UE-V con altre soluzioni di condivisione delle impostazioni, gli utenti potrebbero riscontrare incongruenze tra le impostazioni sincronizzate.</p></td>
+<td align="left"><p>Queste impostazioni utente sono già gestite da una soluzione di criteri per la gestione o le impostazioni delle applicazioni? UE-V le impostazioni dell'applicazione all'avvio dell'applicazione e Windows eventi di accesso, sblocco o connessione remota. Se si utilizza un UE-V con altre soluzioni di condivisione delle impostazioni, gli utenti potrebbero verificarsi incoerenza tra le impostazioni sincronizzate.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><img src="images/checklistbox.gif" alt="Checklist box" /></td>
-<td align="left"><p>Le impostazioni dell'applicazione sono specifiche per il computer? Le preferenze e le personalizzazioni dell'applicazione associate all'hardware o a configurazioni di computer specifiche non vengono sincronizzate in modo coerente tra le sessioni e possono causare un'esperienza di applicazione insufficiente.</p></td>
+<td align="left"><p>Le impostazioni dell'applicazione sono specifiche del computer? Le preferenze e le personalizzazioni delle applicazioni associate all'hardware o a configurazioni di computer specifiche non vengono sincronizzate in modo coerente tra le sessioni e possono causare un'esperienza di applicazione scarsa.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><img src="images/checklistbox.gif" alt="Checklist box" /></td>
-<td align="left"><p>Le impostazioni dell'archivio applicazioni si trovano nella directory Program Files o nella directory di file che si trova nella directory Users <strong> </strong> [nome utente] &lt; Strong &gt; AppData </strong> &lt; Strong &gt; LocalLow </strong> ? I dati dell'applicazione archiviati in uno di questi percorsi in genere non devono essere sincronizzati con l'utente, perché questi dati sono specifici del computer o perché i dati sono troppo grandi per la sincronizzazione.</p></td>
+<td align="left"><p>L'applicazione archivia le impostazioni nella directory Programmi o nella directory dei file che si trova nella <strong> directory Utenti </strong> [nome utente] appData forte &lt; &gt; </strong> &lt; &gt; </strong> LocalLow? I dati dell'applicazione archiviati in una di queste posizioni in genere non devono essere sincronizzati con l'utente, perché questi dati sono specifici del computer o perché i dati sono troppo grandi per la sincronizzazione.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><img src="images/checklistbox.gif" alt="Checklist box" /></td>
-<td align="left"><p>L'applicazione archivia le impostazioni in un file che contiene altri dati dell'applicazione che non devono essere sincronizzati? UE-V sincronizza i file come unità singola. Se le impostazioni sono archiviate in file che includono dati dell'applicazione diversi dalle impostazioni, la sincronizzazione di questi dati aggiuntivi può causare un'esperienza di applicazione insufficiente.</p></td>
+<td align="left"><p>L'applicazione archivia le impostazioni in un file contenente altri dati dell'applicazione che non devono essere sincronizzati? UE-V i file vengono sincronizzati come una singola unità. Se le impostazioni vengono archiviate in file che includono dati dell'applicazione diversi da impostazioni, la sincronizzazione di questi dati aggiuntivi può causare un'esperienza di applicazione scarsa.</p></td>
 </tr>
 <tr class="odd">
 <td align="left"><img src="images/checklistbox.gif" alt="Checklist box" /></td>
-<td align="left"><p>Dimensioni dei file che contengono le impostazioni Le prestazioni della sincronizzazione delle impostazioni possono essere influenzate da file di grandi dimensioni. L'inclusione di file di grandi dimensioni può influire sulle prestazioni della sincronizzazione delle impostazioni.</p></td>
+<td align="left"><p>Quanto sono grandi i file che contengono le impostazioni? Le prestazioni della sincronizzazione delle impostazioni possono essere influenzate da file di grandi dimensioni. L'inclusione di file di grandi dimensioni può influire sulle prestazioni della sincronizzazione delle impostazioni.</p></td>
 </tr>
 </tbody>
 </table>
 
 
 
-## <a href="" id="considerations"></a>Altre considerazioni durante la preparazione di una distribuzione UE-V
+## <a name="other-considerations-when-preparing-a-ue-v-deployment"></a><a href="" id="considerations"></a>Altre considerazioni sulla preparazione di una UE-V distribuzione
 
 
-È consigliabile considerare questi elementi anche quando si sta preparando la distribuzione di UE-V:
+È inoltre consigliabile tenere in considerazione questi aspetti quando si prepara la distribuzione UE-V:
 
 -   [Gestione della sincronizzazione delle credenziali](#creds)
 
--   [Sincronizzazione delle impostazioni dell'app Windows](#appxsettings)
+-   [Windows sincronizzazione delle impostazioni dell'app](#appxsettings)
 
--   [Modelli di posizione delle impostazioni UE-V personalizzati](#custom)
+-   [Modelli di percorso UE-V impostazioni personalizzate](#custom)
 
--   [Configurazioni delle impostazioni utente non intenzionali](#prevent)
+-   [Configurazioni non intenzionali delle impostazioni utente](#prevent)
 
 -   [Prestazioni e capacità](#capacity)
 
 -   [Disponibilità elevata](#high)
 
--   [Sincronizzazione di un orologio del computer](#clocksync)
+-   [Sincronizzazione orologio computer](#clocksync)
 
-### <a href="" id="creds"></a>Gestione della sincronizzazione delle credenziali in UE-V 2,1 e UE-V 2,1 SP1
+### <a name="managing-credentials-synchronization-in-ue-v-21-and-ue-v-21-sp1"></a><a href="" id="creds"></a>Gestione della sincronizzazione delle credenziali in UE-V 2.1 e UE-V 2.1 SP1
 
-Molte applicazioni aziendali, tra cui Microsoft Outlook e Lync, richiedono agli utenti le credenziali di dominio all'accesso. Gli utenti hanno la possibilità di salvare le credenziali su disco per evitare di dover immetterle ogni volta che aprono queste applicazioni. Abilitazione della sincronizzazione delle credenziali mobili consente agli utenti di salvare le proprie credenziali in un computer ed evitare di reimmetterle in tutti i computer usati nell'ambiente. Gli utenti possono sincronizzare alcune credenziali di dominio con UE-V 2,1 e 2,1 SP1.
+Molte applicazioni aziendali, tra cui Microsoft Outlook e Lync, richiede agli utenti le credenziali di dominio all'accesso. Gli utenti hanno la possibilità di salvare le credenziali su disco per evitare di doverle immettere ogni volta che aprono queste applicazioni. L'abilitazione della sincronizzazione delle credenziali mobili consente agli utenti di salvare le credenziali in un computer ed evitare di immetterle nuovamente in ogni computer utilizzato nel proprio ambiente. Gli utenti possono sincronizzare alcune credenziali di dominio con UE-V 2.1 e 2.1 SP1.
 
 **Importante**  
 La sincronizzazione delle credenziali è disabilitata per impostazione predefinita. Per implementare questa funzionalità, è necessario abilitare esplicitamente la sincronizzazione delle credenziali durante la distribuzione.
 
 
 
-UE-V 2,1 e 2,1 SP1 possono sincronizzare le credenziali aziendali, ma non le credenziali di roaming destinate solo all'uso nel computer locale.
+UE-V 2.1 e 2.1 SP1 possono sincronizzare le credenziali aziendali, ma non eseguire il roaming delle credenziali destinate solo all'utilizzo nel computer locale.
 
-Le credenziali sono impostazioni sincrone, ovvero vengono applicate al profilo la prima volta che si accede al computer dopo la sincronizzazione di UE-V.
+Le credenziali sono impostazioni sincrone, ovvero vengono applicate al profilo al primo accesso al computer dopo UE-V sincronizzazione.
 
-La sincronizzazione delle credenziali è gestita dal modello di posizione delle impostazioni, che è disabilitato per impostazione predefinita. Puoi abilitare o disabilitare questo modello con gli stessi metodi usati per altri modelli. L'identificatore di modello per questa caratteristica è RoamingCredentialSettings.
+La sincronizzazione delle credenziali è gestita dal proprio modello di percorso delle impostazioni, disabilitato per impostazione predefinita. È possibile abilitare o disabilitare questo modello tramite gli stessi metodi utilizzati per altri modelli. L'identificatore del modello per questa funzionalità è RoamingCredentialSettings.
 
 **Importante**  
-Se si usano le credenziali di Active Directory in roaming nell'ambiente, è consigliabile non abilitare il modello di credenziali comuni UE-V.
+Se si utilizza Il roaming delle credenziali di Active Directory nell'ambiente, è consigliabile non abilitare il modello UE-V roaming delle credenziali.
 
 
 
-Usare uno di questi metodi per abilitare la sincronizzazione delle credenziali:
+Utilizzare uno di questi metodi per abilitare la sincronizzazione delle credenziali:
 
--   Centro impostazioni società
+-   Company Impostazioni Center
 
 -   PowerShell
 
@@ -508,33 +508,33 @@ Le credenziali vengono crittografate durante la sincronizzazione.
 
 
 
-[Centro impostazioni società](https://technet.microsoft.com/library/dn458903.aspx)**:** Selezionare la casella di controllo impostazioni credenziali comuni in impostazioni di Windows per abilitare la sincronizzazione delle credenziali. Deselezionare la casella di controllo per disattivarla. Questa casella di controllo viene visualizzata solo nel centro impostazioni società se l'account non è configurato per la sincronizzazione delle impostazioni con un account Microsoft.
+[Company Impostazioni Center](https://technet.microsoft.com/library/dn458903.aspx)**: selezionare** la casella di controllo Roaming Credential Impostazioni in Windows Impostazioni per abilitare la sincronizzazione delle credenziali. Deseleziona la casella per disabilitarla. Questa casella di controllo viene visualizzata solo in Company Impostazioni Center se l'account non è configurato per sincronizzare le impostazioni con un account Microsoft.
 
-[PowerShell](https://technet.microsoft.com/library/dn458937.aspx)**:** questo cmdlet di PowerShell consente la sincronizzazione delle credenziali:
+[PowerShell:](https://technet.microsoft.com/library/dn458937.aspx)**questo** cmdlet di PowerShell consente la sincronizzazione delle credenziali:
 
 ``` syntax
 Enable-UevTemplate RoamingCredentialSettings
 ```
 
-Questo cmdlet di PowerShell Disabilita la sincronizzazione delle credenziali:
+Questo cmdlet di PowerShell disabilita la sincronizzazione delle credenziali:
 
 ``` syntax
 Disable-UevTemplate RoamingCredentialSettings
 ```
 
-[Criteri di gruppo](https://technet.microsoft.com/library/dn458893.aspx)**:** è necessario [distribuire il modello ADMX più recente di MDOP](https://go.microsoft.com/fwlink/p/?LinkId=393944) per abilitare la sincronizzazione delle credenziali tramite criteri di gruppo. La sincronizzazione delle credenziali viene gestita con le impostazioni di Windows. Per gestire questa caratteristica con criteri di gruppo, abilitare la sincronizzazione dei criteri delle impostazioni di Windows.
+[Criteri di gruppo:](https://technet.microsoft.com/library/dn458893.aspx)**è** necessario distribuire il modello [ADMX MDOP](https://go.microsoft.com/fwlink/p/?LinkId=393944) più recente per abilitare la sincronizzazione delle credenziali tramite Criteri di gruppo. La sincronizzazione delle credenziali viene gestita con le Windows predefinite. Per gestire questa funzionalità con Criteri di gruppo, abilitare il criterio Sincronizza Windows impostazioni.
 
-1.  Aprire Editor criteri di gruppo e passare a **Configurazione utente-modelli amministrativi-Componenti di Windows-virtualizzazione dell'esperienza utente Microsoft**.
+1.  Aprire Editor Criteri di gruppo e passare a **Configurazione utente – Modelli amministrativi – Windows componenti – Microsoft User Experience Virtualization**.
 
-2.  Fare doppio clic su **Sincronizza impostazioni di Windows**.
+2.  Fare doppio clic su **Sincronizza Windows impostazioni**.
 
-3.  Se questo criterio è abilitato, è possibile abilitare la sincronizzazione delle credenziali controllando la casella di controllo **credenziali mobili** o disabilitare la sincronizzazione delle credenziali deselezionando.
+3.  Se questo criterio è abilitato, è possibile **** abilitare la sincronizzazione delle credenziali selezionando la casella di controllo Credenziali mobili o disabilitare la sincronizzazione delle credenziali deselezionando l'opzione.
 
 4.  Fai clic su **OK**.
 
-### Percorsi delle credenziali sincronizzati da UE-V
+### <a name="credential-locations-synchronized-by-ue-v"></a>Percorsi delle credenziali sincronizzati da UE-V
 
-I file di credenziali salvati dalle applicazioni nei percorsi seguenti vengono sincronizzati:
+I file delle credenziali salvati dalle applicazioni nei percorsi seguenti vengono sincronizzati:
 
 -   %UserProfile%\\AppData\\Roaming\\Microsoft\\Credentials\\
 
@@ -544,31 +544,31 @@ I file di credenziali salvati dalle applicazioni nei percorsi seguenti vengono s
 
 -   %UserProfile%\\AppData\\Roaming\\Microsoft\\SystemCertificates\\
 
-Le credenziali salvate in altre posizioni non vengono sincronizzate da UE-V.
+Le credenziali salvate in altri percorsi non vengono sincronizzate da UE-V.
 
-### <a href="" id="appxsettings"></a>Sincronizzazione delle impostazioni dell'app Windows
+### <a name="windows-app-settings-synchronization"></a><a href="" id="appxsettings"></a>Windows delle impostazioni dell'app
 
-UE-V gestisce la sincronizzazione delle impostazioni delle app di Windows in tre modi:
+UE-V gestisce la Windows delle impostazioni dell'app in tre modi:
 
--   **Sincronizzare le app di Windows:** Consentire o negare qualsiasi sincronizzazione delle app di Windows
+-   **Sincronizza Windows app:** Consentire o negare qualsiasi sincronizzazione Windows'app
 
--   **Elenco delle app di Windows:** Sincronizzare un elenco di app di Windows
+-   **Windows app:** Sincronizzare un elenco di Windows app
 
--   **Comportamento di sincronizzazione predefinito non elenco:** Determinare il comportamento di sincronizzazione delle app di Windows non presenti nell'elenco delle app di Windows.
+-   **Comportamento di sincronizzazione predefinito non in elenco:** Determinare il comportamento di sincronizzazione Windows app non presenti nell'elenco Windows app.
 
-Per altre informazioni, Vedi l' [elenco delle app di Windows](https://technet.microsoft.com/library/dn458925.aspx#win8applist).
+Per altre informazioni, vedi [l'elenco Windows app.](https://technet.microsoft.com/library/dn458925.aspx#win8applist)
 
-### <a href="" id="custom"></a>Modelli di posizione delle impostazioni UE-V personalizzati
+### <a name="custom-ue-v-settings-location-templates"></a><a href="" id="custom"></a>Modelli di percorso UE-V impostazioni personalizzate
 
-Se si sta distribuendo UE-V per sincronizzare le impostazioni per le applicazioni personalizzate, si utilizzerà il generatore UE-V per creare modelli di posizione personalizzati per le applicazioni desktop. Dopo aver creato e testato un modello di posizione delle impostazioni personalizzato in un ambiente di test, è possibile distribuire i modelli di posizione delle impostazioni ai computer nell'organizzazione.
+Se si distribuisce un UE-V per sincronizzare le impostazioni per le applicazioni personalizzate, si utilizzerà il generatore di UE-V per creare modelli di percorso delle impostazioni personalizzate per tali applicazioni desktop. Dopo aver creato e testato un modello di percorso delle impostazioni personalizzato in un ambiente di testing, è possibile distribuire i modelli di percorso delle impostazioni nei computer dell'organizzazione.
 
-I modelli di posizione delle impostazioni personalizzate devono essere distribuiti con un'infrastruttura di distribuzione esistente, ad esempio un metodo ESD (Enterprise Software Distribution), come System Center Configuration Manager, con preferenze o configurando un catalogo di modelli di impostazioni UE-V. I modelli distribuiti con Configuration Manager o criteri di gruppo devono essere registrati usando WMI-V di UE o Windows PowerShell.
+I modelli di percorso delle impostazioni personalizzate devono essere distribuiti con un'infrastruttura di distribuzione esistente, ad esempio un metodo ESD (Enterprise Software Distribution), ad esempio System Center Configuration Manager, con preferenze o configurando un catalogo di modelli di impostazioni di UE-V. I modelli distribuiti con Configuration Manager o Criteri di gruppo devono essere registrati UE-V WMI o Windows PowerShell.
 
-Per altre informazioni sui modelli di posizione delle impostazioni personalizzate, vedere [distribuire UE-V 2. x per le applicazioni personalizzate](deploy-ue-v-2x-for-custom-applications-new-uevv2.md). Per altre informazioni sull'uso di UE-V con Configuration Manager, vedere [configurazione di UE-v 2. x con System Center Configuration manager 2012](configuring-ue-v-2x-with-system-center-configuration-manager-2012-both-uevv2.md).
+Per ulteriori informazioni sui modelli di percorso delle impostazioni personalizzate, vedere [Deploy UE-V 2.x for Custom Applications](deploy-ue-v-2x-for-custom-applications-new-uevv2.md). Per ulteriori informazioni sull'UE-V con Configuration Manager, vedere [Configuring UE-V 2.x with System Center Configuration Manager 2012](configuring-ue-v-2x-with-system-center-configuration-manager-2012-both-uevv2.md).
 
-### <a href="" id="prevent"></a>Impedire la configurazione delle impostazioni utente non intenzionale
+### <a name="prevent-unintentional-user-settings-configuration"></a><a href="" id="prevent"></a>Impedire la configurazione involontaria delle impostazioni utente
 
-UE-V Scarica le nuove informazioni sulle impostazioni utente da una posizione di archiviazione delle impostazioni e applica le impostazioni al computer locale in queste istanze:
+UE-V scarica nuove informazioni sulle impostazioni utente da un percorso di archiviazione delle impostazioni e applica le impostazioni al computer locale in questi casi:
 
 -   Ogni volta che viene avviata un'applicazione con un modello UE-V registrato.
 
@@ -576,53 +576,53 @@ UE-V Scarica le nuove informazioni sulle impostazioni utente da una posizione di
 
 -   Quando un utente sblocca un computer.
 
--   Quando viene effettuata una connessione a un computer desktop remoto in cui è installata la versione UE-V.
+-   Quando viene stabilita una connessione a un computer desktop remoto UE-V installato.
 
--   Quando viene eseguita l'attività programmata del controller di sincronizzazione.
+-   Quando viene eseguita l'attività pianificata Dell'applicazione controller di sincronizzazione.
 
-Se UE-V è installato nel computer A e nel computer B e le impostazioni desiderate per l'applicazione si trovano nel computer A, il computer A dovrebbe aprire e chiudere prima l'applicazione. Se l'applicazione viene aperta e chiusa nel computer B, le impostazioni dell'applicazione nel computer A sono configurate per le impostazioni dell'applicazione nel computer B. le impostazioni vengono sincronizzate tra i computer per ogni singola applicazione. Nel tempo le impostazioni diventano coerenti tra i computer quando vengono aperte e chiuse con le impostazioni preferite.
+Se UE-V è installato nel computer A e nel computer B e le impostazioni desiderate per l'applicazione si trova nel computer A, il computer A dovrebbe aprire e chiudere prima l'applicazione. Se l'applicazione viene aperta e chiusa prima nel computer B, le impostazioni dell'applicazione nel computer A vengono configurate in base alle impostazioni dell'applicazione nel computer B. Impostazioni vengono sincronizzate tra i computer in base all'applicazione. Nel tempo, le impostazioni diventano coerenti tra i computer quando vengono aperte e chiuse con le impostazioni preferite.
 
-Questo scenario si applica anche alle impostazioni di Windows. Se le impostazioni di Windows nel computer B devono essere le stesse delle impostazioni di Windows nel computer A, l'utente deve eseguire l'accesso e disconnettersi il computer per primo.
+Questo scenario si applica anche alle Windows predefinite. Se le Windows del computer B devono essere le stesse di Windows nel computer A, l'utente deve prima accedere e disconnettersi dal computer A.
 
-Se le impostazioni utente desiderate dall'utente vengono applicate nell'ordine errato, possono essere recuperate eseguendo un'operazione di ripristino per l'applicazione specifica o la configurazione di Windows nel computer in cui sono state sovrascritte le impostazioni. Per altre informazioni, vedere [gestire il backup e il ripristino amministrativi in UE-V 2. x](manage-administrative-backup-and-restore-in-ue-v-2x-new-topic-for-21.md).
+Se le impostazioni utente che l'utente desidera applicare vengono applicate nell'ordine errato, possono essere ripristinate eseguendo un'operazione di ripristino per l'applicazione specifica o la configurazione di Windows nel computer in cui le impostazioni sono state sovrascritte. Per ulteriori informazioni, vedere [Manage Administrative Backup and Restore in UE-V 2.x](manage-administrative-backup-and-restore-in-ue-v-2x-new-topic-for-21.md).
 
-### <a href="" id="capacity"></a>Pianificazione delle prestazioni e della capacità
+### <a name="performance-and-capacity-planning"></a><a href="" id="capacity"></a>Pianificazione delle prestazioni e della capacità
 
-Specificare i requisiti per UE-V con capacità disco standard e monitoraggio dell'integrità della rete.
+Specificare i requisiti per l'UE-V con capacità del disco standard e monitoraggio dell'integrità della rete.
 
-UE-V usa una condivisione SMB (Server Message Block) per l'archiviazione dei pacchetti di impostazioni. La dimensione dei pacchetti di impostazioni varia in base alle informazioni sulle impostazioni per ogni applicazione. Mentre la maggior parte dei pacchetti di impostazioni è di piccole dimensioni, la sincronizzazione di file potenzialmente di grandi dimensioni, ad esempio immagini desktop, può causare scarse prestazioni, in particolare sulle reti più lente.
+UE-V utilizza una condivisione SMB (Server Message Block) per l'archiviazione dei pacchetti di impostazioni. Le dimensioni dei pacchetti di impostazioni variano a seconda delle informazioni sulle impostazioni per ogni applicazione. Anche se la maggior parte dei pacchetti di impostazioni è di piccole dimensioni, la sincronizzazione di file potenzialmente di grandi dimensioni, ad esempio immagini desktop, può comportare prestazioni scarse, in particolare nelle reti più lente.
 
-Per ridurre i problemi relativi alla latenza della rete, creare posizioni di archiviazione delle impostazioni nelle stesse reti locali in cui risiedono i computer degli utenti. È consigliabile 20 MB di spazio su disco per ogni utente per la posizione di archiviazione delle impostazioni.
+Per ridurre i problemi di latenza di rete, creare percorsi di archiviazione delle impostazioni sulle stesse reti locali in cui risiedono i computer degli utenti. È consigliabile 20 MB di spazio su disco per utente per il percorso di archiviazione delle impostazioni.
 
-Per impostazione predefinita, la sincronizzazione UE-V viene riattivata dopo 2 secondi per evitare eccessivi ritardi dovuti a un pacchetto di impostazioni di grandi dimensioni. Puoi configurare l'impostazione SyncMethod = SyncProvider usando [gli oggetti Criteri di gruppo](https://technet.microsoft.com/library/dn458893.aspx).
+Per impostazione predefinita, UE-V timeout della sincronizzazione dopo 2 secondi per evitare un ritardo eccessivo a causa di un pacchetto di impostazioni di grandi dimensioni. È possibile configurare l'impostazione SyncMethod=SyncProvider utilizzando [Oggetti Criteri di gruppo.](https://technet.microsoft.com/library/dn458893.aspx)
 
-### <a href="" id="high"></a>Disponibilità elevata per UE-V
+### <a name="high-availability-for-ue-v"></a><a href="" id="high"></a>Disponibilità elevata per UE-V
 
-Il catalogo della posizione e del modello di impostazioni di archiviazione delle impostazioni UE-V supporta l'archiviazione dei dati degli utenti in qualsiasi condivisione modificabile. Per garantire una disponibilità elevata, seguire questi criteri:
+Il UE-V di archiviazione delle impostazioni e il catalogo dei modelli di impostazioni supportano l'archiviazione dei dati utente in qualsiasi condivisione scrivibile. Per garantire la disponibilità elevata, seguire questi criteri:
 
 -   Formattare il volume di archiviazione con un file system NTFS.
 
--   La condivisione può usare il file System distribuito (DFS), ma esistono restrizioni.
-In particolare, è supportata la replica di file System Distributed (DFS-R), con o senza uno spazio dei nomi di file System distribuito (DFS-N).
-Analogamente, è supportata solo la configurazione di una singola destinazione con DFS-N.
-Per informazioni dettagliate, vedere [l'istruzione del supporto Microsoft intorno ai dati di profilo utente replicati](https://go.microsoft.com/fwlink/p/?LinkId=313991) e anche [informazioni sui criteri di supporto Microsoft per uno scenario di distribuzione DFS-R e DFS-N](https://support.microsoft.com/kb/2533009).
+-   La condivisione può utilizzare DFS (Distributed File System), ma esistono restrizioni.
+In particolare, è supportata la configurazione di destinazione singola DFS-R (Distributed File System Replication) con o senza uno spazio dei nomi del file system distribuito (DFS-N).
+Analogamente, con DFS-N è supportata una sola configurazione di destinazione.
+Per informazioni dettagliate, vedere La dichiarazione di supporto di [Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=313991) sui dati dei profili utente replicati e informazioni sui criteri di supporto Microsoft per uno scenario di distribuzione [DFS-R e DFS-N.](https://support.microsoft.com/kb/2533009)
 
-    Inoltre, poiché SYSVOL USA DFS-R per la replica, non è possibile usare SYSVOL per la replica di file di dati UE-V.
+    Inoltre, poiché SYSVOL utilizza DFS-R per la replica, non è possibile utilizzare SYSVOL per la replica UE-V file di dati.
 
--   Configurare le autorizzazioni di condivisione e gli elenchi di controllo di accesso (ACL) NTFS specificati in [distribuzione della posizione di archiviazione delle impostazioni per UE-V 2. x](https://technet.microsoft.com/library/dn458891.aspx#ssl).
+-   Configurare le autorizzazioni di condivisione e gli elenchi di controllo di accesso NTFS come specificato in [Deploying the Impostazioni Archiviazione Location for UE-V 2.x](https://technet.microsoft.com/library/dn458891.aspx#ssl).
 
--   Usa il clustering di file server insieme all'agente UE-V per consentire l'accesso alle copie dei dati sullo stato dell'utente in caso di errori di comunicazione.
+-   Utilizzare il clustering di file server insieme all'UE-V agent per fornire l'accesso alle copie dei dati sullo stato utente in caso di errori di comunicazione.
 
--   È possibile archiviare i dati del percorso di archiviazione delle impostazioni (dati utente) e modelli di catalogo delle impostazioni in condivisioni in cluster, in condivisioni DFS-N o in entrambe.
+-   È possibile archiviare i dati del percorso di archiviazione (dati utente) e i modelli di catalogo dei modelli di impostazioni in condivisioni cluster, in condivisioni DFS-N o in entrambi.
 
-### <a href="" id="clocksync"></a>Sincronizzare gli orologi del computer per la sincronizzazione delle impostazioni UE-V
+### <a name="synchronize-computer-clocks-for-ue-v-settings-synchronization"></a><a href="" id="clocksync"></a>Sincronizzare gli orologi del computer per UE-V sincronizzazione delle impostazioni
 
-I computer che eseguono l'agente UE-V devono usare un server temporale per mantenere un'esperienza di impostazioni coerente. UE-V usa i timestamp per determinare se le impostazioni devono essere sincronizzate dalla posizione di archiviazione delle impostazioni. Se l'orologio del computer non è accurato, le impostazioni precedenti possono sovrascrivere le impostazioni più recenti o le nuove impostazioni potrebbero non essere salvate nella posizione di archiviazione delle impostazioni.
+I computer che eseguono l UE-V agent devono utilizzare un server di tempo per mantenere un'esperienza di impostazioni coerente. UE-V usa timestamp per determinare se le impostazioni devono essere sincronizzate dal percorso di archiviazione delle impostazioni. Se l'orologio del computer non è accurato, le impostazioni precedenti possono sovrascrivere le impostazioni più recenti oppure le nuove impostazioni potrebbero non essere salvate nel percorso di archiviazione delle impostazioni.
 
-## <a href="" id="prereqs"></a>Confermare i prerequisiti e le configurazioni supportate per la versione UE-V
+## <a name="confirm-prerequisites-and-supported-configurations-for-ue-v"></a><a href="" id="prereqs"></a>Verificare i prerequisiti e le configurazioni supportate per UE-V
 
 
-Prima di procedere, verificare che l'ambiente contenga questi requisiti per l'uso di UE-V.
+Prima di procedere, verificare che l'ambiente includa questi requisiti per l'esecuzione UE-V.
 
 <table style="width:100%;">
 <colgroup>
@@ -649,31 +649,31 @@ Prima di procedere, verificare che l'ambiente contenga questi requisiti per l'us
 <td align="left"><p>Ultimate, Enterprise o Professional Edition</p></td>
 <td align="left"><p>SP1</p></td>
 <td align="left"><p>32 o 64 bit</p></td>
-<td align="left"><p>Windows PowerShell 3,0 o versioni successive</p></td>
-<td align="left"><p>.NET Framework 4,5 o versione successiva per la versione UE-V 2,1.</p>
-<p>.NET Framework 4 o versione successiva per la versione UE-V 2,0.</p></td>
+<td align="left"><p>Windows PowerShell 3.0 o versione successiva</p></td>
+<td align="left"><p>.NET Framework 4.5 o versione successiva per UE-V 2.1.</p>
+<p>.NET Framework 4 o versione successiva per UE-V 2.0.</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>Windows Server2008 R2</p></td>
-<td align="left"><p>Standard, Enterprise, Datacenter o server Web</p></td>
+<td align="left"><p>Standard, Enterprise, Datacenter o Server Web</p></td>
 <td align="left"><p>SP1</p></td>
 <td align="left"><p>64 bit</p></td>
-<td align="left"><p>Windows PowerShell 3,0 o versioni successive</p></td>
-<td align="left"><p>.NET Framework 4,5 o versione successiva per la versione UE-V 2,1.</p>
-<p>.NET Framework 4 o versione successiva per la versione UE-V 2,0.</p></td>
+<td align="left"><p>Windows PowerShell 3.0 o versione successiva</p></td>
+<td align="left"><p>.NET Framework 4.5 o versione successiva per UE-V 2.1.</p>
+<p>.NET Framework 4 o versione successiva per UE-V 2.0.</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>Windows 8 e Windows 8,1</p></td>
+<td align="left"><p>Windows 8 e Windows 8.1</p></td>
 <td align="left"><p>Enterprise o Pro</p></td>
 <td align="left"><p>Nessuno</p></td>
 <td align="left"><p>32 o 64 bit</p></td>
-<td align="left"><p>Windows PowerShell 3,0 o versioni successive</p></td>
-<td align="left"><p>.NET Framework 4,5 o versione successiva</p></td>
+<td align="left"><p>Windows PowerShell 3.0 o versione successiva</p></td>
+<td align="left"><p>.NET Framework 4.5 o versione successiva</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>Windows 10, versione pre-1607</p>
+<td align="left"><p>Windows 10, versione precedente alla 1607</p>
 <div class="alert">
-<strong>Nota</strong><br/><p>Solo UE-V 2,1 SP1 supporta Windows 10, versione pre-1607</p>
+<strong>Nota</strong><br/><p>Solo UE-V 2.1 SP1 supporta Windows 10 versione precedente alla 1607</p>
 </div>
 <div>
 
@@ -681,7 +681,7 @@ Prima di procedere, verificare che l'ambiente contenga questi requisiti per l'us
 <td align="left"><p>Enterprise o Pro</p></td>
 <td align="left"><p>Nessuno</p></td>
 <td align="left"><p>32 o 64 bit</p></td>
-<td align="left"><p>Windows PowerShell 3,0 o versioni successive</p></td>
+<td align="left"><p>Windows PowerShell 3.0 o versione successiva</p></td>
 <td align="left"><p>.NET framework 4.6</p></td>
 </tr>
 <tr class="odd">
@@ -689,16 +689,16 @@ Prima di procedere, verificare che l'ambiente contenga questi requisiti per l'us
 <td align="left"><p>Standard o Datacenter</p></td>
 <td align="left"><p>Nessuno</p></td>
 <td align="left"><p>64 bit</p></td>
-<td align="left"><p>Windows PowerShell 3,0 o versioni successive</p></td>
-<td align="left"><p>.NET Framework 4,5 o versione successiva</p></td>
+<td align="left"><p>Windows PowerShell 3.0 o versione successiva</p></td>
+<td align="left"><p>.NET Framework 4.5 o versione successiva</p></td>
 </tr>
 <tr class="even">
 <td align="left"><p>Windows Server 2016</p></td>
 <td align="left"><p>Standard o Datacenter</p></td>
 <td align="left"><p>Nessuno</p></td>
 <td align="left"><p>64 bit</p></td>
-<td align="left"><p>Windows PowerShell 3,0 o versioni successive</p></td>
-<td align="left"><p>.NET Framework 4,6 o versione successiva</p></td>
+<td align="left"><p>Windows PowerShell 3.0 o versione successiva</p></td>
+<td align="left"><p>.NET Framework 4.6 o versione successiva</p></td>
 </tr>
 </tbody>
 </table>
@@ -707,88 +707,88 @@ Prima di procedere, verificare che l'ambiente contenga questi requisiti per l'us
 
 Inoltre...
 
--   **Licenza MDOP:** Questa tecnologia fa parte di Microsoft Desktop Optimization Pack (MDOP). I clienti aziendali possono ottenere MDOP con Microsoft Software Assurance. Per altre informazioni su Microsoft Software Assurance e sull'acquisizione di MDOP, vedere come si ottiene MDOP ( https://go.microsoft.com/fwlink/p/?LinkId=322049) .
+-   **Licenza MDOP:** Questa tecnologia fa parte di Microsoft Desktop Optimization Pack (MDOP). Enterprise clienti possono ottenere MDOP con Microsoft Software Assurance. Per ulteriori informazioni sull Microsoft Software Assurance e sull'acquisizione di MDOP, vedere How Do I Get MDOP ( https://go.microsoft.com/fwlink/p/?LinkId=322049) .
 
 -   **Credenziali amministrative** per qualsiasi computer in cui verrà installato
 
 **Nota**  
 
--   A partire da WIndows 10, versione 1607, UE-V è incluso in [Windows 10 per le aziende](https://www.microsoft.com/WindowsForBusiness/windows-for-enterprise) e non fa più parte del Microsoft Desktop Optimization Pack.
+-   A partire da WIndows 10 versione 1607, UE-V è incluso in [Windows 10 per Enterprise](https://www.microsoft.com/WindowsForBusiness/windows-for-enterprise) e non fa più parte di Microsoft Desktop Optimization Pack.
 
--   La caratteristica UE-V Windows PowerShell dell'agente UE-V richiede .NET Framework 4 o versione successiva e Windows PowerShell 3,0 o versioni successive per essere abilitate. Scaricare Windows PowerShell 3,0 [qui](https://go.microsoft.com/fwlink/?LinkId=309609).
+-   La UE-V Windows PowerShell dell'agente UE-V richiede .NET Framework 4 o versione successiva e Windows PowerShell 3.0 o versione successiva per essere abilitata. Scaricare Windows PowerShell 3.0 [qui](https://go.microsoft.com/fwlink/?LinkId=309609).
 
--   Installare .NET Framework 4 o .NET Framework 4,5 nei computer che eseguono Windows 7 o il sistema operativo Windows Server 2008 R2. I sistemi operativi Windows 8, Windows 8,1 e Windows Server 2012 sono installati in .NET Framework 4,5. Il sistema operativo Windows 10 include .NET Framework 4,6 installato.
--   Il criterio "Elimina cache roaming" per i profili obbligatori non è supportato con UE-V e non deve essere usato.
+-   Installare .NET Framework 4 o .NET Framework 4.5 nei computer che eseguono il sistema operativo Windows 7 o Windows Server 2008 R2. I Windows 8, Windows 8.1 e Windows Server 2012 sono .NET Framework 4.5 installati. Il Windows 10 viene fornito con .NET Framework 4.6 installato.
+-   Il criterio "Elimina cache roaming" per i profili obbligatori non è supportato con UE-V e non deve essere utilizzato.
 
 
 
-Non sono previsti particolari requisiti RAM (Random Access Memory) specifici di UE-V.
+Non esistono requisiti speciali di memoria ad accesso casuale (RAM) specifici per UE-V.
 
-### Sincronizzazione delle impostazioni tramite il provider di sincronizzazione
+### <a name="synchronization-of-settings-through-the-sync-provider"></a>Sincronizzazione di Impostazioni tramite il provider di sincronizzazione
 
-Il provider di sincronizzazione è l'impostazione predefinita per gli utenti, che sincronizza una cache locale con la posizione di archiviazione delle impostazioni in queste istanze:
+Provider di sincronizzazione è l'impostazione predefinita per gli utenti, che sincronizza una cache locale con il percorso di archiviazione delle impostazioni in questi casi:
 
--   Accesso/fine sessione
+-   Accesso/disconnessione
 
--   Bloccare/sbloccare
+-   Blocco/sblocco
 
 -   Connessione/disconnessione desktop remoto
 
--   Apertura/chiusura dell'applicazione
+-   Applicazione aperta/chiusa
 
-Un'attività pianificata gestisce questa sincronizzazione delle impostazioni ogni 30 minuti o tramite determinati eventi trigger per alcune applicazioni. Per altre informazioni, vedere [modifica della frequenza delle attività pianificate di UE-V 2. x](changing-the-frequency-of-ue-v-2x-scheduled-tasks-both-uevv2.md).
+Un'attività pianificata gestisce questa sincronizzazione delle impostazioni ogni 30 minuti o tramite determinati eventi trigger per determinate applicazioni. Per ulteriori informazioni, vedere [Changing the Frequency of UE-V 2.x Scheduled Tasks](changing-the-frequency-of-ue-v-2x-scheduled-tasks-both-uevv2.md).
 
-L'agente UE-V consente di sincronizzare le impostazioni utente per i computer che non sono sempre connessi alla rete aziendale (computer remoti e laptop) e computer sempre connessi alla rete (computer che eseguono Windows Server e ospitano sessioni di Virtual Desktop Interface (VDI)).
+L'agente UE-V sincronizza le impostazioni utente per i computer che non sono sempre connessi alla rete aziendale (computer remoti e portatili) e i computer sempre connessi alla rete (computer che eseguono sessioni VDI (Virtual Desktop Interface) Windows Server e host).
 
-**Sincronizzazione per i computer con connessioni sempre disponibili:** Quando si usa UE-V in computer sempre connessi alla rete, è necessario configurare l'agente UE-V per sincronizzare le impostazioni usando il parametro *SyncMethod = None* , che tratta il server di archiviazione delle impostazioni come condivisione di rete standard. In questa configurazione, l'agente UE-V può essere configurato per segnalare se l'importazione delle impostazioni dell'applicazione è ritardata.
+**Sincronizzazione per computer con connessioni sempre disponibili:** Quando si utilizza UE-V nei computer sempre connessi alla rete, è necessario configurare l'agente UE-V per sincronizzare le impostazioni utilizzando il parametro *SyncMethod=None,* che considera il server di archiviazione delle impostazioni come una condivisione di rete standard. In questa configurazione, il UE-V può essere configurato per notificare se l'importazione delle impostazioni dell'applicazione viene ritardata.
 
-Abilitare questa configurazione tramite uno di questi metodi:
+Abilita questa configurazione tramite uno dei metodi seguenti:
 
--   Durante l'installazione di UE-V, al prompt dei comandi o in un file batch, imposta il parametro AgentSetup.exe *SyncMethod = None*. [La distribuzione dell'agente UE-V 2. x](https://technet.microsoft.com/library/dn458891.aspx#agent) fornisce ulteriori informazioni.
+-   Durante l UE-V installazione, al prompt dei comandi o in un file batch, impostare il parametro *AgentSetup.exe SyncMethod = None*. [La distribuzione dell'UE-V 2.x fornisce](https://technet.microsoft.com/library/dn458891.aspx#agent) ulteriori informazioni.
 
--   Dopo l'installazione di UE-V, usare la caratteristica di gestione delle impostazioni in System Center 2012 Configuration Manager o i modelli ADMX di MDOP per spingere la configurazione *SyncMethod = None* .
+-   Dopo l UE-V installazione, utilizzare la funzionalità gestione Impostazioni in System Center 2012 Configuration Manager o i modelli MDOP ADMX per eseguire il push della configurazione *SyncMethod = None.*
 
--   Usare Windows PowerShell o Strumentazione gestione Windows (WMI) per impostare la configurazione *SyncMethod = None* .
+-   Utilizzare Windows PowerShell o Windows Management Instrumentation (WMI) per impostare *syncMethod = None* configuration.
 
     **Nota**  
     Questi ultimi due metodi non funzionano per gli ambienti VDI (Virtual Desktop Infrastructure) in pool.
 
 
 
-È necessario riavviare il computer prima che le impostazioni inizino a essere sincronizzate.
+È necessario riavviare il computer prima che le impostazioni inizino a sincronizzarsi.
 
 **Nota**  
-Se si imposta *SyncMethod = None*, le eventuali modifiche apportate alle impostazioni vengono salvate direttamente nel server. Se la connessione di rete al percorso di archiviazione delle impostazioni non viene trovata, le modifiche apportate alle impostazioni vengono memorizzate nella cache del dispositivo e vengono sincronizzate alla successiva esecuzione del provider di sincronizzazione. Se il percorso di archiviazione delle impostazioni non viene trovato e il profilo utente viene rimosso da un ambiente VDI in pool durante la disconnessione, le modifiche alle impostazioni vengono perse e l'utente deve riapplicare la modifica quando il computer viene riconnesso al percorso di archiviazione delle impostazioni.
+Se si imposta *SyncMethod = None*, le modifiche alle impostazioni vengono salvate direttamente nel server. Se la connessione di rete al percorso di archiviazione delle impostazioni non viene trovata, le modifiche alle impostazioni vengono memorizzate nella cache del dispositivo e sincronizzate alla successiva esecuzione del provider di sincronizzazione. Se il percorso di archiviazione delle impostazioni non viene trovato e il profilo utente viene rimosso da un ambiente VDI in pool alla disconnessione, le modifiche apportate alle impostazioni andranno perse e l'utente dovrà riapplicare la modifica quando il computer viene riconnesso al percorso di archiviazione delle impostazioni.
 
 
 
-**Sincronizzazione per motori di sincronizzazione esterni:** Il parametro *SyncMethod = External* specifica che se le impostazioni di UE-V vengono scritte in una cartella locale nel computer utente, qualsiasi motore di sincronizzazione esterno, ad esempio OneDrive for business, work Folders, SharePoint o Dropbox, può essere usato per applicare queste impostazioni ai diversi computer a cui gli utenti accedono.
+**Sincronizzazione per motori di sincronizzazione esterni:** Il parametro *SyncMethod=External* consente di specificare che se le impostazioni di UE-V vengono scritte in una cartella locale del computer utente, è possibile utilizzare qualsiasi motore di sincronizzazione esterno (ad esempio OneDrive for Business, Cartelle di lavoro, Sharepoint o Dropbox) per applicare queste impostazioni ai diversi computer a cui gli utenti accedono.
 
-**Supporto per le sessioni VDI condivise:** UE-V 2,1 e 2,1 SP1 consentono di supportare le sessioni VDI condivise tra gli utenti finali. È possibile registrare e configurare uno speciale modello VDI, garantendo che UE-V mantenga intatte tutte le sue funzionalità per le sessioni VDI non persistenti.
+**Supporto per sessioni VDI condivise:** UE-V 2.1 e 2.1 SP1 forniscono supporto per le sessioni VDI condivise tra gli utenti finali. È possibile registrare e configurare uno speciale modello VDI, che garantisce che UE-V tutte le relative funzionalità siano intatte per le sessioni VDI non persistenti.
 
 **Nota**  
-Se non si Abilita la modalità VDI per le sessioni VDI non persistenti, alcune caratteristiche non funzionano, ad esempio [backup/ripristino e ultimo bene noto (LKG)](https://technet.microsoft.com/library/dn878331.aspx).
+Se non abiliti la modalità VDI per le sessioni VDI non persistenti, alcune funzionalità non funzionano, ad esempio backup/ripristino e last [known good (LKG).](https://technet.microsoft.com/library/dn878331.aspx)
 
 
 
-Il modello VDI è provvisto di UE-V 2,1 e 2,1 SP1 ed è in genere disponibile qui dopo l'installazione: C:\\Programmi \\Programmi\\microsoft User Experience Virtualization\\Templates\\VdiState.xml
+Il modello VDI viene fornito con UE-V 2.1 e 2.1 SP1 ed è in genere disponibile qui dopo l'installazione: C:\\Programmi\\Microsoft User Experience Virtualization\\Templates\\VdiState.xml
 
-### Prerequisiti per il supporto del generatore di UE-V
+### <a name="prerequisites-for-ue-v-generator-support"></a>Prerequisiti per il UE-V Generator
 
-Installare il generatore UE-V nel computer usato per creare modelli di posizione delle impostazioni personalizzate. Questo computer dovrebbe essere in grado di eseguire le applicazioni le cui impostazioni sono sincronizzate. È necessario essere un membro del gruppo Administrators nel computer in cui è in esecuzione il software Generator UE-V.
+Installare il generatore UE-V nel computer utilizzato per creare modelli di percorso delle impostazioni personalizzate. Questo computer dovrebbe essere in grado di eseguire le applicazioni le cui impostazioni sono sincronizzate. È necessario essere membri del gruppo Administrators nel computer che esegue il software UE-V Generator.
 
-Il generatore UE-V deve essere installato in un computer che usa un file system NTFS. Il software Generator UE-V richiede .NET Framework 4. Per altre informazioni, vedere [distribuire UE-V 2. x per le applicazioni personalizzate](deploy-ue-v-2x-for-custom-applications-new-uevv2.md).
+Il UE-V deve essere installato in un computer che utilizza un file system NTFS. Il software UE-V Generator richiede .NET Framework 4. Per ulteriori informazioni, vedere [Deploy UE-V 2.x for Custom Applications](deploy-ue-v-2x-for-custom-applications-new-uevv2.md).
 
-## Altre risorse per questo prodotto
+## <a name="other-resources-for-this-product"></a>Altre risorse per questo prodotto
 
 
--   [Microsoft User Experience Virtualization (UE-V) 2. x](index.md)
+-   [Microsoft User Experience Virtualization (UE-V) 2.x](index.md)
 
 -   [Introduzione a UE-V 2.x](get-started-with-ue-v-2x-new-uevv2.md)
 
--   [Amministrazione di UE-V 2. x](administering-ue-v-2x-new-uevv2.md)
+-   [Amministrazione di UE-V 2.x](administering-ue-v-2x-new-uevv2.md)
 
--   [Risoluzione dei problemi relativi a UE-V 2. x](troubleshooting-ue-v-2x-both-uevv2.md)
+-   [Risoluzione dei UE-V 2.x](troubleshooting-ue-v-2x-both-uevv2.md)
 
 -   [Documentazione tecnica su UE-V 2.x](technical-reference-for-ue-v-2x-both-uevv2.md)
 
